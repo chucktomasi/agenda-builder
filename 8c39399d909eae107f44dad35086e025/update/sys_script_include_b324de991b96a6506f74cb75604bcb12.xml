@@ -13,69 +13,105 @@
 AgendaUtil.prototype = {
     initialize: function() {},
 
-	makeModuleList : function(dayGr) {
+    moduleDisplayValue: function(moduleGr) {
 
-		var list = [];
+        var dv = moduleGr.title;
+        if (moduleGr.short_description) {
+            dv += ': ' + moduleGr.short_description;
+        }
+        return dv;
+    },
+
+    nowItemDisplayValue: function(nowItemGr) {
+
+        var dv = nowItemGr.title;
+        if (nowItemGr.short_description) {
+            dv += ' - ' + nowItemGr.short_description;
+        }
+        return dv;
+    },
+
+    makeModuleList: function(dayGr) {
+
+        var list = [];
         var dmGr = new GlideRecord(Constants.DAY_MODULE_M2M);
-		dmGr.addQuery('day', dayGr.getUniqueValue());
-		dmGr.orderBy('module.id');
-		dmGr.query();
+        dmGr.addQuery('day', dayGr.getUniqueValue());
+        dmGr.orderBy('module.id');
+        dmGr.query();
 
-		while (dmGr.next()) {
-			list.push({
-				"id" : dmGr.module.id.toString(),
-				"short_description" : dmGr.module.short_description.toString()
-			});
-		}
+        while (dmGr.next()) {
+			var moduleGr = dmGr.module.getRefRecord();
+            list.push({
+                "title": dmGr.module.title.toString(),
+                "short_description": dmGr.module.short_description.toString(),
+                "display_value": this.moduleDisplayValue(moduleGr)
+            });
+        }
 
-		return list;
+        return list;
 
-	},
+    },
 
-	makeItemList : function(dayGr) {
+    makeItemList: function(dayGr) {
 
-		var list = [];
+        var list = [];
         var dniGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
-		dniGr.addQuery('day', dayGr.getUniqueValue());
-		dniGr.orderBy('item.order');
-		dniGr.query();
+        dniGr.addQuery('day', dayGr.getUniqueValue());
+        dniGr.orderBy('item.order');
+        dniGr.query();
 
-		while (dniGr.next()) {
-			list.push({
-				"duration" : dniGr.now_item.duration.dateNumericValue() / 1000,
-				"short_description" : dniGr.now_item.short_description.toString(),
-				"order" : parseInt(dniGr.getValue("order"), 10)
-			});
-		}
+        while (dniGr.next()) {
+			var nowItemGr = dniGr.now_item.getRefRecord();
+            list.push({
+                "duration": dniGr.now_item.duration.dateNumericValue() / 1000,
+                "title": dniGr.now_item.title.toString(),
+                "short_description": dniGr.now_item.short_description.toString(),
+                "order": parseInt(dniGr.getValue("order"), 10),
+                "display_value": this.nowItemDisplayValue(nowItemGr)
+            });
+        }
 
-		return list;
+        return list;
 
-	},
+    },
+
+    makeDisplayOptions: function(dayGr) {
+
+        var obj = {
+            "day": dayGr.getValue('display_day_items') == "1",
+            "now": dayGr.getValue('display_now_items') == "1",
+            "timer": dayGr.getValue('display_timer') == "1"
+        };
+
+        return obj;
+
+    },
 
     makeAgendaObj: function(dayGr) {
 
         var obj = {};
         var courseGr = dayGr.course.getRefRecord();
-		obj.course = {
-			"name" : courseGr.getDisplayValue(),
-			"instructor" : courseGr.instructor.getDisplayValue(),
-			"sn_version" : courseGr.servicenow_version.getDisplayValue()
-		};
+        obj.course = {
+            "name": courseGr.getDisplayValue(),
+            "instructor": courseGr.instructor.getDisplayValue(),
+            "sn_version": courseGr.servicenow_version.getDisplayValue()
+        };
 
-		obj.day = this.makeModuleList(dayGr);
-		obj.now = this.makeItemList(dayGr);
-		obj.timer = this.itemDurationSum(obj.now);
+        obj.day = this.makeModuleList(dayGr);
+        obj.now = this.makeItemList(dayGr);
+        obj.timer = this.itemDurationSum(obj.now);
+        obj.display = this.makeDisplayOptions(dayGr);
 
-		return obj;
-		
+        return obj;
+
     },
 
     itemDurationSum: function(itemList) {
 
-		var sec = 0;
-		for (var i = 0; i < itemList.length; i++) {
-			sec += itemList[i].duration;
-		}
+        var sec = 0;
+        for (var i = 0; i < itemList.length; i++) {
+            sec += itemList[i].duration;
+        }
         // gs.info(sec);
         var hours = Math.floor(sec / 3600);
         var minutes = Math.floor((sec - (hours * 3600)) / 60);
@@ -88,7 +124,7 @@ AgendaUtil.prototype = {
         };
         // gs.info(JSON.stringify(obj, null, 4));
 
-		return obj;
+        return obj;
 
     },
 
@@ -98,14 +134,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 02:20:32</sys_updated_on>
+        <sys_updated_on>2025-06-22 13:25:20</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>
