@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_application">
+    <sys_ui_application action="DELETE">
+        <active>true</active>
+        <hint/>
+        <name>Agenda Builder</name>
+        <order/>
+        <roles>x_snc_agenda.course_user</roles>
+        <sys_class_name>sys_ui_application</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>dd1b31111b16a6506f74cb75604bcbfb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Agenda Builder</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_ui_application_dd1b31111b16a6506f74cb75604bcbfb</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:25</sys_updated_on>
+    </sys_ui_application>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_ui_application_dd1b31111b16a6506f74cb75604bcbfb</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_application"><sys_ui_application action="INSERT_OR_UPDATE"><active>true</active><hint/><name>Agenda Builder</name><order/><roles>x_snc_agenda.course_user</roles><sys_class_name>sys_ui_application</sys_class_name><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:21:25</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>dd1b31111b16a6506f74cb75604bcbfb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Agenda Builder</sys_name><sys_overrides/><sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package><sys_policy/><sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope><sys_update_name>sys_ui_application_dd1b31111b16a6506f74cb75604bcbfb</sys_update_name><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:21:25</sys_updated_on></sys_ui_application></record_update>]]></payload>
+        <payload_hash>787158480</payload_hash>
+        <record_name>Agenda Builder</record_name>
+        <reverted_from/>
+        <source>1ec9399d1bd2a6506f74cb75604bcbb8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:25</sys_created_on>
+        <sys_id>191b71111b16a6506f74cb75604bcb0b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19794cbfb090000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:25</sys_updated_on>
+        <type>Application Menu</type>
+        <update_guid>151b31111416a650b7bfc949b456e7fe</update_guid>
+        <update_guid_history>151b31111416a650b7bfc949b456e7fe:787158480</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:30:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_application">sys_ui_application</sys_db_object>
+        <sys_id>1c8f6a883c82407c9733cafa5e0bede4</sys_id>
+        <sys_metadata>dd1b31111b16a6506f74cb75604bcbfb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Agenda Builder</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_ui_application_dd1b31111b16a6506f74cb75604bcbfb</sys_update_name>
+        <sys_update_version display_value="sys_ui_application_dd1b31111b16a6506f74cb75604bcbfb">191b71111b16a6506f74cb75604bcb0b</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:30:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

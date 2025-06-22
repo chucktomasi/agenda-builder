@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="day" label="Days" language="en" table="x_snc_agenda_m2m_day_now_item">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>day</element>
+            <help/>
+            <hint/>
+            <label>Days</label>
+            <language>en</language>
+            <name>x_snc_agenda_m2m_day_now_item</name>
+            <plural>Days</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:52:16</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Days</sys_name>
+            <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_agenda_m2m_day_now_item_day_en</sys_update_name>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:52:16</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

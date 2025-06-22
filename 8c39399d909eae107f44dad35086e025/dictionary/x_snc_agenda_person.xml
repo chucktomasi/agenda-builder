@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="383b75111b16a6506f74cb75604bcb02" label="Person" max_length="40" name="x_snc_agenda_person" type="collection">
+        <element display="true" label="Name" mandatory="true" max_length="80" name="name" type="string"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+    </element>
+</database>

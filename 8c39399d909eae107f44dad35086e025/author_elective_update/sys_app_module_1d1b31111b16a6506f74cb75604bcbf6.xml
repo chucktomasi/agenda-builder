@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="Agenda Builder">dd1b31111b16a6506f74cb75604bcbf1</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Course versions</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_snc_agenda_course_version</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_snc_agenda.course_user</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>1d1b31111b16a6506f74cb75604bcbf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Course versions</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_app_module_1d1b31111b16a6506f74cb75604bcbf6</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:25</sys_updated_on>
+        <timeline_page/>
+        <title>Course versions</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_app_module_1d1b31111b16a6506f74cb75604bcbf6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Agenda Builder">dd1b31111b16a6506f74cb75604bcbf1</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Course versions</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_snc_agenda_course_version</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><require_confirmation>true</require_confirmation><roles>x_snc_agenda.course_user</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:21:25</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>1d1b31111b16a6506f74cb75604bcbf6</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Course versions</sys_name><sys_overrides/><sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package><sys_policy/><sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope><sys_update_name>sys_app_module_1d1b31111b16a6506f74cb75604bcbf6</sys_update_name><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:21:25</sys_updated_on><timeline_page/><title>Course versions</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>-181905783</payload_hash>
+        <record_name>Course versions</record_name>
+        <reverted_from/>
+        <source>1ec9399d1bd2a6506f74cb75604bcbb8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:25</sys_created_on>
+        <sys_id>151b31111b16a6506f74cb75604bcbfb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19794cbfacc0000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:25</sys_updated_on>
+        <type>Module</type>
+        <update_guid>d51b31119216a650e68e23db2f2b1cfa</update_guid>
+        <update_guid_history>d51b31119216a650e68e23db2f2b1cfa:-181905783</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Course versions">dc6df9151b16a6506f74cb75604bcb49</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:31:27</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>ad61286846b14a8490de29fb8fceba64</sys_id>
+        <sys_metadata>1d1b31111b16a6506f74cb75604bcbf6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Course versions</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_app_module_1d1b31111b16a6506f74cb75604bcbf6</sys_update_name>
+        <sys_update_version display_value="sys_app_module_1d1b31111b16a6506f74cb75604bcbf6">151b31111b16a6506f74cb75604bcbfb</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:31:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

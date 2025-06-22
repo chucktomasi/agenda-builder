@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6c36c2911b56a6506f74cb75604bcbff" label="Day module" max_length="40" name="x_snc_agenda_m2m_day_module" type="collection">
+        <element attributes="encode_utf8=false" label="Days" max_length="32" name="day" reference="x_snc_agenda_day" reference_floats="true" type="reference"/>
+        <element attributes="encode_utf8=false" label="Modules" max_length="32" name="module" reference="x_snc_agenda_module" type="reference"/>
+        <index name="index">
+            <element name="day"/>
+        </index>
+        <index name="index2">
+            <element name="module"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="e00db1151b16a6506f74cb75604bcb4c" label="Day" max_length="40" name="x_snc_agenda_day" type="collection">
+        <element default="true" label="Display timer" max_length="40" name="display_timer" type="boolean"/>
+        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element default="true" label="Display now items" max_length="40" name="display_now_items" type="boolean"/>
+        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" type="reference"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Notes" max_length="8000" name="notes" type="html"/>
+        <element default="true" label="Display day items" max_length="40" name="display_day_items" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,json_view=true" label="Agenda" max_length="4000" name="agenda" type="string"/>
+        <index name="index">
+            <element name="course"/>
+        </index>
+    </element>
+</database>

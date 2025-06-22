@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_agenda.AgendaUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>AgendaUtil</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var AgendaUtil = Class.create();
+AgendaUtil.prototype = {
+    initialize: function() {},
+
+	makeModuleList : function(dayGr) {
+
+		var list = [];
+        var dmGr = new GlideRecord(Constants.DAY_MODULE_M2M);
+		dmGr.addQuery('day', dayGr.getUniqueValue());
+		dmGr.orderBy('module.id');
+		dmGr.query();
+
+		while (dmGr.next()) {
+			list.push({
+				"id" : dmGr.module.id.toString(),
+				"short_description" : dmGr.module.short_description.toString()
+			});
+		}
+
+		return list;
+
+	},
+
+	makeItemList : function(dayGr) {
+
+		var list = [];
+        var dniGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
+		dniGr.addQuery('day', dayGr.getUniqueValue());
+		dniGr.orderBy('item.order');
+		dniGr.query();
+
+		while (dniGr.next()) {
+			list.push({
+				"duration" : dniGr.now_item.duration.dateNumericValue() / 1000,
+				"short_description" : dniGr.now_item.short_description.toString(),
+				"order" : parseInt(dniGr.getValue("order"), 10)
+			});
+		}
+
+		return list;
+
+	},
+
+    makeAgendaObj: function(dayGr) {
+
+        var obj = {};
+        var courseGr = dayGr.course.getRefRecord();
+		obj.course = {
+			"name" : courseGr.getDisplayValue(),
+			"instructor" : courseGr.instructor.getDisplayValue(),
+			"sn_version" : courseGr.servicenow_version.getDisplayValue()
+		};
+
+		obj.day = this.makeModuleList(dayGr);
+		obj.now = this.makeItemList(dayGr);
+		obj.timer = this.itemDurationSum(obj.now);
+
+		return obj;
+		
+    },
+
+    itemDurationSum: function(itemList) {
+
+		var sec = 0;
+		for (var i = 0; i < itemList.length; i++) {
+			sec += itemList[i].duration;
+		}
+        // gs.info(sec);
+        var hours = Math.floor(sec / 3600);
+        var minutes = Math.floor((sec - (hours * 3600)) / 60);
+        var seconds = sec % 60;
+        var obj = {
+            "sum": sec,
+            "hours": hours,
+            "minutes": minutes,
+            "seconds": seconds
+        };
+        // gs.info(JSON.stringify(obj, null, 4));
+
+		return obj;
+
+    },
+
+    type: 'AgendaUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-22 01:14:26</sys_created_on>
+        <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>AgendaUtil</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-22 02:20:32</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>b324de991b96a6506f74cb75604bcb12</id>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-22 01:14:26</sys_created_on>
+        <sys_id>3cf41ed91b96a6506f74cb75604bcb94</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-22 01:14:26</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

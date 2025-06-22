@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="d23102991b16a6506f74cb75604bcbfa" label="Now item" max_length="40" name="x_snc_agenda_now_item" type="collection">
+        <element label="Course" max_length="32" name="course" reference="x_snc_agenda_course" type="reference"/>
+        <element label="Notes" max_length="8000" name="notes" type="html"/>
+        <element attributes="max_unit=hours" label="Duration" max_length="40" name="duration" type="glide_duration"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element display="true" label="Short description" max_length="80" name="short_description" type="string"/>
+        <index name="index">
+            <element name="course"/>
+        </index>
+    </element>
+</database>

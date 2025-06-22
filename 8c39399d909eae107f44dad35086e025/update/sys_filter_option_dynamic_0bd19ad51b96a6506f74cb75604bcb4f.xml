@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_filter_option_dynamic">
+    <sys_filter_option_dynamic action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <available_for_default>false</available_for_default>
+        <available_for_filter>true</available_for_filter>
+        <available_for_ref_qual>false</available_for_ref_qual>
+        <field_type display_value="Reference">52a227c1bf3320001875647fcf07396a</field_type>
+        <label>Current course</label>
+        <order>100</order>
+        <roles/>
+        <script>current.course</script>
+        <script_reference_id/>
+        <script_reference_table/>
+        <sys_class_name>sys_filter_option_dynamic</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-22 01:02:02</sys_created_on>
+        <sys_id>0bd19ad51b96a6506f74cb75604bcb4f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Current course</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_filter_option_dynamic_0bd19ad51b96a6506f74cb75604bcb4f</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-22 01:02:49</sys_updated_on>
+        <table>x_snc_agenda_course</table>
+        <table_containing_filter/>
+    </sys_filter_option_dynamic>
+</record_update>

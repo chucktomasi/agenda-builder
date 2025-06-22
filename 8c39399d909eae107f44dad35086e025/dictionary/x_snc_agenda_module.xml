@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="3ed54e511b56a6506f74cb75604bcb73" label="Module" max_length="40" name="x_snc_agenda_module" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Short description" mandatory="true" max_length="80" name="short_description" type="string"/>
+        <element label="ID" mandatory="true" max_length="40" name="id" type="string"/>
+        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var dv = current.id + ': ' + current.short_description;&#13;&#10;&#9;return dv;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" display="true" label="Display value" max_length="100" name="display_value" read_only="true" type="string" virtual="true"/>
+        <index name="index">
+            <element name="course"/>
+        </index>
+    </element>
+</database>

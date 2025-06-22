@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_snc_agenda.course_user</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>course_user</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:24</sys_created_on>
+        <sys_id>741b31111b16a6506f74cb75604bcb61</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_agenda.course_user</sys_name>
+        <sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_user_role_741b31111b16a6506f74cb75604bcb61</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:24</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_user_role_741b31111b16a6506f74cb75604bcb61</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>x_snc_agenda.course_user</name><scoped_admin>false</scoped_admin><suffix>course_user</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:21:24</sys_created_on><sys_id>741b31111b16a6506f74cb75604bcb61</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_snc_agenda.course_user</sys_name><sys_package display_value="Agenda" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package><sys_policy/><sys_scope display_value="Agenda">8c39399d909eae107f44dad35086e025</sys_scope><sys_update_name>sys_user_role_741b31111b16a6506f74cb75604bcb61</sys_update_name><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:21:24</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>-1347472403</payload_hash>
+        <record_name>x_snc_agenda.course_user</record_name>
+        <reverted_from/>
+        <source>1ec9399d1bd2a6506f74cb75604bcbb8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:21:24</sys_created_on>
+        <sys_id>301b31111b16a6506f74cb75604bcb66</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19794cbf5f80000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:21:24</sys_updated_on>
+        <type>Role</type>
+        <update_guid>341b3111a516a650bfd2ebae88d03165</update_guid>
+        <update_guid_history>341b3111a516a650bfd2ebae88d03165:-1347472403</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_snc_agenda.course_user">515b79111b16a6506f74cb75604bcba8</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:22:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>19932e828fcd4fa496814c7afec10771</sys_id>
+        <sys_metadata>741b31111b16a6506f74cb75604bcb61</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_agenda.course_user</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_user_role_741b31111b16a6506f74cb75604bcb61</sys_update_name>
+        <sys_update_version display_value="sys_user_role_741b31111b16a6506f74cb75604bcb61">301b31111b16a6506f74cb75604bcb66</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:22:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section action="DELETE" caption="" section_id="ccffb5191b16a6506f74cb75604bcb4b" sys_domain="global" table="x_snc_agenda_lab" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>27004a191b16a6506f74cb75604bcb07</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>duration</element>
+            <position>1</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>2f004a191b16a6506f74cb75604bcb07</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>2</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>27004a191b16a6506f74cb75604bcb08</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>3</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>2f004a191b16a6506f74cb75604bcb08</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>4</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>27004a191b16a6506f74cb75604bcb09</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>5</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>2f004a191b16a6506f74cb75604bcb09</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>notes</element>
+            <position>6</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+            <sys_id>27004a191b16a6506f74cb75604bcb0a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="DELETE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_agenda_lab</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-06-21 23:42:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ccffb5191b16a6506f74cb75604bcb4b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_agenda_lab</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+            <sys_update_name>sys_ui_section_ccffb5191b16a6506f74cb75604bcb4b</sys_update_name>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-06-21 23:42:38</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_ui_section_ccffb5191b16a6506f74cb75604bcb4b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="ccffb5191b16a6506f74cb75604bcb4b" sys_domain="global" table="x_snc_agenda_lab" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>number</element><position>0</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>27004a191b16a6506f74cb75604bcb07</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>duration</element><position>1</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>2f004a191b16a6506f74cb75604bcb07</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.split</element><position>2</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>27004a191b16a6506f74cb75604bcb08</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type>.split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>active</element><position>3</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>2f004a191b16a6506f74cb75604bcb08</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>.end_split</element><position>4</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>27004a191b16a6506f74cb75604bcb09</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type>.end_split</type></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>short_description</element><position>5</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>2f004a191b16a6506f74cb75604bcb09</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>notes</element><position>6</position><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:43:09</sys_created_on><sys_id>27004a191b16a6506f74cb75604bcb0a</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_lab" sys_domain="global" view="Default view">ccffb5191b16a6506f74cb75604bcb4b</sys_ui_section><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:43:09</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>x_snc_agenda_lab</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>chuck.tomasi@gmail.com</sys_created_by><sys_created_on>2025-06-21 23:42:38</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>ccffb5191b16a6506f74cb75604bcb4b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_snc_agenda_lab</sys_name><sys_overrides/><sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package><sys_policy/><sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope><sys_update_name>sys_ui_section_ccffb5191b16a6506f74cb75604bcb4b</sys_update_name><sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by><sys_updated_on>2025-06-21 23:42:38</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+        <payload_hash>907342754</payload_hash>
+        <record_name>Lab</record_name>
+        <reverted_from/>
+        <source>1ec9399d1bd2a6506f74cb75604bcbb8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:43:09</sys_created_on>
+        <sys_id>6b004a191b16a6506f74cb75604bcb0c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19794dfe2280000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:43:09</sys_updated_on>
+        <type>Form Layout</type>
+        <update_guid>23004a194416a6506f53ff4e6a1f9c0c</update_guid>
+        <update_guid_history>23004a194416a6506f53ff4e6a1f9c0c:907342754,84fff5194616a65071bc3589cc5d9140:-1606285997,84ffb5193f16a6505ab352bd91a9d94e:-1735758410</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-21 23:49:36</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_section">sys_ui_section</sys_db_object>
+        <sys_id>60e3c0e0b0aa4919a774860c4e1749d1</sys_id>
+        <sys_metadata>ccffb5191b16a6506f74cb75604bcb4b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_agenda_lab</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent display_value="">822eb1951b16a6506f74cb75604bcb6a</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_ui_section_ccffb5191b16a6506f74cb75604bcb4b</sys_update_name>
+        <sys_update_version display_value="sys_ui_section_ccffb5191b16a6506f74cb75604bcb4b">6b004a191b16a6506f74cb75604bcb0c</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-21 23:49:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

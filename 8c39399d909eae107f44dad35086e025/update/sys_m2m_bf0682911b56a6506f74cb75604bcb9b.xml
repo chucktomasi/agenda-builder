@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_m2m">
+    <sys_m2m action="INSERT_OR_UPDATE">
+        <from_table>x_snc_agenda_module</from_table>
+        <m2m_from_field>module</m2m_from_field>
+        <m2m_from_label>Days</m2m_from_label>
+        <m2m_table>x_snc_agenda_m2m_day_module</m2m_table>
+        <m2m_to_field>day</m2m_to_field>
+        <m2m_to_label>Modules</m2m_to_label>
+        <sys_class_name>sys_m2m</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-06-22 00:09:58</sys_created_on>
+        <sys_id>bf0682911b56a6506f74cb75604bcb9b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_agenda_m2m_day_module</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_m2m_bf0682911b56a6506f74cb75604bcb9b</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-06-22 00:09:58</sys_updated_on>
+        <to_table>x_snc_agenda_day</to_table>
+    </sys_m2m>
+</record_update>
