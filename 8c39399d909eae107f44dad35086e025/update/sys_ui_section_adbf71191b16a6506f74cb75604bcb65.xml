@@ -4,13 +4,13 @@
             <element>name</element>
             <position>0</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>fff35a991b96a6506f74cb75604bcb1e</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>235e01e51bd6e6506f74cb75604bcb9b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>display_day_items</element>
             <position>1</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>f3f35a991b96a6506f74cb75604bcb2c</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>6f5e01e51bd6e6506f74cb75604bcb9b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>display_now_items</element>
             <position>2</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>fbf35a991b96a6506f74cb75604bcb2c</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>675e01e51bd6e6506f74cb75604bcb9c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>display_timer</element>
             <position>3</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>f3f35a991b96a6506f74cb75604bcb2d</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>6f5e01e51bd6e6506f74cb75604bcb9c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>.split</element>
             <position>4</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>fbf35a991b96a6506f74cb75604bcb2d</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>675e01e51bd6e6506f74cb75604bcb9d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -74,13 +74,13 @@
             <element>course</element>
             <position>5</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>f3f35a991b96a6506f74cb75604bcb2e</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>6f5e01e51bd6e6506f74cb75604bcb9d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -88,55 +88,13 @@
             <element>active</element>
             <position>6</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>fbf35a991b96a6506f74cb75604bcb2e</sys_id>
+            <sys_created_on>2025-06-22 14:44:33</sys_created_on>
+            <sys_id>675e01e51bd6e6506f74cb75604bcb9e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>.end_split</element>
-            <position>7</position>
-            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>f3f35a991b96a6506f74cb75604bcb2f</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
-            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
-            <sys_user/>
-            <type>.end_split</type>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>notes</element>
-            <position>8</position>
-            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:16</sys_created_on>
-            <sys_id>fbf35a991b96a6506f74cb75604bcb2f</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
-            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:16</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>agenda</element>
-            <position>9</position>
-            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-22 01:10:17</sys_created_on>
-            <sys_id>f3f35a991b96a6506f74cb75604bcb30</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_day" sys_domain="global" view="Default view">adbf71191b16a6506f74cb75604bcb65</sys_ui_section>
-            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-22 01:10:17</sys_updated_on>
+            <sys_updated_on>2025-06-22 14:44:33</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

@@ -15,18 +15,18 @@ AgendaUtil.prototype = {
 
     moduleDisplayValue: function(moduleGr) {
 
-        var dv = moduleGr.title;
+        var dv = moduleGr.getValue('title');
         if (moduleGr.short_description) {
-            dv += ': ' + moduleGr.short_description;
+            dv += ': ' + moduleGr.getValue('short_description');
         }
         return dv;
     },
 
     nowItemDisplayValue: function(nowItemGr) {
 
-        var dv = nowItemGr.title;
+        var dv = nowItemGr.getValue('title');
         if (nowItemGr.short_description) {
-            dv += ' - ' + nowItemGr.short_description;
+            dv += ' - ' + nowItemGr.getValue('short_description');
         }
         return dv;
     },
@@ -36,7 +36,7 @@ AgendaUtil.prototype = {
         var list = [];
         var dmGr = new GlideRecord(Constants.DAY_MODULE_M2M);
         dmGr.addQuery('day', dayGr.getUniqueValue());
-        dmGr.orderBy('module.id');
+        dmGr.orderBy('module.title');
         dmGr.query();
 
         while (dmGr.next()) {
@@ -52,6 +52,17 @@ AgendaUtil.prototype = {
 
     },
 
+	makeDayObj : function(dayGr) {
+
+		var obj = {
+			"name" : dayGr.getDisplayValue(),
+			"modules" : this.makeModuleList(dayGr)
+		};
+
+		return obj;
+
+	},
+
     makeItemList: function(dayGr) {
 
         var list = [];
@@ -62,8 +73,10 @@ AgendaUtil.prototype = {
 
         while (dniGr.next()) {
 			var nowItemGr = dniGr.now_item.getRefRecord();
+			var durationSec = dniGr.now_item.duration.dateNumericValue() / 1000;
             list.push({
-                "duration": dniGr.now_item.duration.dateNumericValue() / 1000,
+                "duration": durationSec,
+				"durationStr" : durationSec / 60 + "m",
                 "title": dniGr.now_item.title.toString(),
                 "short_description": dniGr.now_item.short_description.toString(),
                 "order": parseInt(dniGr.getValue("order"), 10),
@@ -97,7 +110,7 @@ AgendaUtil.prototype = {
             "sn_version": courseGr.servicenow_version.getDisplayValue()
         };
 
-        obj.day = this.makeModuleList(dayGr);
+        obj.day = this.makeDayObj(dayGr);
         obj.now = this.makeItemList(dayGr);
         obj.timer = this.itemDurationSum(obj.now);
         obj.display = this.makeDisplayOptions(dayGr);
@@ -134,14 +147,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 13:25:20</sys_updated_on>
+        <sys_updated_on>2025-06-22 15:25:17</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>
