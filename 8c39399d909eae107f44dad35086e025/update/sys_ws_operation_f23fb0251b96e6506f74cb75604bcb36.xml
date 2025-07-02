@@ -19,6 +19,8 @@
 	}
 
 	var agendaObj = JSON.parse(dayGr.getValue('agenda'));
+	agendaObj.status = "ok";
+	agendaObj.message = "success";
 
 	return response.setBody(agendaObj);
 
@@ -36,14 +38,14 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:41:34</sys_created_on>
         <sys_id>f23fb0251b96e6506f74cb75604bcb36</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Get Agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_ws_operation_f23fb0251b96e6506f74cb75604bcb36</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 14:59:49</sys_updated_on>
+        <sys_updated_on>2025-07-02 18:51:27</sys_updated_on>
         <web_service_definition display_value="Agenda">c83f70251b96e6506f74cb75604bcb16</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
