@@ -37,7 +37,101 @@
 	
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css>.rotate {
+        <css>/* style.css or within a component's stylesheet */
+$left-title-fg: white;
+$left-title-bg: #042D42;
+$border-color: #042D42;
+$course-title-bg: #042D42;
+$course-title-fg: white;
+$course-name-bg: #042d42;
+$course-name-fg: white;
+$course-sub-bg: #C2E6FF;
+$course-sub-fg: #042d42;
+$day-title-bg: #042D42;
+$day-title-fg: white;
+$module-inactive-bg: #ddd;
+$module-inactive-fg: #042d42;
+$module-active-bg: #035D99;
+$module-active-fg: white;
+$now-title-fg: #005F1E;
+$now-title-bg: #63DF4E;
+$now-item-fg: #042d42;
+$now-item-bg: #C2E6FF;
+
+.courseName,
+.courseVersion,
+.courseInstructor {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.courseName {
+  background-color: $course-title-bg;
+  color: $course-title-fg;
+  font-size: 4rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.courseVersion,.courseInstructor {
+  background-color: $course-sub-bg;
+  color: $course-sub-fg;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 2rem;
+}
+
+/* Module section */
+
+.moduleActive {
+  background-color: $module-active-bg;
+  color: $module-active-fg;
+  border-radius: 10px;
+}
+
+.moduleInactive {
+  background-color: $module-inactive-bg;
+  color: $module-inactive-fg;
+  border-radius: 10px;
+}
+
+.moduleItem { 
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.moduleTitle {
+  padding: 5px;
+  font-size: 2rem;
+}
+
+.moduleShortDescription {
+  font-weight: normal;
+}
+
+.moduleTitle {
+  font-weight: bold;
+}
+
+.li#moduleShortDescription {
+}
+
+/* Now section */
+
+.nowItem {
+  background-color: $now-item-bg;
+  color: $now-item-fg;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+/* Rotated title blocks */
+
+.rotate {
 
   transform: rotate(-90deg);
 
@@ -72,7 +166,7 @@
 
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
+}
 
 body { 
   font-family: 'Open Sans', sans-serif; 
@@ -82,35 +176,36 @@ body {
 section {
   width: 100%;
   margin: 10px auto;
+  font-size: 2rem;
 }
 
 .wrapper {
-  $border-color: rgba(orange, 1);
+  /*  $border-color: rgba(orange, 1); */
   width: 100%;
   min-height: 150px; 
   position: relative;
   border: 2px solid $border-color;
   border-left: 40px solid $border-color;
   padding: 15px;
-  color: rgba(black, 0.5);
+  /* color: rgba(black, 0.5); */
   font-size: 1.5rem;
   display: inline-block;
-  
+
   .leftTitle {
     font-size: 2rem;
-    color: white;
+    color: $left-title-fg;
     text-transform: uppercase;
     letter-spacing: 3px;
-    
+
     position: absolute;
     bottom: 0;
     left: 0;
     margin-left: -35px;
-    
+
     @include transform(rotate(270deg));
     @include transform-origin(0 0);
   }
-  
+
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -137,25 +232,25 @@ section {
 	data.state = {
 		"isLoading" : true
 	};
+	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:37:18</sys_created_on>
         <sys_id>22fe3ce11b96e6506f74cb75604bcb9b</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>69</sys_mod_count>
         <sys_name>agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_widget_22fe3ce11b96e6506f74cb75604bcb9b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 15:28:50</sys_updated_on>
+        <sys_updated_on>2025-07-02 01:06:59</sys_updated_on>
         <template><![CDATA[<div>
   <!-- TODO: Add isLoading here -->
   <!-- TODO: Add error checking here -->
   
-  <pre ng-if="c.data.param.debug">{{c.data.result | json}}</pre>
   <div ng-include="'agenda-course'"></div>
 
   <div ng-if="c.data.result.display.day">
@@ -168,6 +263,10 @@ section {
 
   <div ng-if="c.data.result.display.timer">
     <div ng-include="'agenda-timer'"></div>
+  </div>
+  
+  <div ng-if="c.data.param.debug">
+    <pre>{{c.data | json}}</pre>
   </div>
 </div>]]></template>
     </sp_widget>

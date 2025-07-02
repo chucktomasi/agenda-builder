@@ -44,7 +44,8 @@ AgendaUtil.prototype = {
             list.push({
                 "title": dmGr.module.title.toString(),
                 "short_description": dmGr.module.short_description.toString(),
-                "display_value": this.moduleDisplayValue(moduleGr)
+                "display_value": this.moduleDisplayValue(moduleGr),
+				"class" : dmGr.getValue('active') == "1" ? "moduleActive" : "moduleInactive"
             });
         }
 
@@ -147,14 +148,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 15:25:17</sys_updated_on>
+        <sys_updated_on>2025-07-02 00:16:23</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>
