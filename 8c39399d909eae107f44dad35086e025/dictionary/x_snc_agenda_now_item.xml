@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="d23102991b16a6506f74cb75604bcbfa" label="Now item" max_length="40" name="x_snc_agenda_now_item" type="collection">
-        <element label="Course" max_length="32" name="course" reference="x_snc_agenda_course" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var dv = new AgendaUtil().nowItemDisplayValue(current);&#13;&#10;&#9;&#13;&#10;&#9;return dv;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" display="true" label="Display value" max_length="255" name="display_value" read_only="true" type="string" virtual="true"/>
         <element label="Notes" max_length="8000" name="notes" type="html"/>
-        <element label="Title" max_length="40" name="title" type="string"/>
-        <element attributes="max_unit=hours" label="Duration" max_length="40" name="duration" type="glide_duration"/>
+        <element label="Title" mandatory="true" max_length="40" name="title" type="string"/>
+        <element attributes="max_unit=hours" label="Duration" mandatory="true" max_length="40" name="duration" type="glide_duration"/>
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Short description" max_length="80" name="short_description" type="string"/>
         <index name="index">
