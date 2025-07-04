@@ -3,7 +3,7 @@
         <element label="Display timer" max_length="40" name="display_timer" type="boolean"/>
         <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
         <element label="Display now items" max_length="40" name="display_now_items" type="boolean"/>
-        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" reference_cascade_rule="cascade" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Notes" max_length="8000" name="notes" type="html"/>
         <element default="true" label="Display day items" max_length="40" name="display_day_items" type="boolean"/>

@@ -3,8 +3,8 @@
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Title" max_length="40" name="title" type="string"/>
         <element label="Short description" mandatory="true" max_length="80" name="short_description" type="string"/>
-        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" type="reference"/>
-        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var dv = new AgendaUtil().moduleDisplayValue(current);&#13;&#10;&#9;return dv;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" display="true" label="Display value" max_length="100" name="display_value" read_only="true" type="string" virtual="true"/>
+        <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" reference_cascade_rule="cascade" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;var dv = new DictionaryUtil().moduleDisplayValue(current);&#13;&#10;&#9;return dv;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" display="true" label="Display value" max_length="100" name="display_value" read_only="true" type="string" virtual="true"/>
         <index name="index">
             <element name="course"/>
         </index>

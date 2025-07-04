@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_agenda.CopyUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Assist with the creation of duplicate records</description>
+        <mobile_callable>false</mobile_callable>
+        <name>CopyUtil</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var CopyUtil = Class.create();
+CopyUtil.prototype = {
+    initialize: function() {},
+
+    /*
+     * Take the input string and use it to create the M2M relationships
+     * between the Days/Modules and the Days/Now Items based on
+     * the source relationships
+	 * 
+	 * @param string - the object describing the old (source) and new (target)
+	 *                 days, modules, and now items
+	 * @return object - listing the M2M records created
+	 * 
+     */
+    processOutput: function(objStr) {
+
+        var obj = JSON.parse(objStr);
+        var dayModuleList = this.createDayModules(obj);
+        var dayNowItemList = this.createDayNowItems(obj);
+
+		return {
+			"dayModules" : dayModuleList,
+			"dayNowItems" : dayNowItemList
+		};
+
+    },
+
+	/*
+	 * Go through each day's modules (M2M)
+	 * and create new M2M records for the new target day/module
+	 * 
+	 * @param object - describing the old/new days, modules, and now items
+	 * @return array - list of sys_ids created
+	 * 
+	 */
+    createDayModules: function(obj) {
+
+		var list = [];
+
+        // Get the source records for each day first
+        for (var i = 0; i < obj.days.length; i++) {
+            var sourceDay = obj.days[i].source;
+            var targetDay = obj.days[i].target;
+            var sourceM2mGr = new GlideRecord(Constants.DAY_MODULE_M2M);
+            sourceM2mGr.addQuery('day', sourceDay);
+            sourceM2mGr.query();
+
+            while (sourceM2mGr.next()) {
+				var targetModule = this._lookUpTarget(obj.modules, sourceM2mGr.getValue('module'));
+				var targetM2mGr = new GlideRecord(Constants.DAY_MODULE_M2M);
+				targetM2mGr.newRecord();
+				targetM2mGr.setValue('module', targetModule);
+				targetM2mGr.setValue('day', targetDay);
+				targetM2mGr.setValue('active', sourceM2mGr.getValue('active'));
+				var id = targetM2mGr.insert();
+
+				list.push(id);
+            }
+
+        }
+
+		return list;
+
+    },
+
+	/*
+	 * Go through each day's now items (M2M)
+	 * and create new M2M records for the new target day/now item
+	 * 
+	 * @param object - describing the old/new days, modules, and now items
+	 * @return array - list of sys_ids created
+	 * 
+	 */
+    createDayNowItems: function(obj) {
+
+		var list = [];
+
+        // Get the source records for each day first
+        for (var i = 0; i < obj.days.length; i++) {
+            var sourceDay = obj.days[i].source;
+            var targetDay = obj.days[i].target;
+            var sourceM2mGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
+            sourceM2mGr.addQuery('day', sourceDay);
+            sourceM2mGr.query();
+
+            while (sourceM2mGr.next()) {
+				var targetNowItem = this._lookUpTarget(obj.now_items, sourceM2mGr.getValue('now_item'));
+				var targetM2mGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
+				targetM2mGr.newRecord();
+				targetM2mGr.setValue('now_item', targetNowItem);
+				targetM2mGr.setValue('day', targetDay);
+				targetM2mGr.setValue('order', sourceM2mGr.getValue('order'));
+				var id = targetM2mGr.insert();
+
+				list.push(id);
+            }
+
+        }
+
+		return list;
+    },
+
+    /*
+     * Given the list and a source ID, return the corresponding target ID
+     * 
+	 * @param array - list of source/target combos to search
+	 * @param string - source sys_id to find
+	 * @return string - target sys_id found
+	 * 
+     */
+    _lookUpTarget: function(list, sourceId) {
+
+        const result = list.find(({
+            source
+        }) => source === sourceId);
+
+		if (result) {
+			return result.target;
+		} else {
+			return;
+		}
+
+    },
+
+    type: 'CopyUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 22:02:13</sys_created_on>
+        <sys_id>4ed16c691b2a2a106f74cb75604bcb90</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>CopyUtil</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_script_include_4ed16c691b2a2a106f74cb75604bcb90</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 22:37:38</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>4ed16c691b2a2a106f74cb75604bcb90</id>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 22:02:13</sys_created_on>
+        <sys_id>f395a4ed1b2a2a106f74cb75604bcb6d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 22:02:13</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

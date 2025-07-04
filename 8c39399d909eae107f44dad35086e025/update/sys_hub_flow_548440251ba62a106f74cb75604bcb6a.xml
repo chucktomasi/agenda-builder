@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=6667000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>26000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="">{}</category>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Copy the day records related to a course</description>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>copy_course_days</internal_name>
+        <label_cache>[{"name":"flow_variable.days","label":"Flow Variables➛Days","reference":"","reference_display":"","type":"string","base_type":"string","usedInstances":{"d427b093-ac2d-4ea3-9515-e971d7aa87c3":["output-0"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fbab5094-c147-4b55-a947-150fc10c4fb3"}},{"name":"subflow.target_course.sys_id","label":"Input➛Target course➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_agenda_course","column_name":"sys_id","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["course"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.notes","label":"2 - For Each➛Day Record➛Notes","reference":"","reference_display":"Notes","type":"html","base_type":"html","parent_table_name":"x_snc_agenda_day","column_name":"notes","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":[null]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.name","label":"2 - For Each➛Day Record➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_day","column_name":"name","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["name"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_timer","label":"2 - For Each➛Day Record➛Display timer","reference":"","reference_display":"Display timer","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_timer","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_timer"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_now_items","label":"2 - For Each➛Day Record➛Display now items","reference":"","reference_display":"Display now items","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_now_items","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_now_items"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_day_items","label":"2 - For Each➛Day Record➛Display day items","reference":"","reference_display":"Display day items","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_day_items","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_day_items"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.course","label":"2 - For Each➛Day Record➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_day","column_name":"course","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["course"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.agenda","label":"2 - For Each➛Day Record➛Agenda","reference":"","reference_display":"Agenda","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_day","column_name":"agenda","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["agenda"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.active","label":"2 - For Each➛Day Record➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"active","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["active"]}},{"name":"subflow.source_course.active","label":"Input➛Source course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["active"]}},{"name":"a83c9b26-602b-4b43-843f-485bf67776ce.Records","label":"1 - Look Up Records➛Day Records","reference":"x_snc_agenda_day","reference_display":"Day","type":"records","base_type":"records","usedInstances":{"e018bbd8-fb83-4bad-ab1c-f074b940461d":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.source_course.sys_id","label":"Input➛Source course➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_agenda_course","column_name":"sys_id","usedInstances":{"a83c9b26-602b-4b43-843f-485bf67776ce":["conditions"]}}]</label_cache>
+        <master_snapshot>89a50c651ba62a106f74cb75604bcb30</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Copy course days</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:37:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>548440251ba62a106f74cb75604bcb6a</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Copy course days</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_hub_flow_548440251ba62a106f74cb75604bcb6a</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:40</sys_updated_on>
+        <type>subflow</type>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_variable_value action="delete_multiple" query="document_key=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_548440251ba62a106f74cb75604bcb6a^id=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN148440251ba62a106f74cb75604bcb6b"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>548440251ba62a106f74cb75604bcb6a</id>
+        <name>Copy course days</name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:37:31</sys_created_on>
+        <sys_id>148440251ba62a106f74cb75604bcb6b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:37:31</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=148440251ba62a106f74cb75604bcb6b"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN5795c8651ba62a106f74cb75604bcb35,db95c8651ba62a106f74cb75604bcb2f"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=b9c78c8d-ae0f-468a-afc2-ca27fd8a4022</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>x_snc_agenda_course</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>target_course</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Target course</label>
+        <mandatory>true</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</model>
+        <model_id>548440251ba62a106f74cb75604bcb6a</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="x_snc_agenda_course">x_snc_agenda_course</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>5795c8651ba62a106f74cb75604bcb35</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:22</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=5795c8651ba62a106f74cb75604bcb35"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=49758414-2b78-4963-b5c5-6d500135a430</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>x_snc_agenda_course</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>source_course</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Source course</label>
+        <mandatory>true</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</model>
+        <model_id>548440251ba62a106f74cb75604bcb6a</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="x_snc_agenda_course">x_snc_agenda_course</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>db95c8651ba62a106f74cb75604bcb2f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:22</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=db95c8651ba62a106f74cb75604bcb2f"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN653d18e11b2a2a106f74cb75604bcb0a"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=3824b9a6-81e5-46a3-9101-4adc4ec2764f</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>output</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Output</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</model>
+        <model_id>548440251ba62a106f74cb75604bcb6a</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_output_548440251ba62a106f74cb75604bcb6a</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:25:29</sys_created_on>
+        <sys_id>653d18e11b2a2a106f74cb75604bcb0a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:25:29</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=653d18e11b2a2a106f74cb75604bcb0a"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN1b95c8651ba62a106f74cb75604bcb44,5f95c8651ba62a106f74cb75604bcb60"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>1b95c8651ba62a106f74cb75604bcb44</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:37:29</sys_updated_on>
+        <ui_id>a83c9b26-602b-4b43-843f-485bf67776ce</ui_id>
+        <values>H4sIAAAAAAAA/+VX22rjMBD9laBnE+wmTbt9Kw2FhV6gLX3pFiHLciJWkb2SnEtD/n1HluyYxO3GkELLPmou0pmZc2T5ZY14gi7QeToMQxKdnp+F4WAQhqPRgJIojgcjGofxMEYBkmTGINKQWDBYzoko7HqJtaSYTJhMCE7IClwJ17kgq2cfMS6NdMpFophEFy+vAcqJgu0MU+hiveM6FI8gMRMQ+uQB7eAzq7xe4tLnbDfNtN6dc2QqsVDCALGlgUoYYEiJ0CxAMwKFmUytaotiJLmXYmuYcmlgR2SDl5q/wbnnoY1LGVRFmfPVS+z748zpmBjyaFRBTaF8KJ1mnDLt+pGwlBTCXDVtLuA+NzyTLsWV7bIzUczknWsHqjeoxgGWQgMIlttCLXJfRvo4zRYPFcprLsueeKfIKBH1ihijeFwYi2eNmGAz2AjPSJ5zOcG5yua8TAYss/5EwKKfimwBh2o+kX1CLfA+9JX0r8E+Ls3PRHFbxS1sA8kAiAtgCHYj1FmhylbOMRWFLh2KSO32QpsA6ZW+EkTrbeXQcvynsLhdH3zF2DXNplDFc3MJW8yZL24THCSJ03BLOZrJhFsUuqELCng1+1VAcrJe6yK2Dei7KrBz9gEx5slms6+ZjtnHFFdZWSWuq2ZpbeV6me3Zbto28DKLjiYzqOM7CQ0O/3o6664c14J/yIeefUiy0y2fdKYMdr1s6GdfE515fgCEiuf3lpm9ePUeKk/zlDORtH1Nrq1j52ty8n9+Tb4kyQFQgt30uBRclk8DAPpZ7A8/vmJ/7PCspNeW+6WNaLqvAdIzWe+tsxIOgFMp4RHO7j05PC0Qq/u+pMzuXV8ZvQAGRxPA4OQ4AljXZdaNbOl59Rq006zi32w82Y0HCjYSok2bwDqdGXU982SzL+BBJwU3yeY843c4d+Rn4zuKDD7zCphCqj8PO/3iBU8mzGxPr6KSzCyI+N3m94zD1aDK8j7hCTr8ULajaCtRUApWTMPwmm/QCJ5H+3dIFDhztyvkACxVO27JsvdQg2lF6K8RUDqblLNp3iM/a6sn+fCID8Yv+yWthtWqwWpm3+LP7XhCeP0Lsu0DxKAQAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>2de05916c31332002841b63b12d3aee1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:23</sys_created_on>
+        <sys_id>5f95c8651ba62a106f74cb75604bcb60</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:37:29</sys_updated_on>
+        <ui_id>0e2105d8-3dcd-4eba-8f4c-347ff42787d7</ui_id>
+        <values>H4sIAAAAAAAA/+1YzW7jNhB+FUFnS5UirxO7p2LTnNossLvIZX+EEUnZRClSJakkrhFg732EAn24PskOSclRkxix0x52ATuAHc3Px29GQ3IwHzYxp/EinuUsezXPZ6TIi+Iky07Opnk1K6r8hBbA2DSexBIahpYWKsFK/zCJr0F0TnhbGklKWDJJoaSwRhXlphWwvuotzr2QrLigmsl48eHTJG5BI4xlOl5sHqj2JSWgYgJN3ztWO0jadfuk7Jexb3QZFEpTxyebxOzWYjgMidQgDJvEDWB0Vul1vLC6Q4FmQN9Isd5arLi0CBg721vD/8BlzzJnVzOMjLCg2z6WfY6CuD4HC+8QmdhO96ZkpThhJuSEsho6YV+PZcHgTWu5ksHFh9l7K9E18jKkJN4CDK8EJZ1BEqx1cTrmfRj1u5W6eTuwvODSp6RXCkVAbJ/AWs2rzjo+m5gJ1iBQ2UDbcrksW62uuXdGLk26FPiQ1kLd4KKGL2UKxBFPMa2QXqD83IuvQHMXxa8Ig853k9iszWsBxtzHgkksf+8ckxBZH0MZ0uBciOat/QkXuGY93bvJUO2UZfOdhZVX94XkC9yMKh084Mcuywq62bAsP6sqepbU1VmRTCugCVQ5SersdFrNp9l0ltOUW9akwe/u7nPYJC8A8H4IQFSnzZaB6SqX0NSCXjJbBmWK+So5ReO+wtyeLB2MOXzhRxAjWImv8j/CbiFGsJY3TL8c0rsjnHuHh6M4L+essKiDt/8mbeTKNLFcrhvCtFK2wr3wW28S45/7LyxITAsyIq5kB71zLvHEc0XaciE+xpGxa8G2+kB+EXEpuGQ/op4oiUeQZZT7TT1Y+lpGtafjoHxtDtrNpqal1SBNrXSzoEU2L+qCJLMMpsl0Rk6TeV3NkyJ/VeSnbFbPKUa7H3lcKoqAENZac79EWXfSb2ODnJCoOy5uB8fsmwvDL5X0nPwvYLr1c67Oy+xjlFi8OIawrFLC8jbhdDCBVdkL36v2oVnParA9iZLoQunoZyCrKKwc4T0avWUEr6lBcukLdR9mBg8JO1iOwYPXD85tDxjQWt3sn2p/RScEK98e6vSvlf75+68dPEeCNE2/MUaH5RbP+AH9cnsAvQQf72SrZHRfeI/3a1kDAYoNwB57y23jMdmdaJFUo6MBL3DBGX0uy+HIS8KVnXDcBk94PH1aSuXPyv6FfPlz74SFBB2W1MeCNjw97nePfcKxTzj2Ccc+4dgnHPuEY59w7BO2fcKBI7DnJxXDCOyCM0HNE6OLYf7FGkyFZWUYZTyYgfXK6KpX9nOw/P+ag+WzzH++o2lYCO67H4aN5p47xmKfvgILuWuTBhYAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN1cead4ed1be62a106f74cb75604bcbc5,5795c8651ba62a106f74cb75604bcb5f,9cead4ed1be62a106f74cb75604bcbc6"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">dcead4ed1be62a106f74cb75604bcbc4</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</flow>
+        <flow_variables_assigned>days</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <parent_ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:15:17</sys_created_on>
+        <sys_id>1cead4ed1be62a106f74cb75604bcbc5</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:38</sys_updated_on>
+        <ui_id>8b258e48-c57d-4f35-bb38-f99370fbb240</ui_id>
+        <values>H4sIAAAAAAAA/+1WTW/bOBD9K1yenNRhpMRuGucUoC22i7YB1mkuUSBQ1MjmliJVfiTxBv7vHVKSk6bAnvZoXygOZx7fvBkO/ERN8F3w7tpcOidXmi5u76ZU6mjD7yeqeQt0QWu+cXRK77kKcYuftXSd4pubZ4tYS1VbGDA6bjHUg6WLp1dHftNBqXgFCgOX3kq9wnBZ447np3X+DvK8OuEnPM/eNmczUZ3N32azSlT5OfqNge97Sr8SjNC4cyOosXVkkE0pPHrQNeAlDVcOprTluube2M3OYoHXV1o9G9ZS+z63lj86+S9Cv8uyLHo2gOmIIfPdthxUGQUxUsBV56XRvcXzSo1qGRVa/bVnH/WEhgflX+gZHOJBF1lHGgOnZrk2D3+PF36UOiU4HCojuNrtuEcZquDBxRoEef1KnN7y+XUhQEGLN5Yt7zq0lJ019zLdgqRbtlK4YY0yD8gu9gzjImbIUE3OPqL9fTLfcCtjul8QBoPjdd+0/BHgUyx0U/Fqnp3PjkQ+OzuaVfP5ET/Hr3yeNSLPxKypTuk2SVv+CDGpXqRBjrJXFB2csLLzl0jhHpPzNsBoi0mntsD1v7zo8WGhDw8vhQDnSEzg+DJlRGJGJDgUgfg1kKYuk8VU/4DwjCwTAGmD88SCD1YTTtITYSQiXsXmIzq0FS7SEdM0DjypNuRNTqQmH6w1lvyJfajiFUvodUxk7rlUUT1iUvs4MnQWCR0S6yxSjTEFZQUlvMF3NtKL4fDI207BAtlY4tbGeqyJIEXIstN6dGRY8NUKLBPBYjN5lhxjUVNeeOtFxBoy26FE43GhC52wvX2NmjoDz1jUnnnT99XkAONkQyZ/YMgBeSo0wd+L8ILe3hUUnbY9spKo6nD21/LqK8OB4mASoy96DyzD6DDAFdSZYAWgJIsdn/KkLBtjS+BizaSHlrmNK2X9gtp0DPfcrsD/Gn5algIng4fSgsB5woblNxSkfhF1icxZF9x6ggwPkmnQMOXRPz/ZbCbR8eCCbrfbuzha++fSj900DH+bbvvxux+/+/G7H7/78fu/j98ahHSo+XWs+qfx/2882OCIk+Kl6cHY71HmZ9v2J/QEC5FJCwAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">9b95c8651ba62a106f74cb75604bcb45</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>5795c8651ba62a106f74cb75604bcb5f</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:38</sys_updated_on>
+        <ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</ui_id>
+        <values>H4sIAAAAAAAA/51STW/bMAz9Lzonhr/mfNwKDAV6aAt0RS9DYdASnQiTJU2Sk3qG//uo2EmHHney+Ug+vidyZKYPtg/+1dx5Lw+a7X++r5jUEaP/kWnokO2ZDNh5tmInUH2MxxG2Bd81ebWu0rxZl01ZrLdl0a7L7bemrTabTcUxeUFunPDTRK1CeqtgePt/Bn6USjhcRFpwpC2gY/vxSyoMFmsFDSoatDBQvxQUZjvR7rJ0x4u8KvI0zbdl1lRFk+WiABQV1V07HxbTX94gslPobrz0iSrydMXwI6AWSINaUB5XrAMtIBg3sH1wPQEOQTxrNdwqjlIHomOx9sPLP8SdpWksbJEccZyTt7BeHnKG+dFIjs82SKNnJECjlh5uVN/pp1l+XAG20KtwXQEhvSc+tFFzVLFIan8czfnlOvBe6ou/JakMB3WLIAQnmz6gj2tAhR0R1R1YK/Whts6c5KWZtHTJQVGQtMqcaWg8twR4FJ7QE0FyT/j3C/wGTkYXj0RDzdPFff27j3NnH4viejZNBZ47acMd0Z1wETe9x3udmfx8GAK59DTwNWIP1yuPiYGWLPm/0Nm4X1HqJzb9BSL1/r8vAwAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">94ead4ed1be62a106f74cb75604bcbc6</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>5</order>
+        <outputs_assigned>output</outputs_assigned>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:15:17</sys_created_on>
+        <sys_id>9cead4ed1be62a106f74cb75604bcbc6</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:38</sys_updated_on>
+        <ui_id>d427b093-ac2d-4ea3-9515-e971d7aa87c3</ui_id>
+        <values>H4sIAAAAAAAA/41TQW7bMBD8C8+2INmy7PgWoAgQIK2Bxs2lKIQVubKJUKRCUnZUQX/v0pKcwJf0uMPl7Mxw2THT+Lrxbm/unZMHzba/OyYF27JstRTJBpOkWMACkjgr1ykv1qssTgtexMBmTEOF1DlQUH0C1QSg60plzvkJrIRCYSSgdX1PDUK6WkH78lUfP0olLAY1f2asBkuDPFq27W6OfFtjrqBARXTP3kp9oOv/q3+6uJsM3BoK9FS7idhYEVQkM4bvHrVAGlSCcjhjFWgB3tj2ilgEsdPqAzhK7YmNheZ3J/8S9SaO49BZIlniOJxey3zMa4D50UiOu9pLowfEh9TGQ6OaSv8Y9IeksYRG+SlpQhpHfFgH1UHGqKl8Pprzz2ngg9QXg+OhMhzUtQJPMRSNRxfeoZH7m3AG5On2MVBhRRPzCuqakLy25iQvU0h0FR0UFdFlDwSGDYyAB4e0DB6iB8K/XeCXcUm+Ew1dDuN+afnW4GN47OVmkRZ3kM03Ca7maQbL+V0SJ/MUBE+RL9ZZWrL+Em3+1gRTQ0hjHPmQKDU4bmXt70nCCUfnPe2Z1OGTDDs3retYCuTSkeB9wB4/9YmW1knyz9DZ2Ndg9QPr/wHVARxHggMAAA==</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN9f95c8651ba62a106f74cb75604bcb62"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>548440251ba62a106f74cb75604bcb6a</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{e018bbd8-fb83-4bad-ab1c-f074b940461d.item.notes}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:23</sys_created_on>
+        <sys_id>9f95c8651ba62a106f74cb75604bcb62</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:23</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d3093f3c-60a4-46c7-9fb9-315317e6f9de</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=548440251ba62a106f74cb75604bcb6a^sys_idNOT INa13d18e11b2a2a106f74cb75604bcb19"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=fbab5094-c147-4b55-a947-150fc10c4fb3</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>days</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Days</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</model>
+        <model_id>548440251ba62a106f74cb75604bcb6a</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_548440251ba62a106f74cb75604bcb6a</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:25:29</sys_created_on>
+        <sys_id>a13d18e11b2a2a106f74cb75604bcb19</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:25:29</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a^sys_idNOT IN5795c8651ba62a106f74cb75604bcb34,5b95c8651ba62a106f74cb75604bcb38"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>source_course</element>
+        <help/>
+        <hint/>
+        <label>Source course</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>5795c8651ba62a106f74cb75604bcb34</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:22</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>target_course</element>
+        <help/>
+        <hint/>
+        <label>Target course</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:22</sys_created_on>
+        <sys_id>5b95c8651ba62a106f74cb75604bcb38</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:22</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_548440251ba62a106f74cb75604bcb6a"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_548440251ba62a106f74cb75604bcb6a^sys_idNOT INe93d18e11b2a2a106f74cb75604bcb0d"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>output</element>
+        <help/>
+        <hint/>
+        <label>Output</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_548440251ba62a106f74cb75604bcb6a</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:25:29</sys_created_on>
+        <sys_id>e93d18e11b2a2a106f74cb75604bcb0d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:25:29</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_548440251ba62a106f74cb75604bcb6a"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>26000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category display_value="">{}</category>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Copy the day records related to a course</description>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>copy_course_days</internal_name>
+        <label_cache>[{"name":"flow_variable.days","label":"Flow Variables➛Days","reference":"","reference_display":"","type":"string","base_type":"string","usedInstances":{"d427b093-ac2d-4ea3-9515-e971d7aa87c3":["output-0"]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"fbab5094-c147-4b55-a947-150fc10c4fb3"}},{"name":"subflow.target_course.sys_id","label":"Input➛Target course➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_agenda_course","column_name":"sys_id","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["course"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.notes","label":"2 - For Each➛Day Record➛Notes","reference":"","reference_display":"Notes","type":"html","base_type":"html","parent_table_name":"x_snc_agenda_day","column_name":"notes","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":[null]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.name","label":"2 - For Each➛Day Record➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_day","column_name":"name","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["name"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_timer","label":"2 - For Each➛Day Record➛Display timer","reference":"","reference_display":"Display timer","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_timer","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_timer"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_now_items","label":"2 - For Each➛Day Record➛Display now items","reference":"","reference_display":"Display now items","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_now_items","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_now_items"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.display_day_items","label":"2 - For Each➛Day Record➛Display day items","reference":"","reference_display":"Display day items","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"display_day_items","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["display_day_items"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.course","label":"2 - For Each➛Day Record➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_day","column_name":"course","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["course"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.agenda","label":"2 - For Each➛Day Record➛Agenda","reference":"","reference_display":"Agenda","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_day","column_name":"agenda","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["agenda"]}},{"name":"e018bbd8-fb83-4bad-ab1c-f074b940461d.item.active","label":"2 - For Each➛Day Record➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_day","column_name":"active","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["active"]}},{"name":"subflow.source_course.active","label":"Input➛Source course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"0e2105d8-3dcd-4eba-8f4c-347ff42787d7":["active"]}},{"name":"a83c9b26-602b-4b43-843f-485bf67776ce.Records","label":"1 - Look Up Records➛Day Records","reference":"x_snc_agenda_day","reference_display":"Day","type":"records","base_type":"records","usedInstances":{"e018bbd8-fb83-4bad-ab1c-f074b940461d":["items"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.source_course.sys_id","label":"Input➛Source course➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_agenda_course","column_name":"sys_id","usedInstances":{"a83c9b26-602b-4b43-843f-485bf67776ce":["conditions"]}}]</label_cache>
+        <master>true</master>
+        <name>Copy course days</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>89a50c651ba62a106f74cb75604bcb30</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:40</sys_updated_on>
+        <type>subflow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_variable_value action="delete_multiple" query="document_key=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_flow_output_89a50c651ba62a106f74cb75604bcb30^id=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN89a50c651ba62a106f74cb75604bcb31"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>89a50c651ba62a106f74cb75604bcb30</id>
+        <name>Copy course days</name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_id>89a50c651ba62a106f74cb75604bcb31</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:30</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=89a50c651ba62a106f74cb75604bcb31"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN0da50c651ba62a106f74cb75604bcb4b,5da50c651ba62a106f74cb75604bcb5a"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=49758414-2b78-4963-b5c5-6d500135a430</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>x_snc_agenda_course</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>source_course</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Source course</label>
+        <mandatory>true</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</model>
+        <model_id>89a50c651ba62a106f74cb75604bcb30</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="x_snc_agenda_course">x_snc_agenda_course</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_id>0da50c651ba62a106f74cb75604bcb4b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:30</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0da50c651ba62a106f74cb75604bcb4b"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference,uiTypeLabel=Reference,uiUniqueId=b9c78c8d-ae0f-468a-afc2-ca27fd8a4022</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table>x_snc_agenda_course</choice_table>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>target_course</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Target course</label>
+        <mandatory>true</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</model>
+        <model_id>89a50c651ba62a106f74cb75604bcb30</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="x_snc_agenda_course">x_snc_agenda_course</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_id>5da50c651ba62a106f74cb75604bcb5a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:30</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=5da50c651ba62a106f74cb75604bcb5a"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN0cfd94251b2a2a106f74cb75604bcb75"/>
+    <sys_hub_flow_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=3824b9a6-81e5-46a3-9101-4adc4ec2764f</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>output</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Output</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</model>
+        <model_id>89a50c651ba62a106f74cb75604bcb30</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_output_89a50c651ba62a106f74cb75604bcb30</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_output</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:28:39</sys_created_on>
+        <sys_id>0cfd94251b2a2a106f74cb75604bcb75</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:39</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=0cfd94251b2a2a106f74cb75604bcb75"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN9da50c651ba62a106f74cb75604bcb6a,d9a50c651ba62a106f74cb75604bcb6b"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>43400a1587003300663ca1bb36cb0b4b</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:31</sys_created_on>
+        <sys_id>9da50c651ba62a106f74cb75604bcb6a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:31</sys_updated_on>
+        <ui_id>a83c9b26-602b-4b43-843f-485bf67776ce</ui_id>
+        <values>H4sIAAAAAAAA/+VX22rjMBD9laBnE+wmTbt9Kw2FhV6gLX3pFiHLciJWkb2SnEtD/n1HluyYxO3GkELLPmou0pmZc2T5ZY14gi7QeToMQxKdnp+F4WAQhqPRgJIojgcjGofxMEYBkmTGINKQWDBYzoko7HqJtaSYTJhMCE7IClwJ17kgq2cfMS6NdMpFophEFy+vAcqJgu0MU+hiveM6FI8gMRMQ+uQB7eAzq7xe4tLnbDfNtN6dc2QqsVDCALGlgUoYYEiJ0CxAMwKFmUytaotiJLmXYmuYcmlgR2SDl5q/wbnnoY1LGVRFmfPVS+z748zpmBjyaFRBTaF8KJ1mnDLt+pGwlBTCXDVtLuA+NzyTLsWV7bIzUczknWsHqjeoxgGWQgMIlttCLXJfRvo4zRYPFcprLsueeKfIKBH1ihijeFwYi2eNmGAz2AjPSJ5zOcG5yua8TAYss/5EwKKfimwBh2o+kX1CLfA+9JX0r8E+Ls3PRHFbxS1sA8kAiAtgCHYj1FmhylbOMRWFLh2KSO32QpsA6ZW+EkTrbeXQcvynsLhdH3zF2DXNplDFc3MJW8yZL24THCSJ03BLOZrJhFsUuqELCng1+1VAcrJe6yK2Dei7KrBz9gEx5slms6+ZjtnHFFdZWSWuq2ZpbeV6me3Zbto28DKLjiYzqOM7CQ0O/3o6664c14J/yIeefUiy0y2fdKYMdr1s6GdfE515fgCEiuf3lpm9ePUeKk/zlDORtH1Nrq1j52ty8n9+Tb4kyQFQgt30uBRclk8DAPpZ7A8/vmJ/7PCspNeW+6WNaLqvAdIzWe+tsxIOgFMp4RHO7j05PC0Qq/u+pMzuXV8ZvQAGRxPA4OQ4AljXZdaNbOl59Rq006zi32w82Y0HCjYSok2bwDqdGXU982SzL+BBJwU3yeY843c4d+Rn4zuKDD7zCphCqj8PO/3iBU8mzGxPr6KSzCyI+N3m94zD1aDK8j7hCTr8ULajaCtRUApWTMPwmm/QCJ5H+3dIFDhztyvkACxVO27JsvdQg2lF6K8RUDqblLNp3iM/a6sn+fCID8Yv+yWthtWqwWpm3+LP7XhCeP0Lsu0DxKAQAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Record">2de05916c31332002841b63b12d3aee1</action_type>
+        <action_type_parent display_value="Create Record">02f0b88cc3c632002841b63b12d3aeff</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>2de05916c31332002841b63b12d3aee1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:31</sys_created_on>
+        <sys_id>d9a50c651ba62a106f74cb75604bcb6b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:49:49</sys_updated_on>
+        <ui_id>0e2105d8-3dcd-4eba-8f4c-347ff42787d7</ui_id>
+        <values>H4sIAAAAAAAA/+1YzW7jNhB+FUFnS5UirxO7p2LTnNossLvIZX+EEUnZRClSJakkrhFg732EAn24PskOSclRkxix0x52ATuAHc3Px29GQ3IwHzYxp/EinuUsezXPZ6TIi+Iky07Opnk1K6r8hBbA2DSexBIahpYWKsFK/zCJr0F0TnhbGklKWDJJoaSwRhXlphWwvuotzr2QrLigmsl48eHTJG5BI4xlOl5sHqj2JSWgYgJN3ztWO0jadfuk7Jexb3QZFEpTxyebxOzWYjgMidQgDJvEDWB0Vul1vLC6Q4FmQN9Isd5arLi0CBg721vD/8BlzzJnVzOMjLCg2z6WfY6CuD4HC+8QmdhO96ZkpThhJuSEsho6YV+PZcHgTWu5ksHFh9l7K9E18jKkJN4CDK8EJZ1BEqx1cTrmfRj1u5W6eTuwvODSp6RXCkVAbJ/AWs2rzjo+m5gJ1iBQ2UDbcrksW62uuXdGLk26FPiQ1kLd4KKGL2UKxBFPMa2QXqD83IuvQHMXxa8Ig853k9iszWsBxtzHgkksf+8ckxBZH0MZ0uBciOat/QkXuGY93bvJUO2UZfOdhZVX94XkC9yMKh084Mcuywq62bAsP6sqepbU1VmRTCugCVQ5SersdFrNp9l0ltOUW9akwe/u7nPYJC8A8H4IQFSnzZaB6SqX0NSCXjJbBmWK+So5ReO+wtyeLB2MOXzhRxAjWImv8j/CbiFGsJY3TL8c0rsjnHuHh6M4L+essKiDt/8mbeTKNLFcrhvCtFK2wr3wW28S45/7LyxITAsyIq5kB71zLvHEc0XaciE+xpGxa8G2+kB+EXEpuGQ/op4oiUeQZZT7TT1Y+lpGtafjoHxtDtrNpqal1SBNrXSzoEU2L+qCJLMMpsl0Rk6TeV3NkyJ/VeSnbFbPKUa7H3lcKoqAENZac79EWXfSb2ODnJCoOy5uB8fsmwvDL5X0nPwvYLr1c67Oy+xjlFi8OIawrFLC8jbhdDCBVdkL36v2oVnParA9iZLoQunoZyCrKKwc4T0avWUEr6lBcukLdR9mBg8JO1iOwYPXD85tDxjQWt3sn2p/RScEK98e6vSvlf75+68dPEeCNE2/MUaH5RbP+AH9cnsAvQQf72SrZHRfeI/3a1kDAYoNwB57y23jMdmdaJFUo6MBL3DBGX0uy+HIS8KVnXDcBk94PH1aSuXPyv6FfPlz74SFBB2W1MeCNjw97nePfcKxTzj2Ccc+4dgnHPuEY59w7BO2fcKBI7DnJxXDCOyCM0HNE6OLYf7FGkyFZWUYZTyYgfXK6KpX9nOw/P+ag+WzzH++o2lYCO67H4aN5p47xmKfvgILuWuTBhYAAA==</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN00fd94251b2a2a106f74cb75604bcb8a,59a50c651ba62a106f74cb75604bcb69,8cfd94251b2a2a106f74cb75604bcb88"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">94ead4ed1be62a106f74cb75604bcbc6</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="Assign Subflow Outputs">df4e1945c3e232002841b63b12d3ae3e</logic_definition>
+        <order>5</order>
+        <outputs_assigned>output</outputs_assigned>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:28:39</sys_created_on>
+        <sys_id>00fd94251b2a2a106f74cb75604bcb8a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:40</sys_updated_on>
+        <ui_id>d427b093-ac2d-4ea3-9515-e971d7aa87c3</ui_id>
+        <values>H4sIAAAAAAAA/41TTW/iMBD9Lz4DSiAE2lvVqlKl7iJt2V5Wq2hiT8CqY6e2A80i/vuOcQKoPezeMs/z8d6byYGZ1jetd2tz55zcaHb768CkYLcsn89EusQ0LacwhTTJq0XGy8U8T7KSlwmwEdNQI2XGFhTvQLUBOBwqZfbFDqyEUuFEQOeOR0oQ0jUKutd/5fGtVMJiYPN7xBqwNMijZbfETdOHBvUs9Ru1+JL8v9wVlKgodTWQ/yzGd02InbdSb/r4uS96GUBjRaCVjhh+eNQCaXoFyuGI1aAFeGO7M2IRxEqrC7AlMVFDDR9O/qF5yyRJQmaFpIhjfD2HRW9ghKsH8EBUWu5bi4MZRnJ00QuBFbTK319jMWHVeGl0LPHB+77aqLbW36MT7Nxg2BchrSMS2ASpgXsvpHrZmv2PgeWj1CdX+kdlOKhzBJ68K1sf+BxYK9efbI7IF6NRYU0TixqahpCisWYnT1OIdD3ZKAomp2sSGO54AjwopJPyMHkk/OEEv/an9o3aUHEY91PL9xafwtnMltOsvIF8vExxPs5ymI1v0iQdZyB4hny6yLOKHUfMde5egXMXo2hDxXsbZEbbeoOK6HEo4VY2/o5I7bD34hiuVYefL25m+A3Oy+PSkYR1wJ6u8kRHpyr5NbQ39i2Iv2DHv3Y1rynaAwAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">9b95c8651ba62a106f74cb75604bcb45</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</flow>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:31</sys_created_on>
+        <sys_id>59a50c651ba62a106f74cb75604bcb69</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:39</sys_updated_on>
+        <ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</ui_id>
+        <values>H4sIAAAAAAAA/51TXW+jMBD8L35OEAFKPt6qVpUq9a5SWvXlVKHFXhLrjM3ZJimH+O+3DoRWfbwn2PHu7MxgemZa37TevZpb5+RBs92v9wWTOmD03jMNNbIdkx5rxxbsBKoNdd/DJuXbMsmXeZyUy6zM0uUmS6tltrkpq3y9Xuccoz1yY4UbBhoV0jUKurf/Z+BHqYTFSWQDlrR5tGzXfzuSghastqLaruItT5M8TeI42WSrMk/LVSJSQJEToYISFbU+Tu6+mfVdE0o7SpiAp2lmP6P0CCKSeMHww6MWSOsrUA4XrAYtwBvbsZ23LQEWQTxr1c0dR6k90bHQ++HkX9q4iuPQWCEZ4jgezmUx5TjC1T14eCFq7ls7tfKjkRzdGIXAClrl775iY8Nz46XR44iHUl2njWpr/XNMgs0E189GSOtIBDbBaJA++ahejua8v6p8kPoSynSoDAc1V+C9lWXrg56eocKaiIoamkbqQ9FYc5KXYdJSRwdFRVQpc6al4YpGwIPwiHKF6IHw+wv8BlYGFz+IhoaHBXOdu1Pg3KcXCrH40wYlo7PJQzHGEEa4lY2/pQUnnOQO7+HWj9xzplw6kvAasMfrvxIOOrpBkn+Fzsb+DuI/seEfbw8FWnUDAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">dcead4ed1be62a106f74cb75604bcbc4</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</flow>
+        <flow_variables_assigned>days</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>4</order>
+        <outputs_assigned/>
+        <parent_ui_id>e018bbd8-fb83-4bad-ab1c-f074b940461d</parent_ui_id>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:28:39</sys_created_on>
+        <sys_id>8cfd94251b2a2a106f74cb75604bcb88</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:40</sys_updated_on>
+        <ui_id>8b258e48-c57d-4f35-bb38-f99370fbb240</ui_id>
+        <values>H4sIAAAAAAAA/+1WW2/TMBT+K8ZP3ei8ZGsZ654mBgIETKKDFzJFjuO0BscOvmwrVf875+TSlSHxjtS+JP58Lt/5zslR19TG0MTgb+yl92ph6Ozb7Zgqgxi8r6kq6YzSMTW8lvBW8pWH0x3XUXYXpfKN5quvj4hYKl062cdquAPXIB2drZ9ctbF5elqmL2WaFif8hKfJi+psIoqz6YtkUogiPYeAmhdSg+lVl/xPKmHV4MkHp8yiP3/oHeYDaF2JBJIxlQ9BmlJC5oprL8e05qbkwbrVFnGSl9dGPwJLZUJXWs0fvPoF+V4mSYKWlYRqRF/49pj3onRwdcUDBypRhOi2GlklpO90KGXFow6vdrHO4LoJyprOJfBCD95Wx9p86nSg2wA7PYgeSMgGS0XufSHVfGnvPw8s3yjTqtJfaiu43p54AO2KGJDPmkZ180TmDvlLaKllDRnzmjcNIHnj7J1qswDpmi00HFil7T2ww3ljXGCFDFrA2RvAr1r4K3cKy/0IYcAZ030x6meU73BkqoIX0+R8ciTSydnRpJhOj/g5vKXTpBJpIiZVcUo3Y+pX/pXm3j8KBR3Kf0Yss5OtFyjvNEYX4VQTLoHUHbhAz+SAoQztyMHzX1b0+DAzh4eXAlrpCZZ0fNnWSLBGEj3IQsJSkqrMW8QW36UIjMzbAKSOPhAnYVQM4aT90BjBiNc4w8TEuoCH8sRWlZeBFCvyPCXKkNfOWUfewjhrTDGXnbItmTuuNOpJbDtQnvQDSmIDxBoHVNEnoyyjhFfwtQ700F0+8LrRcgZsHPFL6wJ0SZAsJslpORgyGIHFQjomooPxCqw1xDa3dUHWC4zVV7aNguBxZjLTxg7uadR2VuCOofYs2G7SRgfgpyoyegYuB2SdGQK/HfeMfrvNKBhtushagar93fv59ScGa8nLEXpfdBbQhsGgD5dRb6MTEiSZbfnkJ3leWZdLLpZMBVkzmLJclTvUxoN74G4hw5/up3kuYMEEmTspYC2x/vFXFKB+gbogc9ZEvxwBw4MW6jVs6+g+SFWtRmh4cEE3m80tLujuA9ov8f0S3y/x/RLfL/H/cImXUigPmt9g198N/8nxYgXrU4ld6N66HyjzI7b5Dacs9lHdCwAA</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN51a50c651ba62a106f74cb75604bcb6c"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>89a50c651ba62a106f74cb75604bcb30</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{e018bbd8-fb83-4bad-ab1c-f074b940461d.item.notes}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:31</sys_created_on>
+        <sys_id>51a50c651ba62a106f74cb75604bcb6c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:31</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>d3093f3c-60a4-46c7-9fb9-315317e6f9de</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=89a50c651ba62a106f74cb75604bcb30^sys_idNOT IN80fd94251b2a2a106f74cb75604bcb7f"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=fbab5094-c147-4b55-a947-150fc10c4fb3</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>days</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Days</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Copy course days">89a50c651ba62a106f74cb75604bcb30</model>
+        <model_id>89a50c651ba62a106f74cb75604bcb30</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_89a50c651ba62a106f74cb75604bcb30</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:28:39</sys_created_on>
+        <sys_id>80fd94251b2a2a106f74cb75604bcb7f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:39</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30^sys_idNOT INd1a50c651ba62a106f74cb75604bcb58,d1a50c651ba62a106f74cb75604bcb62"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>source_course</element>
+        <help/>
+        <hint/>
+        <label>Source course</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_id>d1a50c651ba62a106f74cb75604bcb58</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:30</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>target_course</element>
+        <help/>
+        <hint/>
+        <label>Target course</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:30</sys_created_on>
+        <sys_id>d1a50c651ba62a106f74cb75604bcb62</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 19:42:30</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_89a50c651ba62a106f74cb75604bcb30^sys_idNOT INc4fd94251b2a2a106f74cb75604bcb7a"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>output</element>
+        <help/>
+        <hint/>
+        <label>Output</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_output_89a50c651ba62a106f74cb75604bcb30</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 21:28:39</sys_created_on>
+        <sys_id>c4fd94251b2a2a106f74cb75604bcb7a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:39</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_89a50c651ba62a106f74cb75604bcb30"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>548440251ba62a106f74cb75604bcb6a</sys_id>
+        <latest_snapshot>89a50c651ba62a106f74cb75604bcb30</latest_snapshot>
+        <compiler_build>glide-xanadu-07-02-2024__patch7b-hotfix1-05-20-2025_05-22-2025_2350.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=548440251ba62a106f74cb75604bcb6a"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=548440251ba62a106f74cb75604bcb6a^sys_idNOT IN61a50c651ba62a106f74cb75604bcb85"/>
+    <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"61a50c651ba62a106f74cb75604bcb85","name":"plan","plan_signature":null}}</plan>
+        <plan_id display_value="Copy course days">548440251ba62a106f74cb75604bcb6a</plan_id>
+        <snapshot>51ff50e51b2a2a106f74cb75604bcb20</snapshot>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-04 19:42:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>61a50c651ba62a106f74cb75604bcb85</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-04 21:28:40</sys_updated_on>
+    </sys_flow_subflow_plan>
+</record_update>

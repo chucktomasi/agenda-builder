@@ -3,7 +3,7 @@
         <columns_condition/>
         <disable_nlq>false</disable_nlq>
         <edit_condition/>
-        <edit_default_filter table="x_snc_agenda_module">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+        <edit_default_filter table="x_snc_agenda_now_item">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </edit_default_filter>
         <edit_roles/>
@@ -25,36 +25,36 @@
         <omit_count_views>false</omit_count_views>
         <omit_count_views_list/>
         <omit_drilldown_link>false</omit_drilldown_link>
-        <omit_edit_button>false</omit_edit_button>
+        <omit_edit_button>true</omit_edit_button>
         <omit_filters>false</omit_filters>
         <omit_if_empty>false</omit_if_empty>
         <omit_links>false</omit_links>
         <omit_new_button>false</omit_new_button>
-        <related_list>x_snc_agenda_m2m_day_module.day</related_list>
+        <related_list>x_snc_agenda_m2m_day_now_item.day</related_list>
         <sys_class_name>sys_ui_list_control</sys_class_name>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-        <sys_created_on>2025-06-22 00:48:22</sys_created_on>
+        <sys_created_on>2025-07-04 22:42:32</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>22ee02d11b96a6506f74cb75604bcb74</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_id>3cde68a91b6a2a106f74cb75604bcbce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_agenda_day</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
-        <sys_update_name>sys_ui_list_control_22ee02d11b96a6506f74cb75604bcb74</sys_update_name>
+        <sys_update_name>sys_ui_list_control_3cde68a91b6a2a106f74cb75604bcbce</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 22:42:16</sys_updated_on>
+        <sys_updated_on>2025-07-04 22:42:32</sys_updated_on>
     </sys_ui_list_control>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>22ee02d11b96a6506f74cb75604bcb74</id>
+        <id>3cde68a91b6a2a106f74cb75604bcbce</id>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-        <sys_created_on>2025-06-22 00:48:21</sys_created_on>
-        <sys_id>32fe42d11b96a6506f74cb75604bcbcc</sys_id>
+        <sys_created_on>2025-07-04 22:42:32</sys_created_on>
+        <sys_id>52dea8a91b6a2a106f74cb75604bcb51</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 00:48:21</sys_updated_on>
+        <sys_updated_on>2025-07-04 22:42:32</sys_updated_on>
         <table>sys_ui_list_control</table>
         <use_es_latest>true</use_es_latest>
     </sys_es_latest_script>

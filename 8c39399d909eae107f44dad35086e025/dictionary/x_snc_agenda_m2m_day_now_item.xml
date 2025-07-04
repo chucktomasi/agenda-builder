@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="412286d91b16a6506f74cb75604bcbaf" label="Day now item" max_length="40" name="x_snc_agenda_m2m_day_now_item" type="collection">
         <element attributes="encode_utf8=false" label="Now items" max_length="32" name="now_item" reference="x_snc_agenda_now_item" type="reference"/>
-        <element attributes="encode_utf8=false" label="Days" max_length="32" name="day" reference="x_snc_agenda_day" type="reference"/>
+        <element attributes="encode_utf8=false" label="Days" max_length="32" name="day" reference="x_snc_agenda_day" reference_cascade_rule="cascade" type="reference"/>
         <element label="Order" max_length="40" name="order" type="integer"/>
         <index name="index">
             <element name="day"/>
