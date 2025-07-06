@@ -44,13 +44,13 @@ AgendaUtil.prototype = {
 
     },
 
-	/*
-	 * Create a simple object describing the day section of the agenda
-	 * 
-	 * @param none
-	 * @return object - describing the name and modules available to the widget
-	 * 
-	 */
+    /*
+     * Create a simple object describing the day section of the agenda
+     * 
+     * @param none
+     * @return object - describing the name and modules available to the widget
+     * 
+     */
     makeDayObj: function() {
 
         var obj = {
@@ -63,12 +63,12 @@ AgendaUtil.prototype = {
     },
 
     /*
-	 * Create a list of items to display in the "now" section of the agenda
-	 * 
-	 * @param none
-	 * @return array - list of objects describing the 'now' items
-	 *
-	 */
+     * Create a list of items to display in the "now" section of the agenda
+     * 
+     * @param none
+     * @return array - list of objects describing the 'now' items
+     *
+     */
     makeItemList: function() {
 
         var list = [];
@@ -78,11 +78,11 @@ AgendaUtil.prototype = {
         dniGr.query();
 
         while (dniGr.next()) {
-			var nowItemGr = dniGr.now_item.getRefRecord();
-			var durationSec = dniGr.now_item.duration.dateNumericValue() / 1000;
+            var nowItemGr = dniGr.now_item.getRefRecord();
+            var durationSec = dniGr.now_item.duration.dateNumericValue() / 1000;
             list.push({
                 "duration": durationSec,
-				"durationStr" : durationSec / 60 + "m",
+                "durationStr": durationSec / 60 + "m",
                 "title": dniGr.now_item.title.toString(),
                 "short_description": dniGr.now_item.short_description.toString(),
                 "order": parseInt(dniGr.getValue("order"), 10),
@@ -94,13 +94,13 @@ AgendaUtil.prototype = {
 
     },
 
-	/*
-	 * Create an object of which items to display on the agenda
-	 * 
-	 * @param none
-	 * @return object - custom object of properties with true/false values
-	 * 
-	 */
+    /*
+     * Create an object of which items to display on the agenda
+     * 
+     * @param none
+     * @return object - custom object of properties with true/false values
+     * 
+     */
     makeDisplayOptions: function() {
 
         var obj = {
@@ -154,7 +154,8 @@ AgendaUtil.prototype = {
         for (var i = 0; i < itemList.length; i++) {
             sec += itemList[i].duration;
         }
-
+        var session = gs.getSession();
+        var zoneName = session.getTimeZoneName();
         var hours = Math.floor(sec / 3600);
         var minutes = Math.floor((sec - (hours * 3600)) / 60);
         var seconds = sec % 60;
@@ -162,10 +163,59 @@ AgendaUtil.prototype = {
             "sum": sec,
             "hours": hours,
             "minutes": minutes,
-            "seconds": seconds
+            "seconds": seconds,
+            "timezone": zoneName
         };
 
         return obj;
+
+    },
+
+    /*
+     * Set the values for the field(s) that get automatically updated on data changes
+     * 
+     * @param none
+     * @returns none
+     *
+     */
+    autoUpdateTextFields: function() {
+
+        var agendaStr = JSON.stringify(this.makeAgendaObj(), null, 4);
+        this.dayGr.setValue('agenda', agendaStr);
+        this.dayGr.setValue('chat_text', this.makeChatText());
+
+    },
+
+    /*
+     * Construct a string for the chat text
+     *
+     * @param none
+     * @return string - formatted text to paste into the chat
+     * 
+     */
+    makeChatText: function() {
+
+        var agendaStr = this.dayGr.getValue('agenda');
+        var agenda = JSON.parse(agendaStr);
+        var output = '';
+
+        var gdt = new GlideDateTime();
+        gdt.addSeconds(agenda.timer.sum);
+        var glt = gdt.getLocalTime();
+        var returnAt = glt.getByFormat("hh:mm a");
+
+        agenda.now.sort((a, b) => a.order - b.order);
+
+        if (agenda.now.length > 0) {
+            for (var i = 0; i < agenda.now.length; i++) {
+                var item = agenda.now[i];
+                output += `* ${item.display_value} (${item.durationStr})\n`;
+            }
+            output += `--> ${gs.getMessage('agenda-return-at')} ${returnAt}`;
+
+        }
+
+        return output;
 
     },
 
@@ -175,14 +225,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 23:11:31</sys_updated_on>
+        <sys_updated_on>2025-07-06 18:27:11</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>

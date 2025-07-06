@@ -2,6 +2,7 @@
     <element db_object_id="e00db1151b16a6506f74cb75604bcb4c" label="Day" max_length="40" name="x_snc_agenda_day" type="collection">
         <element label="Display timer" max_length="40" name="display_timer" type="boolean"/>
         <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Chat text" max_length="1000" name="chat_text" type="string"/>
         <element label="Display now items" max_length="40" name="display_now_items" type="boolean"/>
         <element label="Course" mandatory="true" max_length="32" name="course" reference="x_snc_agenda_course" reference_cascade_rule="cascade" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>

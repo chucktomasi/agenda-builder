@@ -3,25 +3,25 @@
         <sys_ui_annotation action="INSERT_OR_UPDATE">
             <is_plain_text>false</is_plain_text>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-07-02 19:06:32</sys_created_on>
-            <sys_id>723ae1781b6266106f74cb75604bcb3e</sys_id>
+            <sys_created_on>2025-07-06 18:20:14</sys_created_on>
+            <sys_id>2ff50ac61b2aea106f74cb75604bcb55</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-07-02 19:06:32</sys_updated_on>
+            <sys_updated_on>2025-07-06 18:20:14</sys_updated_on>
             <text>agenda-day-notes</text>
             <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
         </sys_ui_annotation>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>723ae1781b6266106f74cb75604bcb3e</element>
+            <element>2ff50ac61b2aea106f74cb75604bcb55</element>
             <position>0</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-07-02 19:06:32</sys_created_on>
-            <sys_id>b23ae1781b6266106f74cb75604bcb98</sys_id>
+            <sys_created_on>2025-07-06 18:20:14</sys_created_on>
+            <sys_id>eff50ac61b2aea106f74cb75604bcb59</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Notes" display_value="Notes" name="x_snc_agenda_day" sys_domain="global" view="Default view">275e01e51bd6e6506f74cb75604bcb20</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-07-02 19:06:32</sys_updated_on>
+            <sys_updated_on>2025-07-06 18:20:14</sys_updated_on>
             <sys_user/>
             <type>annotation</type>
         </sys_ui_element>
@@ -29,13 +29,13 @@
             <element>notes</element>
             <position>1</position>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-07-02 19:06:32</sys_created_on>
-            <sys_id>ba3ae1781b6266106f74cb75604bcb98</sys_id>
+            <sys_created_on>2025-07-06 18:20:14</sys_created_on>
+            <sys_id>2ff50ac61b2aea106f74cb75604bcb5a</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Notes" display_value="Notes" name="x_snc_agenda_day" sys_domain="global" view="Default view">275e01e51bd6e6506f74cb75604bcb20</sys_ui_section>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-07-02 19:06:32</sys_updated_on>
+            <sys_updated_on>2025-07-06 18:20:14</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

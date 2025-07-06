@@ -3,20 +3,25 @@
         <application/>
         <code/>
         <commented_message/>
-        <key>agenda-day-json</key>
+        <key>agenda-day-auto-generated</key>
         <language>en</language>
-        <message>The information in the JSON field is used to generate the portal page. It is updated when this record is saved, or records in the related lists are modified.</message>
+        <message>The information in in this section is automatically updated. You can optionally use the form menu to manually trigger the update.&#13;
+&lt;br/&gt;&lt;br/&gt;&#13;
+&lt;ul&gt;&#13;
+&lt;li&gt;&lt;b&gt;Agenda&lt;/b&gt;: JSON data used by the portal widget to render the agenda. It is updated when this record, or records in the related lists are changed.&lt;/li&gt;&#13;
+&lt;li&gt;&lt;b&gt;Chat text&lt;/b&gt;: A quick synopsis of the labs/breaks. You can easily copy this and paste in the chat.&lt;/li&gt;&#13;
+&lt;/ul&gt;</message>
         <sys_class_name>sys_ui_message</sys_class_name>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-02 19:05:53</sys_created_on>
         <sys_id>19d9e9381b6266106f74cb75604bcb5a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>agenda-day-json</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>agenda-day-auto-generated</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_ui_message_19d9e9381b6266106f74cb75604bcb5a</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-02 19:05:53</sys_updated_on>
+        <sys_updated_on>2025-07-06 17:59:53</sys_updated_on>
     </sys_ui_message>
 </record_update>
