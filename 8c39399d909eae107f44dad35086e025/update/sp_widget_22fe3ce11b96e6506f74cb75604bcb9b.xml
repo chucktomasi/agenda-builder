@@ -48,6 +48,7 @@
 	}, 1000, c.data.result.timer.sum);
 
 	$scope.alarmStop = function() {
+		c.data.state.timerRunning = false;
 		c.data.state.alarmSound = false;
 		c.data.state.alarmStop = true;
 	}
@@ -58,7 +59,7 @@
 		now.setSeconds(now.getSeconds() + c.data.result.timer.sum);
 		const simpleTimeString = now.toLocaleTimeString(undefined, { 
 			timeZone: c.data.result.timer.timezone,
-			hour: '2-digit', 
+			hour: 'numeric', 
 			minute: '2-digit' 
 		});
 		// console.log(simpleTimeString);
@@ -116,7 +117,7 @@ $course-sub-fg: #042d42;
 $day-title-bg: #042D42;
 $day-title-fg: white;
 $module-inactive-bg: #ddd;
-$module-inactive-fg: #042d42;
+$module-inactive-fg: #888;
 $module-active-bg: #035D99;
 $module-active-fg: white;
 $now-title-fg: #005F1E;
@@ -386,14 +387,14 @@ section {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:37:18</sys_created_on>
         <sys_id>22fe3ce11b96e6506f74cb75604bcb9b</sys_id>
-        <sys_mod_count>137</sys_mod_count>
+        <sys_mod_count>143</sys_mod_count>
         <sys_name>agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_widget_22fe3ce11b96e6506f74cb75604bcb9b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-06 13:26:37</sys_updated_on>
+        <sys_updated_on>2025-07-06 21:17:27</sys_updated_on>
         <template><![CDATA[<div class="widgetWrapper">
 
   <div class="loading" ng-if="c.data.state.isLoading">
