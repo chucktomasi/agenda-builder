@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_snc_agenda.ExportWithRelatedLists</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Exports a record with its related lists as an XML document in the unload format.  Writes output to the supplied outputstream associated with a HTTPServletResponse object</description>
+        <mobile_callable>false</mobile_callable>
+        <name>ExportWithRelatedLists</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var ExportWithRelatedLists = Class.create();
+
+ExportWithRelatedLists.prototype = {
+    initialize: function(parent_table, sys_id){
+        this.parent_table = parent_table;
+        this.sys_id = sys_id;
+        this.related_lists = [];
+        this.query_sets = [];
+    },
+    /**
+     * Add related records
+     * @param String child_table - table to query
+     * @param String reference_field - field to query on
+     */
+    addRelatedList: function(child_table, reference_field){
+        var related_list = [child_table, reference_field];
+        this.related_lists.push(related_list);
+    },
+    /**
+     * Add a query definition to define a collection of records to export, allows for custom queries that cannot be met with addRelatedList
+     * @param String table
+     * @param String query - encoded query string
+     */
+    addQuerySet: function(table, query){
+        var set = [table, query];
+        this.query_sets.push(set);
+    },
+    getFileName: function(){
+        return (this.parent_table + '_' + this.sys_id + '.xml');
+    },
+    /**
+     * Enable attachment support for all records being exported
+     * @param boolean b
+     */
+    setAttachments: function(b){
+        this.includeAttachments = b;
+    },
+    /**
+     * Required XML Headers
+     */
+    setHeaders: function(response){
+        response.setHeader('Pragma', 'public');
+        response.addHeader('Cache-Control', 'max-age=0');
+        // setting the content type
+        response.setContentType('application/octet-stream');
+        response.addHeader('Content-Disposition', "attachment;filename=\"" + this.getFileName() + "\"");
+    },
+    /**
+     * Process the request
+     * @param {Object} response
+     */
+    exportRecords: function(response){
+        this.setHeaders(response);
+        var outputStream = response.getOutputStream();
+        this.hd = this.beginExport(outputStream);
+        var gr = new GlideRecord(this.parent_table);
+        gr.get(this.sys_id);
+        this.exportRecord(gr);
+        this.exportChildren();
+        this._exportQuerySets();
+        this.endExport(outputStream);
+    },
+    /**
+     * Export an individual GlideRecord
+     * @param GlideRecord record
+     */
+    exportRecord: function(record){
+        record = new GlideScriptRecordUtil.get(record).getRealRecord();
+        var recordSerializer = new GlideRecordXMLSerializer();
+        recordSerializer.setApplySecurity(true);
+        recordSerializer.serialize(record, this.hd, new Packages.java.lang.String('INSERT_OR_UPDATE'));
+        if (this.includeAttachments && record.getTableName().substring(0, 14) != "sys_attachment") {
+            this.exportAttachments(record);
+        }
+    },
+    /**
+     * Export attachments for a given GlideRecord
+     * @param GlideRecord target
+     */
+    exportAttachments: function(target){
+        var sa = new GlideSysAttachment();
+        //get sys_attachments
+        var attach = new GlideRecord("sys_attachment");
+        attach.addQuery("table_name", target.getTableName());
+        attach.addQuery("table_sys_id", target.getUniqueValue());
+        attach.query();
+        while (attach.next()) {
+            this.exportRecord(attach);
+            var parts = sa.getAttachmentParts(attach.getUniqueValue());
+            while (parts.next()) {
+                this.exportRecord(parts);
+            }
+        }
+    },
+    /**
+     * Get attachment document parts
+     * @param GlideRecord attach - sys_attachment record
+     */
+    _exportAttachDoc: function(attach){
+        gs.warn("ExportWithRelatedLists._exportAttachDoc has been retired");
+    },
+    /**
+     * Process related lists
+     */
+    exportChildren: function(){
+        for (var key = 0; key < this.related_lists.length; key++) {
+            var table = this.related_lists[key];
+            this.exportTableChildren(table);
+        }
+    },
+    /**
+     * Get the records from the related list entries
+     * @param Array table - array of tableName, fieldName
+     */
+    exportTableChildren: function(table){
+        var child = new GlideRecord(table[0]);
+        child.addQuery(table[1], this.sys_id);
+        child.query();
+        while (child.next()) {
+            this.exportRecord(child);
+        }
+    },
+    /**
+     * Process query sets and export results
+     */
+    _exportQuerySets: function(){
+        for (var i = this.query_sets.length - 1; i >= 0; i--) {
+            var querySet = this.query_sets[i];
+            var table = querySet[0];
+            var query = querySet[1];
+            var gr = new GlideRecord(table);
+            gr.addEncodedQuery(query);
+            gr.query();
+			while (gr._next())
+				this.exportRecord(gr);
+        }
+    },
+    /**
+     * Initialize the result
+     * @param {Object} outputStream
+     */
+    beginExport: function(outputStream){
+        var streamResult = new Packages.javax.xml.transform.stream.StreamResult(outputStream);
+        var tf = Packages.javax.xml.transform.sax.SAXTransformerFactory.newInstance();
+        var hd = tf.newTransformerHandler();
+        var serializer = hd.getTransformer();
+        serializer.setOutputProperty(Packages.javax.xml.transform.OutputKeys.ENCODING, 'UTF-8');
+        serializer.setOutputProperty(Packages.javax.xml.transform.OutputKeys.INDENT, 'yes');
+        hd.setResult(streamResult);
+        hd.startDocument();
+        var attr = new GlidesoftGlideAttributesImpl();
+        attr.addAttribute("unload_date", GlideSysDateUtil.getUMTDateTimeString());
+        hd.startElement("", "", 'unload', attr);
+        return hd;
+    },
+    endExport: function(outputStream){
+        this.hd.endElement("", "", 'unload');
+        this.hd.endDocument();
+        outputStream.close();
+    },
+}
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 14:37:17</sys_created_on>
+        <sys_id>3f196338973a6e10022dbea0f053af67</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>ExportWithRelatedLists</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_script_include_3f196338973a6e10022dbea0f053af67</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:14:02</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>3f196338973a6e10022dbea0f053af67</id>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 14:37:17</sys_created_on>
+        <sys_id>e549a338973a6e10022dbea0f053af89</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 14:37:17</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_script_include_3f196338973a6e10022dbea0f053af67</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_snc_agenda.ExportWithRelatedLists&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Exports a record with its related lists as an XML document in the unload format.  Writes output to the supplied outputstream associated with a HTTPServletResponse object&lt;/description&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;ExportWithRelatedLists&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var ExportWithRelatedLists = Class.create();
+
+ExportWithRelatedLists.prototype = {
+    initialize: function(parent_table, sys_id){
+        this.parent_table = parent_table;
+        this.sys_id = sys_id;
+        this.related_lists = [];
+        this.query_sets = [];
+    },
+    /**
+     * Add related records
+     * @param String child_table - table to query
+     * @param String reference_field - field to query on
+     */
+    addRelatedList: function(child_table, reference_field){
+        var related_list = [child_table, reference_field];
+        this.related_lists.push(related_list);
+    },
+    /**
+     * Add a query definition to define a collection of records to export, allows for custom queries that cannot be met with addRelatedList
+     * @param String table
+     * @param String query - encoded query string
+     */
+    addQuerySet: function(table, query){
+        var set = [table, query];
+        this.query_sets.push(set);
+    },
+    getFileName: function(){
+        return (this.parent_table + '_' + this.sys_id + '.xml');
+    },
+    /**
+     * Enable attachment support for all records being exported
+     * @param boolean b
+     */
+    setAttachments: function(b){
+        this.includeAttachments = b;
+    },
+    /**
+     * Required XML Headers
+     */
+    setHeaders: function(response){
+        response.setHeader('Pragma', 'public');
+        response.addHeader('Cache-Control', 'max-age=0');
+        // setting the content type
+        response.setContentType('application/octet-stream');
+        response.addHeader('Content-Disposition', "attachment;filename=\"" + this.getFileName() + "\"");
+    },
+    /**
+     * Process the request
+     * @param {Object} response
+     */
+    exportRecords: function(response){
+        this.setHeaders(response);
+        var outputStream = response.getOutputStream();
+        this.hd = this.beginExport(outputStream);
+        var gr = new GlideRecord(this.parent_table);
+        gr.get(this.sys_id);
+        this.exportRecord(gr);
+        this.exportChildren();
+        this._exportQuerySets();
+        this.endExport(outputStream);
+    },
+    /**
+     * Export an individual GlideRecord
+     * @param GlideRecord record
+     */
+    exportRecord: function(record){
+        record = new GlideScriptRecordUtil.get(record).getRealRecord();
+        var recordSerializer = new GlideRecordXMLSerializer();
+        recordSerializer.setApplySecurity(true);
+        recordSerializer.serialize(record, this.hd, new Packages.java.lang.String('INSERT_OR_UPDATE'));
+        if (this.includeAttachments &amp;&amp; record.getTableName().substring(0, 14) != "sys_attachment") {
+            this.exportAttachments(record);
+        }
+    },
+    /**
+     * Export attachments for a given GlideRecord
+     * @param GlideRecord target
+     */
+    exportAttachments: function(target){
+        var sa = new GlideSysAttachment();
+        //get sys_attachments
+        var attach = new GlideRecord("sys_attachment");
+        attach.addQuery("table_name", target.getTableName());
+        attach.addQuery("table_sys_id", target.getUniqueValue());
+        attach.query();
+        while (attach.next()) {
+            this.exportRecord(attach);
+            var parts = sa.getAttachmentParts(attach.getUniqueValue());
+            while (parts.next()) {
+                this.exportRecord(parts);
+            }
+        }
+    },
+    /**
+     * Get attachment document parts
+     * @param GlideRecord attach - sys_attachment record
+     */
+    _exportAttachDoc: function(attach){
+        gs.warn("ExportWithRelatedLists._exportAttachDoc has been retired");
+    },
+    /**
+     * Process related lists
+     */
+    exportChildren: function(){
+        for (var key = 0; key &lt; this.related_lists.length; key++) {
+            var table = this.related_lists[key];
+            this.exportTableChildren(table);
+        }
+    },
+    /**
+     * Get the records from the related list entries
+     * @param Array table - array of tableName, fieldName
+     */
+    exportTableChildren: function(table){
+        var child = new GlideRecord(table[0]);
+        child.addQuery(table[1], this.sys_id);
+        child.query();
+        while (child.next()) {
+            this.exportRecord(child);
+        }
+    },
+    /**
+     * Process query sets and export results
+     */
+    _exportQuerySets: function(){
+        for (var i = this.query_sets.length - 1; i &gt;= 0; i--) {
+            var querySet = this.query_sets[i];
+            var table = querySet[0];
+            var query = querySet[1];
+            var gr = new GlideRecord(table);
+            gr.addEncodedQuery(query);
+            gr.query();
+			while (gr._next())
+				this.exportRecord(gr);
+        }
+    },
+    /**
+     * Initialize the result
+     * @param {Object} outputStream
+     */
+    beginExport: function(outputStream){
+        var streamResult = new Packages.javax.xml.transform.stream.StreamResult(outputStream);
+        var tf = Packages.javax.xml.transform.sax.SAXTransformerFactory.newInstance();
+        var hd = tf.newTransformerHandler();
+        var serializer = hd.getTransformer();
+        serializer.setOutputProperty(Packages.javax.xml.transform.OutputKeys.ENCODING, 'UTF-8');
+        serializer.setOutputProperty(Packages.javax.xml.transform.OutputKeys.INDENT, 'yes');
+        hd.setResult(streamResult);
+        hd.startDocument();
+        var attr = new GlidesoftGlideAttributesImpl();
+        attr.addAttribute("unload_date", GlideSysDateUtil.getUMTDateTimeString());
+        hd.startElement("", "", 'unload', attr);
+        return hd;
+    },
+    endExport: function(outputStream){
+        this.hd.endElement("", "", 'unload');
+        this.hd.endDocument();
+        outputStream.close();
+    },
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;chuck.tomasi@gmail.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-07-15 14:37:17&lt;/sys_created_on&gt;&lt;sys_id&gt;3f196338973a6e10022dbea0f053af67&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;ExportWithRelatedLists&lt;/sys_name&gt;&lt;sys_package display_value="Agenda Builder" source="x_snc_agenda"&gt;8c39399d909eae107f44dad35086e025&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="Agenda Builder"&gt;8c39399d909eae107f44dad35086e025&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_3f196338973a6e10022dbea0f053af67&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;chuck.tomasi@gmail.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-07-15 18:14:02&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;3f196338973a6e10022dbea0f053af67&lt;/id&gt;&lt;sys_created_by&gt;chuck.tomasi@gmail.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-07-15 14:37:17&lt;/sys_created_on&gt;&lt;sys_id&gt;e549a338973a6e10022dbea0f053af89&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;chuck.tomasi@gmail.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-07-15 14:37:17&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-372213027</payload_hash>
+        <record_name>ExportWithRelatedLists</record_name>
+        <reverted_from/>
+        <source>b594e2911b1aa6506f74cb75604bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 18:14:03</sys_created_on>
+        <sys_id>78ead485973e6e10022dbea0f053af54</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1980f4b323c0000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:14:03</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>bcead485f23e6e10acec663fd3150153</update_guid>
+        <update_guid_history>bcead485f23e6e10acec663fd3150153:-372213027,6d492738163a6e1098d34a1a5395ad50:2135298828</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 18:17:47</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>2f14b2ffbe0a4ed5882957781e0e5601</sys_id>
+        <sys_metadata>3f196338973a6e10022dbea0f053af67</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ExportWithRelatedLists</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_script_include_3f196338973a6e10022dbea0f053af67</sys_update_name>
+        <sys_update_version display_value="sys_script_include_3f196338973a6e10022dbea0f053af67">78ead485973e6e10022dbea0f053af54</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:17:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

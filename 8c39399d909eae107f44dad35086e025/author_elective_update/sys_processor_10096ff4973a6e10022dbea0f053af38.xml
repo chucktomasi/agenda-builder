@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_processor">
+    <sys_processor action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <description/>
+        <interactive>false</interactive>
+        <name>ExportCourse</name>
+        <parameters/>
+        <params_endpoint/>
+        <path>export_course</path>
+        <path_endpoint>x_snc_agenda_export_course</path_endpoint>
+        <require_csrf>false</require_csrf>
+        <roles>snc_internal</roles>
+        <script><![CDATA[(function process(g_request, g_response, g_processor) {
+	var sysid = g_request.getParameter('sysparm_sys_id');
+	// gs.info('** Course agenda ' + sysid);
+
+	//Name all the related lists
+	var exporter = new global.ExportWithRelatedLists(x_snc_agenda.Constants.COURSE_TABLE, sysid);
+	exporter.addRelatedList(x_snc_agenda.Constants.DAY_TABLE, 'course');
+	exporter.addRelatedList(x_snc_agenda.Constants.MODULE_TABLE, 'course');
+	exporter.addRelatedList(x_snc_agenda.Constants.NOW_ITEM_TABLE, 'course');
+
+	var m2mModuleList = [];
+	var m2mNowItemList = [];
+
+	//Query for M2M day/modules
+	var m2mMod = new GlideRecord(x_snc_agenda.Constants.DAY_MODULE_M2M);
+	m2mMod.addQuery('course', sysid);
+	m2mMod.query();
+	while (m2mMod.next()){
+		m2mModList.push(m2mMod.getUniqueValue());
+
+		var modGr = new GlideRecord(x_snc_agenda.Constants.MODULE_TABLE);
+		modGr.addQuery('sys_id', m2mMod.getValue('module'));
+		modGr.query();
+		if (modGr.next()) {
+			m2mModuleList.push(modGr.getUniqueValue());
+		}
+	}
+/*
+	// gs.info('** Exporting categories:\ ' + catList.join('\n'));
+
+	//Query for M2M cards
+	var m2mCard = new GlideRecord('x_snc_agenda_m2m_game_card');
+	m2mCard.addQuery('game', sysid);
+	m2mCard.query();
+	while (m2mCard.next()){
+		m2mCardList.push(m2mCard.getUniqueValue());
+
+		var cardGr = new GlideRecord('x_snc_agenda_card');
+		cardGr.addQuery('sys_id', m2mCard.getValue('card'));
+		cardGr.query();
+		if (cardGr.next()) {
+			cardList.push(cardGr.getUniqueValue());
+		}
+	}
+	
+	*/
+	exporter.addQuerySet(x_snc_agenda.Constants.DAY_MODULE_M2M, 'sys_idIN' + m2mModuleList.join(','));
+	/*
+	exporter.addQuerySet('x_snc_agenda_m2m_game_card', 'sys_idIN' + m2mCardList.join(','));
+	exporter.addQuerySet('x_snc_agenda_category', 'sys_idIN' + catList.join(','));
+	exporter.addQuerySet('x_snc_agenda_card', 'sys_idIN' + cardListText);
+	exporter.addQuerySet('sys_attachment', 'table_sys_idIN' + cardListText);
+	exporter.addQuerySet('sys_attachment_doc', 'sys_attachmentIN' + attList.join(','));
+	*/
+	exporter.exportRecords(g_response);
+	
+})(g_request, g_response, g_processor);]]></script>
+        <sys_class_name>sys_processor</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 14:36:28</sys_created_on>
+        <sys_id>10096ff4973a6e10022dbea0f053af38</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>ExportCourse</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_processor_10096ff4973a6e10022dbea0f053af38</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:36:08</sys_updated_on>
+        <type>script</type>
+        <xframe_sameorigin>false</xframe_sameorigin>
+    </sys_processor>
+    <sys_es_latest_script action="DELETE">
+        <id>10096ff4973a6e10022dbea0f053af38</id>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 14:36:28</sys_created_on>
+        <sys_id>ed192338973a6e10022dbea0f053af19</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 14:36:28</sys_updated_on>
+        <table>sys_processor</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</application>
+        <file_path/>
+        <instance_id>5535ac94dba200d00b9d21c405961932</instance_id>
+        <instance_name>karaoke</instance_name>
+        <name>sys_processor_10096ff4973a6e10022dbea0f053af38</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_processor"&gt;&lt;sys_processor action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;description/&gt;&lt;interactive&gt;false&lt;/interactive&gt;&lt;name&gt;ExportCourse&lt;/name&gt;&lt;parameters/&gt;&lt;params_endpoint/&gt;&lt;path&gt;export_course&lt;/path&gt;&lt;path_endpoint&gt;x_snc_agenda_export_course&lt;/path_endpoint&gt;&lt;require_csrf&gt;false&lt;/require_csrf&gt;&lt;roles&gt;snc_internal&lt;/roles&gt;&lt;script&gt;&lt;![CDATA[(function process(g_request, g_response, g_processor) {
+	var sysid = g_request.getParameter('sysparm_sys_id');
+	// gs.info('** Course agenda ' + sysid);
+
+	//Name all the related lists
+	var exporter = new global.ExportWithRelatedLists(x_snc_agenda.Constants.COURSE_TABLE, sysid);
+	exporter.addRelatedList(x_snc_agenda.Constants.DAY_TABLE, 'course');
+	exporter.addRelatedList(x_snc_agenda.Constants.MODULE_TABLE, 'course');
+	exporter.addRelatedList(x_snc_agenda.Constants.NOW_ITEM_TABLE, 'course');
+
+	var m2mModuleList = [];
+	var m2mNowItemList = [];
+
+	//Query for M2M day/modules
+	var m2mMod = new GlideRecord(x_snc_agenda.Constants.DAY_MODULE_M2M);
+	m2mMod.addQuery('course', sysid);
+	m2mMod.query();
+	while (m2mMod.next()){
+		m2mModList.push(m2mMod.getUniqueValue());
+
+		var modGr = new GlideRecord(x_snc_agenda.Constants.MODULE_TABLE);
+		modGr.addQuery('sys_id', m2mMod.getValue('module'));
+		modGr.query();
+		if (modGr.next()) {
+			m2mModuleList.push(modGr.getUniqueValue());
+		}
+	}
+/*
+	// gs.info('** Exporting categories:\ ' + catList.join('\n'));
+
+	//Query for M2M cards
+	var m2mCard = new GlideRecord('x_snc_agenda_m2m_game_card');
+	m2mCard.addQuery('game', sysid);
+	m2mCard.query();
+	while (m2mCard.next()){
+		m2mCardList.push(m2mCard.getUniqueValue());
+
+		var cardGr = new GlideRecord('x_snc_agenda_card');
+		cardGr.addQuery('sys_id', m2mCard.getValue('card'));
+		cardGr.query();
+		if (cardGr.next()) {
+			cardList.push(cardGr.getUniqueValue());
+		}
+	}
+	
+	*/
+	exporter.addQuerySet(x_snc_agenda.Constants.DAY_MODULE_M2M, 'sys_idIN' + m2mModuleList.join(','));
+	/*
+	exporter.addQuerySet('x_snc_agenda_m2m_game_card', 'sys_idIN' + m2mCardList.join(','));
+	exporter.addQuerySet('x_snc_agenda_category', 'sys_idIN' + catList.join(','));
+	exporter.addQuerySet('x_snc_agenda_card', 'sys_idIN' + cardListText);
+	exporter.addQuerySet('sys_attachment', 'table_sys_idIN' + cardListText);
+	exporter.addQuerySet('sys_attachment_doc', 'sys_attachmentIN' + attList.join(','));
+	*/
+	exporter.exportRecords(g_response);
+	
+})(g_request, g_response, g_processor);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_processor&lt;/sys_class_name&gt;&lt;sys_created_by&gt;chuck.tomasi@gmail.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-07-15 14:36:28&lt;/sys_created_on&gt;&lt;sys_id&gt;10096ff4973a6e10022dbea0f053af38&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;ExportCourse&lt;/sys_name&gt;&lt;sys_package display_value="Agenda Builder" source="x_snc_agenda"&gt;8c39399d909eae107f44dad35086e025&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Agenda Builder"&gt;8c39399d909eae107f44dad35086e025&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_processor_10096ff4973a6e10022dbea0f053af38&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;chuck.tomasi@gmail.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-07-15 18:36:08&lt;/sys_updated_on&gt;&lt;type&gt;script&lt;/type&gt;&lt;xframe_sameorigin&gt;false&lt;/xframe_sameorigin&gt;&lt;/sys_processor&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;10096ff4973a6e10022dbea0f053af38&lt;/id&gt;&lt;sys_created_by&gt;chuck.tomasi@gmail.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-07-15 14:36:28&lt;/sys_created_on&gt;&lt;sys_id&gt;ed192338973a6e10022dbea0f053af19&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;chuck.tomasi@gmail.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-07-15 14:36:28&lt;/sys_updated_on&gt;&lt;table&gt;sys_processor&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>703582746</payload_hash>
+        <record_name>ExportCourse</record_name>
+        <reverted_from/>
+        <source>b594e2911b1aa6506f74cb75604bcbca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 18:36:08</sys_created_on>
+        <sys_id>1cff508d973e6e10022dbea0f053afcf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1980f5f6a310000001</sys_recorded_at>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:36:08</sys_updated_on>
+        <type>Processor</type>
+        <update_guid>90ff508d963e6e105f423329dbddddcf</update_guid>
+        <update_guid_history>90ff508d963e6e105f423329dbddddcf:703582746,a99fd44d053e6e10c4d79ccc0cf76f67:1186967154,860b9c85a23e6e10a9e49e94b5d7d9ce:-1080003211,7999dc05be3e6e101b685d4fc4c1de50:-706715180,fd1923387b3a6e104161e18a00ac676a:70666047</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-15 18:42:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_processor">sys_processor</sys_db_object>
+        <sys_id>5b57e97204ab4384a4aacb454e247944</sys_id>
+        <sys_metadata>10096ff4973a6e10022dbea0f053af38</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ExportCourse</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_scope_delete display_value="">3ace0e30875f491391d439a739173749</sys_scope_delete>
+        <sys_update_name>sys_processor_10096ff4973a6e10022dbea0f053af38</sys_update_name>
+        <sys_update_version display_value="sys_processor_10096ff4973a6e10022dbea0f053af38">1cff508d973e6e10022dbea0f053afcf</sys_update_version>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-15 18:42:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

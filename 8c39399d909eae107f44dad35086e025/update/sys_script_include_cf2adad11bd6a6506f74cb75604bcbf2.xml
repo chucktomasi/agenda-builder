@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
         <api_name>x_snc_agenda.Constants</api_name>
         <caller_access/>
@@ -18,6 +18,7 @@ Constants.MODULE_TABLE     = 'x_snc_agenda_module';
 Constants.NOW_ITEM_TABLE   = 'x_snc_agenda_now_item';
 Constants.PERSON_TABLE     = 'x_snc_agenda_person';
 Constants.VERSION_TABLE    = 'x_snc_agenda_sn_version';
+Constants.PROCESSOR_TABLE  = 'sys_processor';
 
 // Many-to-many
 Constants.DAY_MODULE_M2M   = 'x_snc_agenda_m2m_day_module';
@@ -27,14 +28,14 @@ Constants.DAY_NOW_ITEM_M2M = 'x_snc_agenda_m2m_day_now_item';
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:40:45</sys_created_on>
         <sys_id>cf2adad11bd6a6506f74cb75604bcbf2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Constants</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_cf2adad11bd6a6506f74cb75604bcbf2</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-06-22 01:40:45</sys_updated_on>
+        <sys_updated_on>2025-07-15 18:40:41</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>cf2adad11bd6a6506f74cb75604bcbf2</id>

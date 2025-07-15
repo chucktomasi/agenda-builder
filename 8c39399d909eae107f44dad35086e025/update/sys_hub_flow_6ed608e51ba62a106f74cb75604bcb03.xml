@@ -1242,14 +1242,14 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>6ed608e51ba62a106f74cb75604bcb03</sys_id>
         <latest_snapshot>dcd788291ba62a106f74cb75604bcbc9</latest_snapshot>
-        <compiler_build>glide-xanadu-07-02-2024__patch7b-hotfix1-05-20-2025_05-22-2025_2350.zip</compiler_build>
+        <compiler_build>glide-xanadu-07-02-2024__patch9-05-21-2025_06-04-2025_0434.zip</compiler_build>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=6ed608e51ba62a106f74cb75604bcb03"/>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=6ed608e51ba62a106f74cb75604bcb03^sys_idNOT INa4d7c8291ba62a106f74cb75604bcb4f"/>
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"a4d7c8291ba62a106f74cb75604bcb4f","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Copy Course Now Item Records">6ed608e51ba62a106f74cb75604bcb03</plan_id>
-        <snapshot>f5ff50e51b2a2a106f74cb75604bcbc7</snapshot>
+        <snapshot>2400248d973e6e10022dbea0f053af91</snapshot>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 19:52:01</sys_created_on>
         <sys_domain>global</sys_domain>
