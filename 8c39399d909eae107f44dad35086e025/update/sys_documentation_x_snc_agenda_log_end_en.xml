@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="notes" label="Notes" language="en" table="x_snc_agenda_now_item">
+    <sys_documentation element="end" label="End" language="en" table="x_snc_agenda_log">
         <sys_documentation action="INSERT_OR_UPDATE">
-            <element>notes</element>
+            <element>end</element>
             <help/>
             <hint/>
-            <label>Notes</label>
+            <label>End</label>
             <language>en</language>
-            <name>x_snc_agenda_now_item</name>
-            <plural>Notes</plural>
+            <name>x_snc_agenda_log</name>
+            <plural>Ends</plural>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-            <sys_created_on>2025-06-21 23:49:48</sys_created_on>
+            <sys_created_on>2025-07-20 13:42:53</sys_created_on>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>Notes</sys_name>
+            <sys_name>End</sys_name>
             <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
             <sys_policy/>
             <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
-            <sys_update_name>sys_documentation_x_snc_agenda_now_item_notes_en</sys_update_name>
+            <sys_update_name>sys_documentation_x_snc_agenda_log_end_en</sys_update_name>
             <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-            <sys_updated_on>2025-06-21 23:49:48</sys_updated_on>
+            <sys_updated_on>2025-07-20 13:42:53</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

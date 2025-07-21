@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Add Time</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    var addSec = parseInt(request.body.data.addSec || 0);
+    var courseID = request.body.data.course || "";
+    var dayID = request.body.data.day || "";
+    var validInputs = true;
+
+    // TODO: Translate error messages
+
+    if (!addSec) {
+        validInputs = false;
+        response.setStatus(500);
+        response.setBody({
+            "status": "error",
+            "message": "API: Error reading number of seconds to add"
+        });
+    }
+
+    if (!courseID) {
+        validInputs = false;
+        response.setStatus(500);
+        response.setBody({
+            "status": "error",
+            "message": "API: Error reading course ID"
+        });
+    }
+
+    if (!dayID) {
+        validInputs = false;
+        response.setStatus(500);
+        response.setBody({
+            "status": "error",
+            "message": "API: Error reading day ID"
+        });
+    }
+
+    if (validInputs) {
+        var dayGr = new GlideRecord(Constants.DAY_TABLE);
+        try {
+            dayGr.get(dayID);
+            var au = new AgendaUtil(dayGr);
+            au.addExtensionToNowItems(courseID, addSec);
+            response.setStatus(200);
+            response.setBody({
+                "status": "ok",
+                "message": "success"
+            });
+        } catch (e) {
+            response.setStatus(500);
+            response.setBody({
+                "status": "error",
+                "message": e
+            });
+        }
+
+    }
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_agenda/agenda/add_time</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/add_time</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-19 17:24:06</sys_created_on>
+        <sys_id>0a38e4521b7e66506f74cb75604bcb79</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Add Time</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_update_name>sys_ws_operation_0a38e4521b7e66506f74cb75604bcb79</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-19 18:12:51</sys_updated_on>
+        <web_service_definition display_value="Agenda">c83f70251b96e6506f74cb75604bcb16</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>0a38e4521b7e66506f74cb75604bcb79</id>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-19 17:24:06</sys_created_on>
+        <sys_id>44d570d21bbe66506f74cb75604bcb4a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-19 17:24:06</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

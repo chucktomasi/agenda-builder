@@ -6,14 +6,14 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 14:28:20</sys_created_on>
         <sys_id>c2aa41a11bd6e6506f74cb75604bcbef</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>agenda-timer</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_ng_template_c2aa41a11bd6e6506f74cb75604bcbef</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-02 17:36:22</sys_updated_on>
+        <sys_updated_on>2025-07-19 22:37:30</sys_updated_on>
         <template><![CDATA[
 <section>
   <div class="wrapper">
@@ -29,10 +29,10 @@
           &nbsp;
         </div>
         <div class="col-xs-3 timerButton">
-          <div ng-if="!c.data.state.timerRunning" ng-click="c.data.state.timerRunning = true;">
+          <div ng-if="!c.data.state.timer.running" ng-click="startTimer()">
             <i class="fa fa-play-circle" aria-hidden="true"></i>                    
           </div>
-          <div ng-if="c.data.state.timerRunning" ng-click="c.data.state.timerRunning = false;">
+          <div ng-if="c.data.state.timer.running" ng-click="pauseTimer()">
             <i class="fa fa-pause-circle" aria-hidden="true"></i>
           </div>
         </div>
@@ -48,11 +48,42 @@
         <div class="col-xs-2">
           &nbsp;
         </div>
+
       </div>
+      <div class="row timerButtonRow">
+        <div class="col-xs-2">
+          &nbsp;
+        </div>
+
+        <div class="col-xs-2 addTimeButton" ng-click="addTime(300)">
+          ${agenda-add-5-min}        
+        </div>
+
+        <div class="col-xs-1">
+          &nbsp;
+        </div>
+
+        <div class="col-xs-2 addTimeButton" ng-click="addTime(600)">
+          ${agenda-add-10-min}        
+        </div>
+
+        <div class="col-xs-1">
+          &nbsp;
+        </div>
+
+        <div class="col-xs-2 addTimeButton" ng-click="addTime(900)">
+          ${agenda-add-15-min}        
+        </div>
+
+        <div class="col-xs-2">
+          &nbsp;
+        </div>
+      </div>
+
       <div class="row timerReturn">
         <div class="col-xs-12">
           ${agenda-return-at} {{c.data.result.timer.returnAt}}
-          <div ng-if="c.data.state.alarmSound && !c.data.state.alarmStop">
+          <div ng-if="c.data.state.alarm.sound && !c.data.state.alarm.stop">
             <audio src="agenda-timer-alarm.mp3" title="Beep" autoplay="true" control="false"/>
           </div>
         </div>

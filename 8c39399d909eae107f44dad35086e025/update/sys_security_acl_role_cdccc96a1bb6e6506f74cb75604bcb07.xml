@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+        <sys_created_on>2025-07-20 13:42:52</sys_created_on>
+        <sys_id>cdccc96a1bb6e6506f74cb75604bcb07</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_agenda_log.x_snc_agenda.admin</sys_name>
+        <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
+        <sys_security_acl display_value="x_snc_agenda_log">09ccc96a1bb6e6506f74cb75604bcb02</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_cdccc96a1bb6e6506f74cb75604bcb07</sys_update_name>
+        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+        <sys_updated_on>2025-07-20 13:42:52</sys_updated_on>
+        <sys_user_role display_value="x_snc_agenda.admin" name="x_snc_agenda.admin">d839399d909eae107f44dad35086e02f</sys_user_role>
+    </sys_security_acl_role>
+</record_update>

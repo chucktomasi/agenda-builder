@@ -5,38 +5,44 @@
 	/* widget controller */
 	var c = this;
 
+	/***************************************************************
+	 * Refresh the data from the day record if there are any changes
+	 ***************************************************************/
 	spUtil.recordWatch($scope, 'x_snc_agenda_day', 'sys_id=' + c.data.param.day, function(name) {
 		refreshData();
 	});
 
-
 	refreshData();
 
+	/***************************************************************
+	 * The main function that runs the countdown timer and alarm
+	 ***************************************************************/
 	$interval(function(){
 
-		if (c.data.state.timerRunning) {
+		if (c.data.state.timer.running) {
 
 			if (c.data.result.timer.sum > 0) {
 				c.data.result.timer.sum--;		
 			}
-			var now = new Date();
-			calculateReturnTime();
 
+			// When the countdown reaches zero, stop the timer
 			if (c.data.result.timer.sum == 0 ) {
 				console.log('Timer expired');
-				c.data.state.timerRunning = false;
-				// c.data.state.alarmSound = true;				
+				c.data.state.timer.running = false;
 			}
 		} else {
+			// Sound the alarm
 			if (c.data.result.timer.sum == 0) {
-				c.data.state.alarmSound = false;
-				if (!c.data.state.alarmStop) {
+				c.data.state.alarm.sound = false;
+				if (!c.data.state.alarm.stop) {
 					$timeout(function() {
-						c.data.state.alarmSound = true;
+						c.data.state.alarm.sound = true;
 					}, 1000);
 				}
 			}
 		}
+
+		// Update the variables that display the countdown timer
 		var h = Math.floor(c.data.result.timer.sum % (3600*24) / 3600);
 		var m = Math.floor(c.data.result.timer.sum % 3600 / 60);
 		var s = Math.floor(c.data.result.timer.sum % 60);
@@ -47,12 +53,219 @@
 
 	}, 1000, c.data.result.timer.sum);
 
-	$scope.alarmStop = function() {
-		c.data.state.timerRunning = false;
-		c.data.state.alarmSound = false;
-		c.data.state.alarmStop = true;
+	/***************************************************************
+   * Current date/time string
+	 ***************************************************************/
+	function formattedDateTime() {
+
+		var now = new Date();
+
+		// Options for formatting the date and time
+		var options = {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit',
+			hour12: false, // Use 24-hour format
+			timeZone: c.data.result.timer.timezone // Apply the specified timezone
+		};
+
+		// Create a DateTimeFormat object with the desired options
+		var formatter = new Intl.DateTimeFormat('en-US', options);
+
+		// Format the date and time
+		var parts = formatter.formatToParts(now);
+
+		// Extract and combine the parts to form the yyyy-MM-dd HH:mm:ss string
+		const year = parts.find(p => p.type === 'year').value;
+		const month = parts.find(p => p.type === 'month').value;
+		const day = parts.find(p => p.type === 'day').value;
+		const hour = parts.find(p => p.type === 'hour').value;
+		const minute = parts.find(p => p.type === 'minute').value;
+		const second = parts.find(p => p.type === 'second').value;
+
+		return year + "-" +
+			month + "-" +
+			day + " " +
+			hour + ":" +
+			minute + ":" + second;
 	}
 
+	/***************************************************************
+   * Sum up the duration of now items
+	 ***************************************************************/
+	function calculateNowItemSum() {
+
+		var sum = 0;
+		for (var i = 0; i < c.data.result.now.length; i++) {
+			sum += c.data.result.now[i].duration;
+		}
+
+		return sum;
+
+	}
+
+	/***************************************************************
+   * Note the agenda details
+	 ***************************************************************/
+	function nowItemDetails() {
+
+		var details = [];
+
+		for (var i = 0; i < c.data.result.now.length; i++) {
+			var item = c.data.result.now[i];
+			var str = item.title;
+			if (item.short_description) {
+				str += " - " + item.short_description;
+			}
+			str += " (" + item.durationStr + ")";
+			details.push("<li>" + str + "</li>");
+		}
+
+		return details.join('\n');
+
+	}
+
+	/***************************************************************
+	 * The Stop button has been pressed
+	 * Stop the timer (if running) and turn off the alarm sound
+	 ***************************************************************/
+	$scope.alarmStop = function() {
+
+		c.data.state.timer.running = false;
+		c.data.state.alarm.sound = false;
+		c.data.state.alarm.stop = true;
+
+		c.data.log.end = formattedDateTime();
+		c.data.log.duration = calculateNowItemSum();
+		c.data.log.details = nowItemDetails();
+		sendLog();
+	}
+
+	/***************************************************************
+   * Start the timer and note the current state as running.
+	 * 'running' is the current state. Pausing or stopping sets false
+	 * 'started' is set once and only false when result.sum == 0
+	 ***************************************************************/
+	$scope.startTimer = function() {
+
+		if (!c.data.state.timer.started) {
+			c.data.log.start = formattedDateTime();
+		}
+
+		c.data.state.timer.running = true;
+		c.data.state.timer.started = true;
+		c.data.state.alarm.stop = false;
+		calculateReturnTime(); // Updates in case it was paused
+
+	}
+
+
+	/***************************************************************
+   * Stop the running timer momentarily
+	 ***************************************************************/
+	$scope.pauseTimer = function() {
+
+		c.data.state.timer.running = false;
+
+	}
+
+	/***************************************************************
+   * Log data to the server
+	 ***************************************************************/
+	function sendLog() {
+
+		var url = '/api/x_snc_agenda/agenda/log';
+		var body = c.data.log;
+
+		$http({
+			"method" : "POST",
+			"url" : url,
+			"data" : body,
+			"headers" : {"Content-type" : "application/json"}
+		}).then(function success(response) {
+			var status = response.data.result.status;
+			var msg = response.data.result.message;
+
+			if (status != "ok") {
+				spUtil.addErrorMessage(msg);
+
+			}
+		}, function failure(response) {
+			var msg = response.data.result.message;
+			spUtil.addErrorMessage(msg);
+		});
+	}
+
+	/***************************************************************
+   * Add an extension to the timer for a given duration by calling
+	 * the API. The displayed timer is also updated.
+	 ***************************************************************/
+	$scope.addTime = function(duration) {
+
+		var url = '/api/x_snc_agenda/agenda/add_time';
+		var body = {
+			"addSec" : duration,
+			"day" : c.data.result.day.sys_id,
+			"course" : c.data.result.course.sys_id
+		};
+
+		c.data.state.timer.add = duration;
+		c.data.state.timer.oldSum = c.data.result.timer.sum;
+		c.data.log.extended = true;
+
+		$http({
+			"method" : "POST",
+			"url" : url,
+			"data" : body,
+			"headers" : {"Content-type" : "application/json"}
+		}).then(function success(response) {
+			var status = response.data.result.status;
+			var msg = response.data.result.message;
+			// No need to update any part of c.data.result
+			// Adding this record automatically triggers refreshData
+			// and all new time values are updated
+			if (status != "ok") {
+				spUtil.addErrorMessage(msg);
+				// c.data.result = JSON.parse(JSON.stringify(response.data.result));
+
+			} else {
+				// c.data.result.timer = JSON.parse(JSON.stringify(response.data.result));
+				calculateReturnTime();
+			}
+		}, function failure(response) {
+			var msg = response.data.result.message;
+			spUtil.addErrorMessage(msg);
+		});
+	}
+
+	/***************************************************************
+   * Show/hide a section of the form defined by an object's
+	 * sys_id. This is used for the student notes on modules and
+	 * now items.
+	 ***************************************************************/
+	$scope.toggle = function(obj) {
+
+		//console.log('toggle: ' + obj.sys_id);
+		var el = document.getElementById(obj.sys_id);
+
+		if (el.style.display === "block") {
+			el.style.display = "none";
+		} else {
+			el.style.display = "block";
+		}
+
+	}
+
+	/***************************************************************
+   * Based on the current amount of time left and the user's
+	 * timezone, determine when students should return. While
+	 * this is available from the server in the initial timer object,
+	 * the instructor may press pause for a few minutes. This value
+	 * is recalculated when the timer is started again.
+	 ***************************************************************/
 	function calculateReturnTime() {
 
 		var now = new Date();
@@ -67,12 +280,48 @@
 
 	}
 
+	/***************************************************************
+   * Calculate the total amount of time left on the counter
+	 *
+	 * Initially before the counter starts, this is the sum of all
+	 * item durations in the 'now' list. Once the timer starts,
+	 * it is the combination of the current value plus anything added
+	 * to keep the running timer running w/o starting over.
+	 ***************************************************************/
+	function calculateTime() {
+
+		// Update the timer sum with the current
+		// amount of seconds left + the added increment
+		if (c.data.state.timer.started && c.data.state.timer.add > 0) {
+			c.data.result.timer.sum = c.data.state.timer.oldSum + c.data.state.timer.add;
+			c.data.state.timer.oldSum = 0;
+			c.data.state.timer.add = 0;
+
+		} else {
+			// Otherwise, sum up all the now items with
+			// an initial time amount
+			var sec = 0;
+
+			for (var i = 0; i < c.data.result.now.length; i++) {
+				sec += c.data.result.now[i].duration;
+			}
+			c.data.result.timer.sum = sec;			
+		}
+	}
+
+	/***************************************************************
+   * Call the REST API to refresh the agenda data
+	 *
+	 * This is done initially when the widget is loaded and
+	 * any time the day record content is updated to remove the
+	 * need for the user to refresh the widget
+	 ***************************************************************/
 	function refreshData() {
 
 		var url = '/api/x_snc_agenda/agenda?day=' +
 				c.data.param.day;
 
-		console.log('refreshData(): url=' + url);
+		// console.log('refreshData()');
 
 		$http({
 			"method" : "GET",
@@ -89,7 +338,23 @@
 			} else {
 				c.data.result = JSON.parse(JSON.stringify(response.data.result));
 				c.data.state.isLoading = false;
+				calculateTime();
 				calculateReturnTime();
+				// Initialize values in the log object
+				c.data.log.course = c.data.result.course.name;
+				c.data.log.version = c.data.result.course.sn_version;
+				c.data.log.instructor = c.data.result.course.instructor;
+				c.data.log.id              = c.data.result.id;
+				if (c.data.result.newlog) {
+					c.data.log.start           = "";
+					c.data.log.end             = "";
+					c.data.log.details         = "";
+					c.data.log.extended        = false;
+					c.data.state.timer.started = false;
+				}
+				if (!c.data.state.timer.started) {
+					c.data.log.start = "";				
+				}
 			}
 		}, function failure(response) {
 			var msg = response.data.result.message;
@@ -126,12 +391,17 @@ $now-item-fg: #042d42;
 $now-item-bg: #C2E6FF;
 $timer-button-bg: #52B8FF;
 $timer-button-fg: #042d42;
+$add-time-button-bg: #E6DBFF;
+$add-time-button-fg: #3C288D;
 $timer-count-bg: #042D42;
 $timer-count-fg: #C2E6FF;
 $timer-return-bg: #C2E6FF;
 $timer-return-fg: #042D42;
 $error-bg: #FDF7F7;
 $error-fg: #A02623;
+$comment-fg: #BF71F2;
+$student-note-bg: #E6DBFF;
+$student-note-fg: #444;
 
 /******************/
 /* Course section */
@@ -158,6 +428,23 @@ $error-fg: #A02623;
   margin-top: 10px;
   padding: 5px;
   font-size: 2rem;
+}
+
+.comment {
+  background-color: transparent;
+}
+
+.fa-comment {
+  color: $comment-fg;
+}
+
+.student_note {
+  font-size: 1.5rem;
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: $student-note-bg;
+  color: $student-note-fg;
 }
 
 /******************/
@@ -216,7 +503,7 @@ $error-fg: #A02623;
 /* Timer section */
 /*****************/
 
-.timerCounter,.timerButton,.timerReturn {
+.timerCounter,.timerButton,.timerReturn,.addTimeButton {
   text-align: center;
   border-radius: 10px;
   padding: 5px;
@@ -239,6 +526,12 @@ $error-fg: #A02623;
 .timerButton {
   background-color: $timer-button-bg;
   color: $timer-button-fg;
+  font-size: 2em;
+}
+
+.addTimeButton {
+  background-color: $add-time-button-bg;
+  color: $add-time-button-fg;
   font-size: 2em;
 }
 
@@ -362,23 +655,49 @@ section {
   /* populate the 'data' object */
   /* e.g., data.table = $sp.getValue('table'); */
 
+	// URL parameters
 	data.param = {
 		"day" : $sp.getParameter('day'),
 		"debug" : $sp.getParameter('debug') == "true"
 	};
 	
+	// Internal state controls
 	data.state = {
 		"isLoading" : true,
-		"timerRunning" : false,
-		"alarmSound" : false,
-		"alarmStop" : false
+		"timer" : {
+			"running" : false,
+			"started" : false,
+			"add": 0,
+			"oldSum" : 0
+		},
+		"alarm" : {
+			"sound" : false,
+			"stop" : false
+		}
 	};
 	
+	// Render the agenda (API data added here)
 	data.result = {
 		"timer" : {
 			"sum" : 0,
+			"hours": "00",
+			"minutes" : "00",
+			"seconds" : "00",
 			"returnAt" : ""
 		}
+	};
+	
+	// Track the lab timing
+	data.log = {
+		"id" : "",
+		"course" : "",
+		"version" : "",
+		"instructor" : "",
+		"start" : "",
+		"end" : "",
+		"duration" : 0,
+		"extended" : false,
+		"details" : ""
 	};
 	
 })();]]></script>
@@ -387,14 +706,14 @@ section {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:37:18</sys_created_on>
         <sys_id>22fe3ce11b96e6506f74cb75604bcb9b</sys_id>
-        <sys_mod_count>143</sys_mod_count>
+        <sys_mod_count>202</sys_mod_count>
         <sys_name>agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_widget_22fe3ce11b96e6506f74cb75604bcb9b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-06 21:17:27</sys_updated_on>
+        <sys_updated_on>2025-07-21 03:23:33</sys_updated_on>
         <template><![CDATA[<div class="widgetWrapper">
 
   <div class="loading" ng-if="c.data.state.isLoading">

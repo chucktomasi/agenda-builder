@@ -84,6 +84,20 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>highlight</element>
+            <position>6</position>
+            <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
+            <sys_created_on>2025-07-20 13:17:37</sys_created_on>
+            <sys_id>5bf685a21bb6e6506f74cb75604bcb28</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_agenda_m2m_day_module" sys_domain="global" view="Default view">ab55a1a01b6ee2106f74cb75604bcbfd</sys_ui_section>
+            <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
+            <sys_updated_on>2025-07-20 13:17:37</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

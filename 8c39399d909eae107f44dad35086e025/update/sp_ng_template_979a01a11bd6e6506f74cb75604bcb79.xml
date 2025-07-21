@@ -6,14 +6,14 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 14:28:08</sys_created_on>
         <sys_id>979a01a11bd6e6506f74cb75604bcb79</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>agenda-day</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_ng_template_979a01a11bd6e6506f74cb75604bcb79</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-02 00:35:57</sys_updated_on>
+        <sys_updated_on>2025-07-19 16:06:43</sys_updated_on>
         <template><![CDATA[<section>
   <div class="wrapper">
     <div class="leftTitle rotate">{{c.data.result.day.name}}</div>
@@ -22,7 +22,12 @@
         <div ng-class="item.class">
           <div class="moduleTitle">
             {{item.title}}
-            <li class="moduleShortDescription">{{item.short_description}}</li>
+            <li class="moduleShortDescription">{{item.short_description}}
+              <span ng-if="item.student_notes" class="comment" ng-click="toggle(item)"><i class="fa fa-comment" aria-hidden="true"></i>
+              </span>
+              <div id="{{item.sys_id}}" class="student_note" ng-bind-html="item.student_notes">
+              </div>
+            </li>
           </div>
         </div>
       </div>
