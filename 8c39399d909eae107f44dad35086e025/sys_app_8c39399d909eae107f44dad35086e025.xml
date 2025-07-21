@@ -32,16 +32,16 @@
         <sys_created_by>chuck.tomasi</sys_created_by>
         <sys_created_on>2025-06-21 23:13:09</sys_created_on>
         <sys_id>8c39399d909eae107f44dad35086e025</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-15 19:07:32</sys_updated_on>
+        <sys_updated_on>2025-07-21 21:42:00</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role display_value="x_snc_agenda.admin" name="x_snc_agenda.admin">d839399d909eae107f44dad35086e02f</user_role>
         <vendor/>
         <vendor_prefix/>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
     </sys_app>
     <sys_attachment action="INSERT_OR_UPDATE">
         <average_image_color>#0</average_image_color>
