@@ -50,7 +50,7 @@
 
 		var newRecs = new CopyUtil().processOutput(output);
 		action.setRedirectURL('/x_snc_agenda_course_list.do');
-		gs.addInfoMessage(current.getDisplayValue() + ' ' + gs.getMessage('agenda-copied-to') + ' Copy of ' + current.getDisplayValue());
+		gs.addInfoMessage(gs.getMessage('agenda-copied', [current.getDisplayValue(), newRecs.name]));
 		
 	} catch (ex) {
 		var message = ex.getMessage();
@@ -68,7 +68,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0052c0611ba62a106f74cb75604bcbe4</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Copy course</sys_name>
         <sys_overrides/>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
@@ -76,7 +76,7 @@
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_ui_action_0052c0611ba62a106f74cb75604bcbe4</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 22:38:14</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:43:44</sys_updated_on>
         <table>x_snc_agenda_course</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

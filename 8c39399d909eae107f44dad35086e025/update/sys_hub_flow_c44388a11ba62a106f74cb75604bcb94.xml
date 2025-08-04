@@ -4,7 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
-        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=7810000,viewActivatedIn=naturalLanguage</attributes>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=2686398000,viewActivatedIn=naturalLanguage</attributes>
         <authored_on_release_version>26000</authored_on_release_version>
         <callable_by_client_api>false</callable_by_client_api>
         <category display_value="">{}</category>
@@ -15,7 +15,7 @@
         <flow_priority>MEDIUM</flow_priority>
         <generation_source/>
         <internal_name>copy_course</internal_name>
-        <label_cache>[{"name":"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b.record","label":"1 - Create Record➛Course Record","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["target_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["target_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["target_course"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.course","label":"Input➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","column_name":"","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["source_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["source_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["source_course"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"534a4cc2-d7bb-4a3e-a699-53016e8c306e","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.course.name","label":"Input➛Course➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_course","column_name":"name","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["name"]}},{"name":"subflow.course.active","label":"Input➛Course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["active"]}},{"name":"subflow.course.assistant_instructor","label":"Input➛Course➛Assistant instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"assistant_instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["assistant_instructor"]}},{"name":"subflow.course.instructor","label":"Input➛Course➛Instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["instructor","servicenow_version"]}},{"name":"subflow.course.servicenow_version","label":"Input➛Course➛ServiceNow version","reference":"x_snc_agenda_sn_version","reference_display":"ServiceNow version","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"servicenow_version","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["servicenow_version"]}},{"name":"subflow.course.start","label":"Input➛Course➛Start","reference":"","reference_display":"Start","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"start","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["start"]}},{"name":"subflow.course.end","label":"Input➛Course➛End","reference":"","reference_display":"End","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"end","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["end"]}}]</label_cache>
+        <label_cache>[{"name":"subflow.course.end","label":"Input➛Course➛End","reference":"","reference_display":"End","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"end","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["end"]}},{"name":"subflow.course.start","label":"Input➛Course➛Start","reference":"","reference_display":"Start","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"start","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["start"]}},{"name":"subflow.course.servicenow_version","label":"Input➛Course➛ServiceNow version","reference":"x_snc_agenda_sn_version","reference_display":"ServiceNow version","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"servicenow_version","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["servicenow_version"]}},{"name":"subflow.course.instructor","label":"Input➛Course➛Instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["instructor","servicenow_version"]}},{"name":"subflow.course.assistant_instructor","label":"Input➛Course➛Assistant instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"assistant_instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["assistant_instructor"]}},{"name":"subflow.course.active","label":"Input➛Course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["active"]}},{"name":"subflow.course.name","label":"Input➛Course➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_course","column_name":"name","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["name"]}},{"name":"subflow.course","label":"Input➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","column_name":"","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["source_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["source_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["source_course"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"534a4cc2-d7bb-4a3e-a699-53016e8c306e","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b.record","label":"1 - Create Record➛Course Record","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["target_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["target_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["target_course"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
         <master_snapshot>07016c291b2a2a106f74cb75604bcb0a</master_snapshot>
         <master_snapshot_digest/>
         <name>Copy Course</name>
@@ -36,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>c44388a11ba62a106f74cb75604bcb94</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Copy Course</sys_name>
         <sys_overrides/>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
@@ -44,7 +44,7 @@
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_hub_flow_c44388a11ba62a106f74cb75604bcb94</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:15</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:23</sys_updated_on>
         <type>subflow</type>
         <version>2</version>
     </sys_hub_flow>
@@ -254,12 +254,12 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 19:34:28</sys_created_on>
         <sys_id>abc344e11ba62a106f74cb75604bcb5d</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 22:26:30</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:59</sys_updated_on>
         <ui_id>a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b</ui_id>
-        <values>H4sIAAAAAAAA/+1VwW7bMAz9lUBnw7CTLmhzG1LktLXAOuTSdQZt04kAWfIkOU0W+N9HWXaaNTGaYbsUWE4R+Ui9R1L0457xnM3YNMbow008zSbxZDKOovH1VZxOJ2k8zieAeMUCJqFEQlpIBSbtIWAbELUzbhMjswRWKHNIMlVr47w5N5WA3bIDzXt7tuYi1yjZ7PEpYBVoSmZRs9n+letSagJSFAT96rgNULW76qzt03Hs6M47lM4dnyhguLUkColIAcJgwEogjVbpHZtZXZNBI+T3UuwOiDWXlhIyh90a/pOuvY4crkBSlqH3HY5JVyZvLm7BwgNlzmytO2i2VjxD42uSYwG1sPNjmwfcV5Yr6UNamV20EnUp73xJ2CFB3xWy1IZIYOV0OuadjOJhrZ6/9CwXXLYl6ZxCZSAOJ7BW87S2js+eocCSEiUlVBWXq6TSasPbYOJShitBh7AQ6pkuNXwlQ8gc8ZDKCuGC7LeteQmaOxWfKQ0FNwEzOzMXYMyLFipi8qN2TLyyTkPiy+BCMs0r+5Eu2GBHtwn6mc8xuhkcrDh9GaR2zM3RvDv7tzqKJvlcVbuRKkb7valTJyr04x86SNN8h/Zqjz3BeKdDGcONBWLOpWmbr/RQzBkoZXgz7je0Qb2hiZHUgw1qQ9UfiDoFumgL2g4FOB9hqBEDCPI0zel2+F/Svy/pHy7Wt+e/X6wLjiI3Zx5Ev1WxpF5aTPwDebVZO+do2Tm77Rr/q+0aT6P29452rBf37lfs0df0/LLtjY50O8ftn7M42GB+KBhlg85/CX5wDbSJzjzvS2k0zdMvN+vB6SMJAAA=</values>
+        <values>H4sIAAAAAAAA/+1Wy27bOBT9FYKrNnEUKe6krbsK0glm0TbAZJBN3AqUdGVzQJEaPly7hv59Lh9y0zhGU6CbAs3G0X0cnnN5dO27LeUNndHzAvI/Xhfn9bSYTs/y/OzVi6I6n1bFWTNlAC/ohErWAVZaVgkow8OErphwPrgujaxLtgDZsLJWThufbbjpBdvcpqLLMV4vuWg0SDq7+zihPdMIZkHT2fZB6qnUBKtAYOk/ntsBqnbTPxp7d7+XfIgJpRvPJ59QWFsUBUikZcLAhHYMNVqlN3RmtcOABtZcS7HZVSy5tAhIfe3a8C947Kvc17WAymqIud1jmcYUw+1bZtkNItfW6VRaLxWvwcSZNNAyJ+zl/VgsuO4tVzK2BJmpWwnXyQ9xJHQHMN4KRpxBEtB7nZ55ktHeLNXnv0eWV1yGkaSkUDUTuydmreaVs57PloKADoHKjvU9l4uy12rFQzNy6bKFwIesFeozHmr4Qmas9sQzHCvLrjD+NoRvmeZexXuEweZhQs3GXApmzFctOMTyP+eZRGVJQxnH4FtqzXt7gQesINEdJqPnG8hfHzRWUX01UrC5ued3H5+7PJ82bXMSz4DmEwvHxPh2a1zlRWbxdchichg+oQBuLEOWXJpw0Uof6nmkFBG+2/dNtQG9QndInPcKtMFJH+jaL/Tdlml7qMHnsAaHfqACM8Owvwl+j+/HxveDC/P7vh4X5hUH0ZhHjD5uS+jw3iyU0fgPNmZKktuUTFuz+FlbszjPw98vtDujuF9+dd77ltxbolFijHnOwcbhn/1di3VsBc1uXsPotIfV34LS06O5PDq6qPGWDPG6Ti+CUOKFEmdwNsQugbRNGSKq+hdqm5GbAEA6ZyzRgC6QhJHg3Yx4xGvvUCJdV+EHN0S1rQFLqg05LgiX5E+tlSZ/oVmFP+IG4ngDmRXjIvxGUMErhiTvEdcjsV4jVd8zp9mcEtbi+znS8+2wZvi2wAzZaGKWSlu8qprEF38szNALiwXorHYarWOzUOjvOujCU994rKRsh+KDp3M5lx4bibR8PQIvTLYA+x654Y+zZz549jL+TDupVb85UW2MPUeMBJsAjknMjB/HO5JpSeFS7Z01467y9/qGPrjwSzwDh0z2NpuvxtWGfmDJAU/xz8FvhQD0yLZ/qi2H4eP/z9qL+goLAAA=</values>
     </sys_hub_action_instance_v2>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=c44388a11ba62a106f74cb75604bcb94^sys_idNOT IN342800691ba62a106f74cb75604bcba2,382800691ba62a106f74cb75604bcba0,f02800691ba62a106f74cb75604bcba3"/>
     <sys_hub_sub_flow_instance_v2 action="INSERT_OR_UPDATE">
@@ -344,12 +344,12 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 21:37:17</sys_created_on>
         <sys_id>eeefdca51b2a2a106f74cb75604bcb8f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:13</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:21</sys_updated_on>
         <ui_id>e1bfe8fc-ed7e-4e02-a32d-057538188b99</ui_id>
-        <values>H4sIAAAAAAAA/41U227bOBD9FYJPbeoosus4qfMUoC22xW4M1Nm+VAuBooY2uxSp8uLEDfzvO6OLk2bRon6QxdHMmXMOh3zgLsU2xXDrrkPQG8uXXx64rvmSTxegainOp9VMzMQ0X6iLuawuzhf5vJLV5TmfcCsawMweAtc7YRIF8LXWoTVi//kxIrfa1B6owz8T3gqPxRE8Xz48+xT3LZRGVGCwcB29thss/11OY+FqJPWcJMHjOozAztfEYjrhcB/B1oCNlDABJrwRthbR+f0x4kHUK2seA1ttY6+vEfdBf0foyzzPKVMBSpKD+uOyHJwZTXFawqqN2tk+EkVlRsecSY296fmTp6BEMvGJpykgHrTEmmgMnNR66+4+jQ3fa9sJHD4aJ4U5rkREG6oUIdA+JH37zJw+8ufzzQADDXYsG9G2GClb73a664Kkm2xjcJEp4+6QHU1VJiQpzNBNkb3H+Nsu/Fl4TXL/QhgspnZ/W/0twQfabDmbzeaXi/w0V/Xl6fxCXZxWaiZO1Rs4V/PFtAah+KGztvyWSFRv0mBH2TuKCUF63cZrpLBDcdEnGGMkehgMfPtVHj87KezJybWUEAIjCWfXnSZGmlgKaAOLW2CqLruIq76CjBlbdwCsSSEyDzF5ywTrDkrGCHFF48dsair804E5pQJEVu3ZqynTlr3z3nn2B06ioRZr6J3syOyENuQfc90ABTbMFkstEms9UqWagmcFZ0LhaRvpUTnci6Y1sEQ2noWt8xF3RbIi5fnrekzMcMs3G/CZTB7HKWZdIm1rpwu7XhHWoOyIQsGzwhaWsHuHR+CHwjL8FbwW+4C8luzjenWT4YUQ4MXYtZyVpXTtHh/J05BjbtbjvJyMAI2rk4GfY7z+EWNI/x+MxTHVEZqfA81/BBoLSg8Sb48jYmEPV6R5MKND6k+SVvsXQ9IVPxwOeMtpS9duf+PthnMwLGuQOqCztxT78CSv3uNlpuXT0J3z/9JBe4wd/gOUM/r61AUAAA==</values>
+        <values>H4sIAAAAAAAA/41U227TQBD9lZWfSkldJ03Tkj5VAgQIGomUvmBkrdezycJ6191L2lDl35nxJS1FIPIQe8czZ86cmdmHxMbQxOCv7aX3amWS+deHRFXJPBnPQFaCn47LCZ/wcTaTZ1NRnp3OsmkpyvPTZJQYXgN6dhB43nAdyYCvlfKN5tubR4tYK105oAzfRknDHQYHcMn84dmnsG2g0LwEjYHL4JRZYfj/choCFwOp5yQJHs9+ALauIhbjUQL3AUwFmEhy7WGU1NxUPFi33Vsc8Gph9KNhrUzo6qv5vVc/Efo8yzLylIAlib76/bHolRlEsUrAognKms4SeKkHxayOtbnq+JOmIHnU4Ymm0SMeNMSaaPSc5HJt7z4PCd8q0xbYf9RWcL0/8YAylDGApz5Edf1MnM7y8XkzQEONGYuaNw1aisbZjWqzIOk6XWk8pFLbO2RHU5VyQRWmqCZP36L9dWu+4U5RuZ8QBoMp3RejbiO8p2aLyWQyPZ9lR5mszo+mZ/LsqJQTfiRfwamczsYVcJnsWmmL20hFdSL1chSdoujghVNNuEQKGywuuAiDjYruBwPf/uWXHB/m5vDwUgjwnlEJx5dtTYxqYtGjDCysgcmqaC22/A4ipGzZArA6+sAchOgM46xdlJQR4oLGj5lYl/hQnlkpPQRWbtnLMVOGvXHOOvYOJ1FTiiV0SrZkNlxp0o/ZdoA862eLxQaJNQ6pUkyepHnCuMRtG+hRONzzutEwRzaO+bV1AbsiWB6z7KQaHFNs+WoFLhXR4TiFtHWktrZ1YdYLwuor26OQ8Tg3uSHsTuEB+CE3DH95u5jIa75PVYyLQuCGBSgcCNzLtH+QZxpsN34HL0YDQsW3vkX4sFxcpXileDjYg00QzDZb/IuO1gR9047JI0Btq6jh7xgnv2P07n/AGBx0FaD+O9D0d6AhoK9zj5ib3QWp1svZInW7qOT2oHe6SHa7Hd6TytDF3d2Zm36T+mMFQnnszTXZ3j/xq7aopRJPTXfW/aBVfbTtfgHKsVEcFgYAAA==</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=c44388a11ba62a106f74cb75604bcb94"/>
@@ -418,7 +418,7 @@
         <description>Duplicate a course record and all related data. Useful for carrying over from one release to another.</description>
         <flow_priority>MEDIUM</flow_priority>
         <internal_name>copy_course</internal_name>
-        <label_cache>[{"name":"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b.record","label":"1 - Create Record➛Course Record","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["target_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["target_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["target_course"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}},{"name":"subflow.course","label":"Input➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","column_name":"","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["source_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["source_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["source_course"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"534a4cc2-d7bb-4a3e-a699-53016e8c306e","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"subflow.course.name","label":"Input➛Course➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_course","column_name":"name","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["name"]}},{"name":"subflow.course.active","label":"Input➛Course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["active"]}},{"name":"subflow.course.assistant_instructor","label":"Input➛Course➛Assistant instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"assistant_instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["assistant_instructor"]}},{"name":"subflow.course.instructor","label":"Input➛Course➛Instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["instructor","servicenow_version"]}},{"name":"subflow.course.servicenow_version","label":"Input➛Course➛ServiceNow version","reference":"x_snc_agenda_sn_version","reference_display":"ServiceNow version","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"servicenow_version","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["servicenow_version"]}},{"name":"subflow.course.start","label":"Input➛Course➛Start","reference":"","reference_display":"Start","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"start","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["start"]}},{"name":"subflow.course.end","label":"Input➛Course➛End","reference":"","reference_display":"End","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"end","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["end"]}}]</label_cache>
+        <label_cache>[{"name":"subflow.course.end","label":"Input➛Course➛End","reference":"","reference_display":"End","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"end","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["end"]}},{"name":"subflow.course.start","label":"Input➛Course➛Start","reference":"","reference_display":"Start","type":"glide_date","base_type":"glide_date","parent_table_name":"x_snc_agenda_course","column_name":"start","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["start"]}},{"name":"subflow.course.servicenow_version","label":"Input➛Course➛ServiceNow version","reference":"x_snc_agenda_sn_version","reference_display":"ServiceNow version","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"servicenow_version","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["servicenow_version"]}},{"name":"subflow.course.instructor","label":"Input➛Course➛Instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["instructor","servicenow_version"]}},{"name":"subflow.course.assistant_instructor","label":"Input➛Course➛Assistant instructor","reference":"x_snc_agenda_person","reference_display":"Person","type":"reference","base_type":"reference","parent_table_name":"x_snc_agenda_course","column_name":"assistant_instructor","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["assistant_instructor"]}},{"name":"subflow.course.active","label":"Input➛Course➛Active","reference":"","reference_display":"Active","type":"boolean","base_type":"boolean","parent_table_name":"x_snc_agenda_course","column_name":"active","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["active"]}},{"name":"subflow.course.name","label":"Input➛Course➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_snc_agenda_course","column_name":"name","usedInstances":{"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b":["name"]}},{"name":"subflow.course","label":"Input➛Course","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","column_name":"","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["source_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["source_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["source_course"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"534a4cc2-d7bb-4a3e-a699-53016e8c306e","sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b.record","label":"1 - Create Record➛Course Record","reference":"x_snc_agenda_course","reference_display":"Course","type":"reference","base_type":"reference","usedInstances":{"f084ec77-97f7-40d1-b971-be17cc95c989":["target_course"],"c9c5fb43-4c8d-419f-8247-958e6e52b63f":["target_course"],"71e5659e-b3a2-4add-926f-dd142c680d64":["target_course"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
         <master>true</master>
         <name>Copy Course</name>
         <natlang/>
@@ -435,7 +435,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>07016c291b2a2a106f74cb75604bcb0a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -443,7 +443,7 @@
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name/>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:14</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:22</sys_updated_on>
         <type>subflow</type>
         <version>2</version>
     </sys_hub_flow_snapshot>
@@ -653,12 +653,12 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 21:42:14</sys_created_on>
         <sys_id>83016c291b2a2a106f74cb75604bcb36</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:14</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:43:01</sys_updated_on>
         <ui_id>a89c5c4b-e11c-488e-b6a7-ad3bbb060f6b</ui_id>
-        <values>H4sIAAAAAAAA/+1VwW7bMAz9lUBnw7CTLmhzG1LktLXAOuTSdQZt04kAWfIkOU0W+N9HWXaaNTGaYbsUWE4R+Ui9R1L0457xnM3YNMbow008zSbxZDKOovH1VZxOJ2k8zieAeMUCJqFEQlpIBSbtIWAbELUzbhMjswRWKHNIMlVr47w5N5WA3bIDzXt7tuYi1yjZ7PEpYBVoSmZRs9n+letSagJSFAT96rgNULW76qzt03Hs6M47lM4dnyhguLUkColIAcJgwEogjVbpHZtZXZNBI+T3UuwOiDWXlhIyh90a/pOuvY4crkBSlqH3HY5JVyZvLm7BwgNlzmytO2i2VjxD42uSYwG1sPNjmwfcV5Yr6UNamV20EnUp73xJ2CFB3xWy1IZIYOV0OuadjOJhrZ6/9CwXXLYl6ZxCZSAOJ7BW87S2js+eocCSEiUlVBWXq6TSasPbYOJShitBh7AQ6pkuNXwlQ8gc8ZDKCuGC7LeteQmaOxWfKQ0FNwEzOzMXYMyLFipi8qN2TLyyTkPiy+BCMs0r+5Eu2GBHtwn6mc8xuhkcrDh9GaR2zM3RvDv7tzqKJvlcVbuRKkb7valTJyr04x86SNN8h/Zqjz3BeKdDGcONBWLOpWmbr/RQzBkoZXgz7je0Qb2hiZHUgw1qQ9UfiDoFumgL2g4FOB9hqBEDCPI0zel2+F/Svy/pHy7Wt+e/X6wLjiI3Zx5Ev1WxpF5aTPwDebVZO+do2Tm77Rr/q+0aT6P29452rBf37lfs0df0/LLtjY50O8ftn7M42GB+KBhlg85/CX5wDbSJzjzvS2k0zdMvN+vB6SMJAAA=</values>
+        <values>H4sIAAAAAAAA/+1Wy27bOBT9FYKrNnEUKe6krbsK0glm0TbAZJBN3AqUdGVzQJEaPly7hv59Lh9y0zhGU6CbAs3G0X0cnnN5dO27LeUNndHzAvI/Xhfn9bSYTs/y/OzVi6I6n1bFWTNlAC/ohErWAVZaVgkow8OErphwPrgujaxLtgDZsLJWThufbbjpBdvcpqLLMV4vuWg0SDq7+zihPdMIZkHT2fZB6qnUBKtAYOk/ntsBqnbTPxp7d7+XfIgJpRvPJ59QWFsUBUikZcLAhHYMNVqlN3RmtcOABtZcS7HZVSy5tAhIfe3a8C947Kvc17WAymqIud1jmcYUw+1bZtkNItfW6VRaLxWvwcSZNNAyJ+zl/VgsuO4tVzK2BJmpWwnXyQ9xJHQHMN4KRpxBEtB7nZ55ktHeLNXnv0eWV1yGkaSkUDUTuydmreaVs57PloKADoHKjvU9l4uy12rFQzNy6bKFwIesFeozHmr4Qmas9sQzHCvLrjD+NoRvmeZexXuEweZhQs3GXApmzFctOMTyP+eZRGVJQxnH4FtqzXt7gQesINEdJqPnG8hfHzRWUX01UrC5ued3H5+7PJ82bXMSz4DmEwvHxPh2a1zlRWbxdchichg+oQBuLEOWXJpw0Uof6nmkFBG+2/dNtQG9QndInPcKtMFJH+jaL/Tdlml7qMHnsAaHfqACM8Owvwl+j+/HxveDC/P7vh4X5hUH0ZhHjD5uS+jw3iyU0fgPNmZKktuUTFuz+FlbszjPw98vtDujuF9+dd77ltxbolFijHnOwcbhn/1di3VsBc1uXsPotIfV34LS06O5PDq6qPGWDPG6Ti+CUOKFEmdwNsQugbRNGSKq+hdqm5GbAEA6ZyzRgC6QhJHg3Yx4xGvvUCJdV+EHN0S1rQFLqg05LgiX5E+tlSZ/oVmFP+IG4ngDmRXjIvxGUMErhiTvEdcjsV4jVd8zp9mcEtbi+znS8+2wZvi2wAzZaGKWSlu8qprEF38szNALiwXorHYarWOzUOjvOujCU994rKRsh+KDp3M5lx4bibR8PQIvTLYA+x654Y+zZz549jL+TDupVb85UW2MPUeMBJsAjknMjB/HO5JpSeFS7Z01467y9/qGPrjwSzwDh0z2NpuvxtWGfmDJAU/xz8FvhQD0yLZ/qi2H4eP/z9qL+goLAAA=</values>
     </sys_hub_action_instance_v2>
     <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=07016c291b2a2a106f74cb75604bcb0a^sys_idNOT IN0f016c291b2a2a106f74cb75604bcb37,47016c291b2a2a106f74cb75604bcb3a,87016c291b2a2a106f74cb75604bcb39"/>
     <sys_hub_sub_flow_instance_v2 action="INSERT_OR_UPDATE">
@@ -743,12 +743,12 @@
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 21:42:14</sys_created_on>
         <sys_id>47016c291b2a2a106f74cb75604bcb35</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_scope/>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:14</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:22</sys_updated_on>
         <ui_id>e1bfe8fc-ed7e-4e02-a32d-057538188b99</ui_id>
-        <values>H4sIAAAAAAAA/41U224TMRD9FctPpaTbTUjSkj5VQAUIGomUvrBo5fXaianX3vqSdqny78zsJS1XkYfEPpk5c+Z47AdqY6hj8Ff23Hu1NnTx5YGqki7oeC5kydlsXEzYhI3TuTyZ8uJkNk+nBS9OZ3REDasERHYUsN8yHRGAZal8rVlz/YjwjdKlE1jh64jWzEFyEI4uoJ6BhWH6gzI3fwr+Xz2aFUJD6HIQ9KvA0NS498Eps+73H/qk1QBaV6Ks8YiK+yBMKaC6ZNqLEa2YKVmwrtkjTrByafQjsIFmuh4qdu/Vd6h3mqYpRkoBHfHejv02763qYPmaBQZSIg/R7Z2zigvfeVEKyaIOr55iXcCyDsqaLiWwQg/ZVsfKXHZO0D3Bk5OJHkSIGltF7X0jcrWxd58GlRfKtK70f2rLmd7vWADvihhQzwON6uoXmzvkN6OFFhVUzCtW14DktbNb1VYB0VWy1rBJpLZ3oA5nM2EcO0zgCFhyAfjrFr5mTmG7H4EGkrHcZ6Nuo3iHY8Mnk8n0dJ4epbI8PZqeyJOjQk7YkXwpZnI6H5eCSbobUd/4V5p5/2gUnFB+G7HNzrbeoLzzGFO4U3U4B1FbSIEzEwOGNvRDB6t/xdHjw8wcHp5zOExPsKnj87ZLgl2S6MEYEjaCyDJvEVt8EzwkZNUSkCr6QJyAYTGEkfYCJgQZlzjFxMSqgB/liZXSi0CKhjwfE2XIG+esI29hoDWWWInO21bMlimNjhLbjpQn/YiSWIOw2oFUzMloklHCJFzeQR6mi3tW1VosQI0jfmNdgHPiJItp+qIcAhMYgvVauIRHBwMWkjYQD7rtC6qeIVff2Z4FwePMZAa5O4cH4ofMEPhktGSNB10L8n61vEzgofHiYKiaT/Kc27qBr+hw7CE26XiejQaCypZRi79zvPiZow//jcbA4Kogqr8TTX8mGhJyJzg8QnvGzOzOsOfejJapu1tKNgd90Bnd7Xb4Vhp8zrt3YdvfjP3TwZUHZ68Qe/ckrmzgoVT8KXRn3Q1evUds9wMAj/ssLAYAAA==</values>
+        <values>H4sIAAAAAAAA/41V23LTMBD9FY2eSkldJ6RpSZ86XAYYaGZI4QUzHlmWEoEsGV3Smk7+nV3fUq5DHhrrZPfs2aNd957aGOoY/I298l5tDF1+uqeqpEs6XQhZcnY2LWZsxqbpQp7PeXF+tkjnBS8uzuiEGlYJiOwo4LxjOiIAj6XytWbNxwPCt0qXTmCFzxNaMwfJQTi6hHoGHgzTb5X5+qfg/9WjWSE0hK4GQb8KDE2NZx+cMpv+/LZPWg+gdSXKmk6ouAvClAKqS6a9mNCKmZIF65oRcYKVK6MPwBaa6Xqo2J1X36HeRZqmGCkFdMR7O8Zj3lvVwfI5CwykRB6iG52zigvfeVEKyaIOzx5iXcCqDsqaLiWwQg/ZVsfKXHdO0JHgwc1EDyJEja2i9r4Rud7a2/eDypfKtK70P2rLmR5PLIB3RQyo555GdfOLzR3ym9FCiwoq5hWra0Dy2tmdaquA6CrZaDgkUttbUIezmTCOHSZwBSx5CfjzFv7InMJ23wENJGO5D0Z9i+I1jg2fzWbzi0V6ksry4mR+Ls9PCjljJ/KpOJPzxbQUTNL9hPrGP9PM+4NRcEP5t4htdrb1BuWdx5jCnarDFYjaQQrcmRgwtKEfOnj6Vxw9Pc7M8fEVh8v0BJs6vWq7JNgliR6MIWEriCzzFrHFF8FDQtYtAamiD8QJGBZDGGkXMCHIuMIpJiZWBXwpT6yUXgRSNOTxlChDXjhnHXkFA62xxFp03rZidkxpdJTYdqQ86UeUxBqE1Q6kYk5Gk4wSJmF5B3mYLu5YVWuxBDWO+K11Ae6Jkyym6ZNyCExgCDYb4RIeHQxYSNpAvOi2L6h6iVx9ZyMLgqeZyQxydw4PxPeZIfDJ2qUHXcuxVD7Ncw6LGkTuBIf1TvovjEyC7Qby6NFkYChZ41uGN+vVdQKvKi+ORrIZkNm6gT/R4eJAbNIpORBUtoxa/J3jyc8cffhvNAZGXwVR/Z1o/jPRkND3OTJmZn+JrvV2tkzddirZHPVBl3S/3+Pb1uA/hO7Nsut3a3z5cOXhbm4Qe/0grmzAS8UfQrfWfcXlPWD7H73ejpNuBgAA</values>
         <workflow_reference/>
     </sys_hub_flow_logic_instance_v2>
     <sys_hub_pill_compound action="delete_multiple" query="attached_to=07016c291b2a2a106f74cb75604bcb0a"/>
@@ -813,16 +813,16 @@
     <sys_flow_subflow_plan action="INSERT_OR_UPDATE">
         <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_subflow_plan","id":"17016c291b2a2a106f74cb75604bcb4b","name":"plan","plan_signature":null}}</plan>
         <plan_id display_value="Copy Course">c44388a11ba62a106f74cb75604bcb94</plan_id>
-        <snapshot>c400248d973e6e10022dbea0f053af09</snapshot>
+        <snapshot>503b40a71b8fae106f74cb75604bcb6f</snapshot>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-04 21:42:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>17016c291b2a2a106f74cb75604bcb4b</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-04 21:42:15</sys_updated_on>
+        <sys_updated_on>2025-08-04 21:45:23</sys_updated_on>
     </sys_flow_subflow_plan>
 </record_update>
