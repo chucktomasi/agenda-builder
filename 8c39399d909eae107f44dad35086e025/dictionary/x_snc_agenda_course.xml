@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="08d9b99d1bd2a6506f74cb75604bcb39" label="Course" max_length="40" name="x_snc_agenda_course" type="collection">
-        <element label="Assistant instructor" max_length="32" name="assistant_instructor" reference="x_snc_agenda_person" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element dynamic_creation="true" label="Assistant instructor" max_length="32" name="assistant_instructor" reference="x_snc_agenda_person" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element label="End" max_length="40" name="end" type="glide_date"/>
-        <element label="Instructor" mandatory="true" max_length="32" name="instructor" reference="x_snc_agenda_person" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element dynamic_creation="true" label="Instructor" mandatory="true" max_length="32" name="instructor" reference="x_snc_agenda_person" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
         <element display="true" label="Name" mandatory="true" max_length="80" name="name" type="string"/>
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="ServiceNow version" mandatory="true" max_length="32" name="servicenow_version" reference="x_snc_agenda_sn_version" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
