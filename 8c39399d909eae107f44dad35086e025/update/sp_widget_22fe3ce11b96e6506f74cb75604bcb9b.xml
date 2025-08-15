@@ -140,7 +140,6 @@
 
 		c.data.log.end = formattedDateTime();
 		c.data.log.duration = calculateNowItemSum();
-		c.data.log.details = nowItemDetails();
 		sendLog();
 	}
 
@@ -177,6 +176,7 @@
 	 ***************************************************************/
 	function sendLog() {
 
+		c.data.log.details = nowItemDetails();
 		var url = '/api/x_snc_agenda/agenda/log';
 		var body = c.data.log;
 
@@ -234,6 +234,7 @@
 			} else {
 				// c.data.result.timer = JSON.parse(JSON.stringify(response.data.result));
 				calculateReturnTime();
+				sendLog();
 			}
 		}, function failure(response) {
 			var msg = response.data.result.message;
@@ -514,7 +515,7 @@ $student-note-fg: #444;
 .timerCounter {
   background-color: $timer-count-bg;
   color: $timer-count-fg;
-  font-size: 6em;
+  font-size: 10vw;
   font-family: 'Courier New';
   margin: 5px;
 }
@@ -532,7 +533,7 @@ $student-note-fg: #444;
 .addTimeButton {
   background-color: $add-time-button-bg;
   color: $add-time-button-fg;
-  font-size: 2em;
+  font-size: 4vw;
 }
 
 .timerReturn {
@@ -637,7 +638,8 @@ section {
   font-size: 2rem;
   padding: 10px;
   border-radius: 10px;
-}</css>
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -706,15 +708,17 @@ section {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:37:18</sys_created_on>
         <sys_id>22fe3ce11b96e6506f74cb75604bcb9b</sys_id>
-        <sys_mod_count>202</sys_mod_count>
+        <sys_mod_count>216</sys_mod_count>
         <sys_name>agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_widget_22fe3ce11b96e6506f74cb75604bcb9b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-21 03:23:33</sys_updated_on>
-        <template><![CDATA[<div class="widgetWrapper">
+        <sys_updated_on>2025-08-15 14:12:32</sys_updated_on>
+        <template><![CDATA[<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="widgetWrapper">
 
   <div class="loading" ng-if="c.data.state.isLoading">
     <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> ${agenda-loading}
