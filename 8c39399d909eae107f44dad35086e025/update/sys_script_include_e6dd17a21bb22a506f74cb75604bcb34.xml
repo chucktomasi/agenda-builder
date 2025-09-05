@@ -13,18 +13,21 @@
 Log.prototype = {
     initialize: function() {},
 
-	/*
-	 * Create a new log entry from the log object
-	 * 
-	 * @param object - log details
-	 * @return string - sys_id of the new record
-	 * 
-	 */
+    /*
+     * Create a new log entry from the log object
+     * 
+     * @param object - log details
+     * @return string - sys_id of the new record
+     * 
+     */
     insertLog: function(logObj) {
 
+        var durationStr = "";
         var logGr = new GlideRecord(Constants.LOG_TABLE);
-        var gd = new GlideDuration(logObj.duration * 1000);
-        var durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
+        if (logObj.duration) {
+            var gd = new GlideDuration(logObj.duration * 1000);
+            durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
+        }
 
         logGr.newRecord();
         logGr.setValue('log_id', logObj.id);
@@ -43,25 +46,38 @@ Log.prototype = {
 
     },
 
-	/*
-	 * Update or insert a new log entry
-	 * 
-	 * @param object - the log details
-	 * @return none
-	 * 
-	 */ 
+    /*
+     * Update or insert a new log entry
+     * 
+     * @param object - the log details
+     * @return none
+     * 
+     */
     upsertLog: function(logObj) {
 
+        var durationStr = "";
         var logGr = new GlideRecord(Constants.LOG_TABLE);
-        var gd = new GlideDuration(logObj.duration * 1000);
-        var durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
+        if (logObj.duration) {
+            var gd = new GlideDuration(logObj.duration * 1000);
+            durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
+        }
 
         if (logGr.get('log_id', logObj.id)) {
 
-            logGr.start.setDisplayValue(logObj.start);
-            logGr.end.setDisplayValue(logObj.end);
-            logGr.setValue('duration', durationStr);
-            logGr.setValue('details', logObj.details);
+            if (logObj.start) {
+                if (logGr.getValue('start') == "") { // Only set the start date once
+                    logGr.start.setDisplayValue(logObj.start);
+                }
+            }
+            if (logObj.end) {
+                logGr.end.setDisplayValue(logObj.end);
+            }
+            if (logObj.duration) {
+                logGr.setValue('duration', durationStr);
+            }
+            if (logObj.details) {
+                logGr.setValue('details', logObj.details);
+            }
             logGr.setValue('extended', logObj.extended);
             logGr.update();
 
@@ -77,14 +93,14 @@ Log.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-07-21 02:41:17</sys_created_on>
         <sys_id>e6dd17a21bb22a506f74cb75604bcb34</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Log</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_e6dd17a21bb22a506f74cb75604bcb34</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-21 21:44:37</sys_updated_on>
+        <sys_updated_on>2025-09-05 17:58:21</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>e6dd17a21bb22a506f74cb75604bcb34</id>

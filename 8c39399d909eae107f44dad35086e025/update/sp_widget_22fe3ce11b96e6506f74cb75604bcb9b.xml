@@ -5,21 +5,34 @@
 	/* widget controller */
 	var c = this;
 
+	readAgenda(); // initial data fetch
+
 	/***************************************************************
 	 * Refresh the data from the day record if there are any changes
 	 ***************************************************************/
 	spUtil.recordWatch($scope, 'x_snc_agenda_day', 'sys_id=' + c.data.param.day, function(name) {
-		refreshData();
+		console.log('==>recordWatch()');
+		readAgenda();
+		console.log('<==recordWatch()');
 	});
-
-	refreshData();
 
 	/***************************************************************
 	 * The main function that runs the countdown timer and alarm
 	 ***************************************************************/
 	$interval(function(){
 
-		if (c.data.state.timer.running) {
+		if (c.data.result.timer.state.isRunning) {
+
+			var nowStr = formattedDateTime(); // Get client time with TZ
+			var nowDate = new Date(nowStr);
+			var returnAt = new Date(c.data.result.timer.returnAtLong);  // Date object
+			var diff = Math.floor((returnAt.getTime() - nowDate.getTime()) / 1000);
+			if (diff < 0) {
+				diff = 0;
+			}
+			c.data.result.timer.sum = diff;
+
+			// calculateReturnTime(); // Updates in case it was paused
 
 			if (c.data.result.timer.sum > 0) {
 				c.data.result.timer.sum--;		
@@ -28,7 +41,7 @@
 			// When the countdown reaches zero, stop the timer
 			if (c.data.result.timer.sum == 0 ) {
 				console.log('Timer expired');
-				c.data.state.timer.running = false;
+				c.data.result.timer.state.isRunning = false;
 			}
 		} else {
 			// Sound the alarm
@@ -55,10 +68,13 @@
 
 	/***************************************************************
    * Current date/time string
+	 *
+	 * @param JS date object; default now
+	 * @return formatted date time using user's timezone
 	 ***************************************************************/
-	function formattedDateTime() {
+	function formattedDateTime(dateObjParam) {
 
-		var now = new Date();
+		var dateObj = dateObjParam || new Date();
 
 		// Options for formatting the date and time
 		var options = {
@@ -76,7 +92,7 @@
 		var formatter = new Intl.DateTimeFormat('en-US', options);
 
 		// Format the date and time
-		var parts = formatter.formatToParts(now);
+		var parts = formatter.formatToParts(dateObj);
 
 		// Extract and combine the parts to form the yyyy-MM-dd HH:mm:ss string
 		const year = parts.find(p => p.type === 'year').value;
@@ -134,13 +150,21 @@
 	 ***************************************************************/
 	$scope.alarmStop = function() {
 
-		c.data.state.timer.running = false;
+		c.data.result.timer.state.isRunning = false;
 		c.data.state.alarm.sound = false;
 		c.data.state.alarm.stop = true;
 
 		c.data.log.end = formattedDateTime();
 		c.data.log.duration = calculateNowItemSum();
-		sendLog();
+		writeAgenda();
+		sendLog({
+			"id"         : c.data.log.id,
+			"end"        : c.data.log.end,
+			"duration"   : c.data.log.duration,
+			"extended"   : c.data.log.extended,
+			"details"    : nowItemDetails()
+
+		});
 	}
 
 	/***************************************************************
@@ -150,15 +174,23 @@
 	 ***************************************************************/
 	$scope.startTimer = function() {
 
-		if (!c.data.state.timer.started) {
+		if (!c.data.result.timer.state.isStarted) {
 			c.data.log.start = formattedDateTime();
 		}
 
-		c.data.state.timer.running = true;
-		c.data.state.timer.started = true;
+		c.data.result.timer.state.isRunning = true;
+		c.data.result.timer.state.isStarted = true;
 		c.data.state.alarm.stop = false;
 		calculateReturnTime(); // Updates in case it was paused
-
+		writeAgenda(); // Send the new data back to the server
+		sendLog({
+			"id"         : c.data.log.id,
+			"course"     : c.data.log.course,
+			"version"    : c.data.log.version,
+			"instructor" : c.data.log.instructor,
+			"start"      : c.data.log.start,
+			"extended"   : c.data.log.extended
+		});
 	}
 
 
@@ -167,23 +199,26 @@
 	 ***************************************************************/
 	$scope.pauseTimer = function() {
 
-		c.data.state.timer.running = false;
+		console.log('==>PAUSE');
+		c.data.result.timer.state.isRunning = false;
+		writeAgenda();
+		console.log('<==PAUSE');
 
 	}
 
 	/***************************************************************
    * Log data to the server
 	 ***************************************************************/
-	function sendLog() {
+	function sendLog(logObj) {
 
-		c.data.log.details = nowItemDetails();
+		console.log('==>sendLog('+ JSON.stringify(logObj, null, 4) + ')');
+		// c.data.log.details = nowItemDetails();
 		var url = '/api/x_snc_agenda/agenda/log';
-		var body = c.data.log;
 
 		$http({
 			"method" : "POST",
 			"url" : url,
-			"data" : body,
+			"data" : logObj,
 			"headers" : {"Content-type" : "application/json"}
 		}).then(function success(response) {
 			var status = response.data.result.status;
@@ -192,6 +227,8 @@
 			if (status != "ok") {
 				spUtil.addErrorMessage(msg);
 
+			} else {
+				console.log('<==sendLog()');
 			}
 		}, function failure(response) {
 			var msg = response.data.result.message;
@@ -205,6 +242,7 @@
 	 ***************************************************************/
 	$scope.addTime = function(duration) {
 
+		console.log('==>addTime(): duration=' + duration);
 		var url = '/api/x_snc_agenda/agenda/add_time';
 		var body = {
 			"addSec" : duration,
@@ -212,7 +250,6 @@
 			"course" : c.data.result.course.sys_id
 		};
 
-		c.data.state.timer.add = duration;
 		c.data.state.timer.oldSum = c.data.result.timer.sum;
 		c.data.log.extended = true;
 
@@ -225,16 +262,15 @@
 			var status = response.data.result.status;
 			var msg = response.data.result.message;
 			// No need to update any part of c.data.result
-			// Adding this record automatically triggers refreshData
+			// Adding this record automatically triggers readAgenda()
 			// and all new time values are updated
 			if (status != "ok") {
 				spUtil.addErrorMessage(msg);
-				// c.data.result = JSON.parse(JSON.stringify(response.data.result));
-
 			} else {
-				// c.data.result.timer = JSON.parse(JSON.stringify(response.data.result));
 				calculateReturnTime();
-				sendLog();
+				// writeAgenda();
+				// sendLog();
+				console.log('<==addTime()');
 			}
 		}, function failure(response) {
 			var msg = response.data.result.message;
@@ -269,8 +305,11 @@
 	 ***************************************************************/
 	function calculateReturnTime() {
 
+		console.log('==>calculateReturnTime: returnAtLong=' + c.data.result.timer.returnAtLong);
+
 		var now = new Date();
 		now.setSeconds(now.getSeconds() + c.data.result.timer.sum);
+
 		const simpleTimeString = now.toLocaleTimeString(undefined, { 
 			timeZone: c.data.result.timer.timezone,
 			hour: 'numeric', 
@@ -278,6 +317,9 @@
 		});
 		// console.log(simpleTimeString);
 		c.data.result.timer.returnAt = simpleTimeString;
+		c.data.result.timer.returnAtLong = formattedDateTime(now);
+
+		console.log('<==calculateReturnTime: returnAtLong=' + c.data.result.timer.returnAtLong);
 
 	}
 
@@ -289,24 +331,58 @@
 	 * it is the combination of the current value plus anything added
 	 * to keep the running timer running w/o starting over.
 	 ***************************************************************/
-	function calculateTime() {
+	function updateTimeSum() {
 
-		// Update the timer sum with the current
-		// amount of seconds left + the added increment
-		if (c.data.state.timer.started && c.data.state.timer.add > 0) {
-			c.data.result.timer.sum = c.data.state.timer.oldSum + c.data.state.timer.add;
-			c.data.state.timer.oldSum = 0;
-			c.data.state.timer.add = 0;
+		// If the timer isn't started, don't need to look at itemsUsed, right?
+
+		console.log('==>updateTimeSum(): timer.sum='+ c.data.result.timer.sum);
+		console.log('   updateTimeSum(): timer.state.isRunning=' + c.data.result.timer.state.isRunning);
+		console.log('   updateTimeSum(): timer.state.isStarted=' + c.data.result.timer.state.isStarted);
+		console.log('   updateTimeSum(): timer.state.isCurrent=' + c.data.result.timer.state.isCurrent);
+		console.log('   updateTimeSum(): state.timer.oldSum=' + c.data.state.timer.oldSum);
+		var sec = c.data.result.timer.state.isStarted ? c.data.result.timer.sum : 0;
+		sec += c.data.state.timer.oldSum;
+		c.data.state.timer.oldSum = 0;
+		var writeAgendaFlag = false;
+
+		console.log('   updateTimeSum(): sec=' + sec);
+
+		if (c.data.result.timer.state.isStarted) {
+			for (var i = 0; i < c.data.result.now.length; i++) {
+				var itemA = c.data.result.now[i];
+				// Only sum up the items not previously used
+				if (!c.data.result.timer.state.itemsUsed.includes(itemA.sys_id)) {
+					sec += itemA.duration;
+					c.data.result.timer.state.itemsUsed.push(itemA.sys_id);
+					console.log('   updateTimeSum(): adding ' + itemA.duration + ' - ' + itemA.sys_id);
+					writeAgendaFlag = true;
+				}
+			}
 
 		} else {
-			// Otherwise, sum up all the now items with
-			// an initial time amount
-			var sec = 0;
+			// Timer not started, so count everything - if the agenda is not current
+			if (!c.data.result.timer.state.isCurrent) {
+				sec = 0;
+				c.data.result.timer.state.itemsUsed = [];
+				for (var j = 0; j < c.data.result.now.length; j++) {
+					var itemB = c.data.result.now[j];
+					// Only sum up all the items
+					sec += itemB.duration;
+					c.data.result.timer.state.itemsUsed.push(itemB.sys_id);
+					console.log('   updateTimeSum(!isCurrent): adding ' + itemB.duration + ' - ' + itemB.sys_id);
+					writeAgendaFlag = true;
+				}
 
-			for (var i = 0; i < c.data.result.now.length; i++) {
-				sec += c.data.result.now[i].duration;
+			} else {
+				sec = c.data.result.timer.sum;
 			}
-			c.data.result.timer.sum = sec;			
+
+		}
+		c.data.result.timer.sum = sec;			
+
+		console.log('<==updateTimeSum(): timer.sum='+ c.data.result.timer.sum);
+		if (writeAgendaFlag) {
+			writeAgenda();
 		}
 	}
 
@@ -317,12 +393,12 @@
 	 * any time the day record content is updated to remove the
 	 * need for the user to refresh the widget
 	 ***************************************************************/
-	function refreshData() {
+	function readAgenda() {
 
 		var url = '/api/x_snc_agenda/agenda?day=' +
 				c.data.param.day;
 
-		// console.log('refreshData()');
+		console.log('==>readAgenda()');
 
 		$http({
 			"method" : "GET",
@@ -331,29 +407,48 @@
 		}).then(function success(response) {
 			var status = response.data.result.status;
 			var msg = response.data.result.message;
+
 			if (status != "ok") {
 				spUtil.addErrorMessage(msg);
 				c.data.result = JSON.parse(JSON.stringify(response.data.result));
 				c.data.state.isLoading = false;
 
 			} else {
+
 				c.data.result = JSON.parse(JSON.stringify(response.data.result));
 				c.data.state.isLoading = false;
-				calculateTime();
-				calculateReturnTime();
+				// Flesh out the timer object if it didn't come from the server
+				if (!c.data.result.timer.hasOwnProperty('returnAtLong')) {
+
+					calculateReturnTime();
+
+					c.data.result.timer.state = {
+						"isRunning" : false,
+						"isStarted" : false,
+						"isCurrent" : false,
+						"itemsUsed" : []
+					};
+
+				}
+				if (!c.data.result.timer.state.isRunning) {
+					updateTimeSum();
+					calculateReturnTime();			
+				}
+
 				// Initialize values in the log object
 				c.data.log.course = c.data.result.course.name;
 				c.data.log.version = c.data.result.course.sn_version;
 				c.data.log.instructor = c.data.result.course.instructor;
 				c.data.log.id              = c.data.result.id;
 				if (c.data.result.newlog) {
+					console.log('   readAgenda(): new log: Clearing log details...');
 					c.data.log.start           = "";
 					c.data.log.end             = "";
 					c.data.log.details         = "";
 					c.data.log.extended        = false;
-					c.data.state.timer.started = false;
 				}
-				if (!c.data.state.timer.started) {
+				if (!c.data.result.timer.state.isStarted) {
+					console.log('   readAgenda(): timer not started: Clearing log details...');
 					c.data.log.start = "";				
 				}
 			}
@@ -362,6 +457,39 @@
 			spUtil.addErrorMessage(msg);
 		});
 	}
+
+	/***************************************************************
+   * Call the REST API to update the server agenda data
+	 *
+	 * This is done for persistence in the event the browser is
+	 * refreshed, crashes, etc.
+	 ***************************************************************/
+	function writeAgenda() {
+
+		var url = '/api/x_snc_agenda/agenda/update';
+		// console.log('writeAgenda()');
+		c.data.result.timer.state.isCurrent = true;
+
+		$http({
+			"method" : "POST",
+			"url" : url,
+			"data" : c.data.result,
+			"headers" : {"Content-type" : "application/json"}
+		}).then(function success(response) {
+			var status = response.data.result.status;
+			var msg = response.data.result.message;
+			if (status != "ok") {
+				spUtil.addErrorMessage(msg);
+
+			} else {
+				console.log('writeAgenda(): server data updated');
+			}
+		}, function failure(response) {
+			var msg = response.data.result.message;
+			spUtil.addErrorMessage(msg);
+		});
+	}
+
 
 };]]></client_script>
         <controller_as>c</controller_as>
@@ -654,41 +782,45 @@ section {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-  /* populate the 'data' object */
-  /* e.g., data.table = $sp.getValue('table'); */
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
 
 	// URL parameters
 	data.param = {
 		"day" : $sp.getParameter('day'),
 		"debug" : $sp.getParameter('debug') == "true"
 	};
-	
+
 	// Internal state controls
 	data.state = {
 		"isLoading" : true,
-		"timer" : {
-			"running" : false,
-			"started" : false,
-			"add": 0,
-			"oldSum" : 0
-		},
 		"alarm" : {
 			"sound" : false,
 			"stop" : false
+		},
+		"timer" : {
+			"oldSum" : 0
 		}
 	};
-	
+
 	// Render the agenda (API data added here)
+	
 	data.result = {
 		"timer" : {
-			"sum" : 0,
-			"hours": "00",
-			"minutes" : "00",
-			"seconds" : "00",
-			"returnAt" : ""
+			"sum"          : 0,
+			"hours"        : "00",
+			"minutes"      : "00",
+			"seconds"      : "00",
+			"returnAt"     : "",
+			"state" : {
+				"isRunning" : false, // Is the timer currently running
+				"isStarted" : false, // Has the timer been started?
+				"isCurrent" : false, // Is the timer object up to date?
+				"itemsUsed" : []
+			}
 		}
-	};
-	
+	};	
+
 	// Track the lab timing
 	data.log = {
 		"id" : "",
@@ -701,21 +833,21 @@ section {
 		"extended" : false,
 		"details" : ""
 	};
-	
+
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 13:37:18</sys_created_on>
         <sys_id>22fe3ce11b96e6506f74cb75604bcb9b</sys_id>
-        <sys_mod_count>216</sys_mod_count>
+        <sys_mod_count>337</sys_mod_count>
         <sys_name>agenda</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sp_widget_22fe3ce11b96e6506f74cb75604bcb9b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-08-15 14:12:32</sys_updated_on>
+        <sys_updated_on>2025-09-05 18:04:27</sys_updated_on>
         <template><![CDATA[<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="widgetWrapper">
@@ -748,10 +880,10 @@ section {
     </div>
 
   </div>
-
-  <div ng-if="c.data.param.debug">
-    <pre>{{c.data | json}}</pre>
-  </div>
-</div>]]></template>
+</div>
+<div ng-if="c.data.param.debug">
+  <pre>{{c.data | json}}</pre>
+</div>
+]]></template>
     </sp_widget>
 </record_update>

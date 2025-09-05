@@ -9,12 +9,12 @@
         <comments/>
         <condition/>
         <form_action>true</form_action>
-        <form_button>false</form_button>
+        <form_button>true</form_button>
         <form_button_v2>false</form_button_v2>
-        <form_context_menu>true</form_context_menu>
+        <form_context_menu>false</form_context_menu>
         <form_link>false</form_link>
         <form_menu_button_v2>false</form_menu_button_v2>
-        <form_style>primary</form_style>
+        <form_style>destructive</form_style>
         <format_for_configurable_workspace>false</format_for_configurable_workspace>
         <hint/>
         <isolate_script>false</isolate_script>
@@ -27,10 +27,12 @@
         <list_save_with_form_button>false</list_save_with_form_button>
         <list_style/>
         <messages/>
-        <name>Regenerate agenda</name>
+        <name>Reset timer</name>
         <onclick/>
-        <order>100</order>
-        <script><![CDATA[new AgendaUtil(current).autoUpdateTextFields(false);
+        <order>300</order>
+        <script><![CDATA[const updateAgendaID = false;
+const clearTimer = true;
+new AgendaUtil(current).autoUpdateTextFields(updateAgendaID, clearTimer);
 current.update();
 action.setRedirectURL(current);]]></script>
         <show_insert>false</show_insert>
@@ -43,15 +45,15 @@ action.setRedirectURL(current);]]></script>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>be4978691b56e6506f74cb75604bcb71</sys_id>
-        <sys_mod_count>12</sys_mod_count>
-        <sys_name>Regenerate agenda</sys_name>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Reset timer</sys_name>
         <sys_overrides/>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_ui_action_be4978691b56e6506f74cb75604bcb71</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-21 03:21:02</sys_updated_on>
+        <sys_updated_on>2025-09-05 14:09:17</sys_updated_on>
         <table>x_snc_agenda_day</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

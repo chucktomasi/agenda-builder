@@ -6,32 +6,39 @@
         <default_operation_uri/>
         <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
         <http_method>POST</http_method>
-        <name>Upsert Log</name>
+        <name>Update</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 
-    var logObj = request.body.data;
+	var answer = {
+		"status" : "error",
+		"message" : "unknown"
+	};
+    // Update the Agenda field on the day record
+	var agendaObj = request.body.data;
+	var dayID = agendaObj.day.sys_id;
+	var dayGr = new GlideRecord(Constants.DAY_TABLE);
+	if (dayGr.get(dayID)) {
+		var au = new AgendaUtil(dayGr);
+		dayGr.setValue('agenda', JSON.stringify(agendaObj, null, 4));
+		dayGr.setValue('chat_text', au.makeChatText());
+		dayGr.update();
 
-	try {
-		var log = new Log();
-		log.upsertLog(logObj);
-		response.setBody({
+		answer = {
 			"status" : "ok",
 			"message" : "success"
-		});
-		response.setStatus(200);
-	} catch (e) {
-		response.setStatus(500);
-		response.setBody({
-			"status" : "error",
-			"message": "Log update error: " + e
-		});
+		};
+	} else {
+		answer.message = "Cannot read Day: " + dayID;
 	}
 
+	response.setStatus(answer.status == "ok" ? 200 : 400);
+	response.setBody(answer);
+
 })(request, response);]]></operation_script>
-        <operation_uri>/api/x_snc_agenda/agenda/log</operation_uri>
+        <operation_uri>/api/x_snc_agenda/agenda/update</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
-        <relative_path>/log</relative_path>
+        <relative_path>/update</relative_path>
         <request_example/>
         <requires_acl_authorization>true</requires_acl_authorization>
         <requires_authentication>true</requires_authentication>
@@ -39,27 +46,27 @@
         <short_description/>
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-        <sys_created_on>2025-07-21 00:13:21</sys_created_on>
-        <sys_id>49dc17621bb22a506f74cb75604bcb4d</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Upsert Log</sys_name>
+        <sys_created_on>2025-08-20 18:38:52</sys_created_on>
+        <sys_id>c316392c1bef22506f74cb75604bcb5b</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Update</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy/>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
-        <sys_update_name>sys_ws_operation_49dc17621bb22a506f74cb75604bcb4d</sys_update_name>
+        <sys_update_name>sys_ws_operation_c316392c1bef22506f74cb75604bcb5b</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-08-20 19:41:45</sys_updated_on>
+        <sys_updated_on>2025-09-05 17:12:26</sys_updated_on>
         <web_service_definition display_value="Agenda">c83f70251b96e6506f74cb75604bcb16</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
-        <id>49dc17621bb22a506f74cb75604bcb4d</id>
+        <id>c316392c1bef22506f74cb75604bcb5b</id>
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
-        <sys_created_on>2025-07-21 00:13:20</sys_created_on>
-        <sys_id>201dd3621bb22a506f74cb75604bcbd4</sys_id>
+        <sys_created_on>2025-08-20 18:38:51</sys_created_on>
+        <sys_id>4fc9fd601b2362506f74cb75604bcbfc</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-21 00:13:20</sys_updated_on>
+        <sys_updated_on>2025-08-20 18:38:51</sys_updated_on>
         <table>sys_ws_operation</table>
         <use_es_latest>true</use_es_latest>
     </sys_es_latest_script>

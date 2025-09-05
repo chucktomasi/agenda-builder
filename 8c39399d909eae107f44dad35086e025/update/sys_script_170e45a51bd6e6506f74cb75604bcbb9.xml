@@ -28,8 +28,9 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-
-	new AgendaUtil(current).autoUpdateTextFields(false); // Don't need to update the ID property
+	const updateID = false;
+	const clearTimer = false;
+	new AgendaUtil(current).autoUpdateTextFields(updateID, clearTimer); // Don't need to update the ID property or clear timer
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -38,7 +39,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>170e45a51bd6e6506f74cb75604bcbb9</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Update agenda field</sys_name>
         <sys_overrides/>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
@@ -46,7 +47,7 @@
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_170e45a51bd6e6506f74cb75604bcbb9</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-20 23:51:58</sys_updated_on>
+        <sys_updated_on>2025-09-04 22:13:52</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

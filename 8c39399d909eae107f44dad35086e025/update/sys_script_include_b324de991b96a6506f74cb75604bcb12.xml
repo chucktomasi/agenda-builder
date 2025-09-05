@@ -32,13 +32,14 @@ AgendaUtil.prototype = {
 
         while (dmGr.next()) {
             var moduleGr = dmGr.module.getRefRecord();
+            var highlight = global.JSUtil.getBooleanValue(dmGr, 'highlight');
             list.push({
-				"sys_id" : moduleGr.getUniqueValue(),
+                "sys_id": moduleGr.getUniqueValue(),
                 "title": dmGr.module.title.toString(),
                 "short_description": dmGr.module.short_description.toString(),
                 "display_value": moduleGr.getDisplayValue(),
-				"student_notes" : moduleGr.getValue('student_notes'),
-                "class": dmGr.getValue('highlight') == "1" ? "moduleActive" : "moduleInactive"
+                "student_notes": moduleGr.getValue('student_notes'),
+                "class": highlight ? "moduleActive" : "moduleInactive"
             });
         }
 
@@ -57,7 +58,7 @@ AgendaUtil.prototype = {
 
         var obj = {
             "name": this.dayGr.getDisplayValue(),
-			"sys_id" : this.dayGr.getUniqueValue(),
+            "sys_id": this.dayGr.getUniqueValue(),
             "modules": this.makeModuleList()
         };
 
@@ -84,12 +85,12 @@ AgendaUtil.prototype = {
             var nowItemGr = dniGr.now_item.getRefRecord();
             var durationSec = dniGr.now_item.duration.dateNumericValue() / 1000;
             list.push({
-				"sys_id" : nowItemGr.getUniqueValue(),
+                "sys_id": dniGr.getUniqueValue(),
                 "duration": durationSec,
                 "durationStr": durationSec / 60 + "m",
                 "title": dniGr.now_item.title.toString(),
                 "short_description": dniGr.now_item.short_description.toString(),
-				"student_notes" : nowItemGr.getValue('student_notes'),
+                "student_notes": nowItemGr.getValue('student_notes'),
                 "order": parseInt(dniGr.getValue("order"), 10),
                 "display_value": nowItemGr.getDisplayValue()
             });
@@ -109,9 +110,9 @@ AgendaUtil.prototype = {
     makeDisplayOptions: function() {
 
         var obj = {
-            "day": this.dayGr.getValue('display_day_items') == "1",
-            "now": this.dayGr.getValue('display_now_items') == "1",
-            "timer": this.dayGr.getValue('display_timer') == "1"
+            "day": global.JSUtil.getBooleanValue(this.dayGr, 'display_day_items'),
+            "now": global.JSUtil.getBooleanValue(this.dayGr, 'display_now_items'),
+            "timer": global.JSUtil.getBooleanValue(this.dayGr, 'display_timer')
         };
 
         return obj;
@@ -121,24 +122,26 @@ AgendaUtil.prototype = {
     /*
      * Create an object that describes the day's agenda to be used by the Service Portal widget
      * 
-     * @param none
+     * @param boolean - true=create new log, false=use existing logs (if one exists)
+     * @param boolean - true=clear the timer, false=use existing timer
+	 * @param boolean - true=timer is current, don't recount items
      * @return object - custom object describing the day's properties and related objects
      * 
      */
-    makeAgendaObj: function(updateID) {
+    makeAgendaObj: function(updateID, clearTimer, timerIsCurrent) {
 
-		var oldAgenda = JSON.parse(this.dayGr.getValue('agenda'));
+        var oldAgenda = JSON.parse(this.dayGr.getValue('agenda'));
         var session = gs.getSession();
         var zoneName = session.getTimeZoneName();
         var courseGr = this.dayGr.course.getRefRecord();
-		gs.info(`>>>DEBUG: old ID: ${oldAgenda.id} updateID=${updateID}`);
-		
+        // gs.info(`>>>DEBUG: old ID: ${oldAgenda.id} updateID=${updateID}`);
+
         var obj = {
-			"id" : (updateID || !oldAgenda.id) ? gs.generateGUID() : oldAgenda.id,
-			"newlog" : updateID,
+            "id": (updateID || !oldAgenda.id) ? gs.generateGUID() : oldAgenda.id,
+            "newlog": updateID,
             "course": {
                 "name": courseGr.getDisplayValue(),
-				"sys_id" : courseGr.getUniqueValue(),
+                "sys_id": courseGr.getUniqueValue(),
                 "instructor": courseGr.instructor.getDisplayValue(),
                 "sn_version": courseGr.servicenow_version.getDisplayValue()
 
@@ -148,7 +151,16 @@ AgendaUtil.prototype = {
             "display": this.makeDisplayOptions()
         };
 
-        obj.timer = this.itemDurationSum(obj.now);
+        obj.timer = {};
+        if (oldAgenda.hasOwnProperty('timer') && !clearTimer) {
+            obj.timer = oldAgenda.timer;
+        }
+        var timerObj = this.makeTimerObj(obj.now);
+        obj.timer.sum = 0;
+        obj.timer.timezone = timerObj.timezone;
+		if (obj.timer.state?.isCurrent != undefined) {
+			obj.timer.state.isCurrent = timerIsCurrent; // tell the client whether to recount the time sum
+		}
 
         return obj;
 
@@ -156,20 +168,33 @@ AgendaUtil.prototype = {
 
     /*
      * Calculate the sum of a given list of durations (since GlideAggregate can't do it)
-	 * and other timer properties the widget needs
+     * and other timer properties the widget needs
      * 
      * @param array - List of objects containing a 'duration' field (in seconds)
      * @return object - total sum of durations (in seconds) plus hours, minutes, seconds representation
      * 
      */
-    itemDurationSum: function(itemList) {
+    makeTimerObj: function(itemList) {
 
+        // Add up the sum of seconds
         var sec = 0;
         for (var i = 0; i < itemList.length; i++) {
             sec += itemList[i].duration;
         }
+
+        // Get the time zone name
         var session = gs.getSession();
         var zoneName = session.getTimeZoneName();
+
+        // Calculate the return time (string)
+        /*
+        var gdt = new GlideDateTime();
+        gdt.addSeconds(sec);
+        var glt = gdt.getLocalTime();
+        var gld = gdt.getLocalDate();
+        var returnAt = gld.getByFormat('YYYY-MM-dd') + 'T' +
+           glt.getByFormat("HH:mm:ss");
+		*/
         var obj = {
             "sum": sec,
             "timezone": zoneName
@@ -179,79 +204,74 @@ AgendaUtil.prototype = {
 
     },
 
-	/*
-	 * TODO: Log the lab timer info 
-	 *  - Create a local record with the course, day, start/end time and details of day/modules used
-	 *  - This gets sent to CloudLabs for later reporting
-	 */
+    /*
+     * Add 5 minutes to the current now items
+     *
+     * @param string - course ID
+     * @param integer - number of seconds to add
+     * @return string - sys_id of the new m2m record
+     * 
+     */
 
-	/*
-	 * Add 5 minutes to the current now items
-	 *
-	 * @param string - course ID
-	 * @param integer - number of seconds to add
-	 * @return string - sys_id of the new m2m record
-	 * 
-	 */
+    addExtensionToNowItems: function(courseID, secondsValue) {
 
-	addExtensionToNowItems : function(courseID, secondsValue) {
+        var m2mGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
+        m2mGr.newRecord();
+        m2mGr.setValue('day', this.dayGr.getUniqueValue());
 
-		var m2mGr = new GlideRecord(Constants.DAY_NOW_ITEM_M2M);
-		m2mGr.newRecord();
-		m2mGr.setValue('day', this.dayGr.getUniqueValue());
+        var extensionItemID = this.getTimeExtensionItemSysId(courseID, secondsValue);
+        m2mGr.setValue('now_item', extensionItemID);
+        m2mGr.setValue('order', 10000);
+        var id = m2mGr.insert();
 
-		var extensionItemID = this.getTimeExtensionItemSysId(courseID, secondsValue);
-		m2mGr.setValue('now_item', extensionItemID);
-		m2mGr.setValue('order', 10000);
-		var id = m2mGr.insert();
+        return id;
+    },
 
-		return id;
-	},
+    /*
+     * Get sys_id of 5 minute extension module record for this course
+     *  (if it doesn't exist, create it)
+     * 
+     * @param string - sys_id of the course record
+     * @return string - sys_id of the "extension" record
+     * 
+     */
+    getTimeExtensionItemSysId: function(courseID, secondsVal) {
 
-	/*
-	 * Get sys_id of 5 minute extension module record for this course
-	 *  (if it doesn't exist, create it)
-	 * 
-	 * @param string - sys_id of the course record
-	 * @return string - sys_id of the "extension" record
-	 * 
-	 */
-	getTimeExtensionItemSysId: function(courseID, secondsVal) {
+        var gd = new GlideDuration(secondsVal * 1000);
+        var durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
 
-		var gd = new GlideDuration(secondsVal * 1000);
-		var durationStr = gd.getByFormat("yyyy-MM-dd HH:mm:ss");
+        var itemGr = new GlideRecord(Constants.NOW_ITEM_TABLE);
+        itemGr.addQuery('course', courseID);
+        itemGr.addQuery('title', 'Extension');
+        itemGr.addQuery('duration', durationStr);
+        itemGr.query();
 
-		var itemGr = new GlideRecord(Constants.NOW_ITEM_TABLE);
-		itemGr.addQuery('course', courseID);
-		itemGr.addQuery('title', 'Extension');
-		itemGr.addQuery('duration', durationStr);
-		itemGr.query();
+        if (itemGr.next()) {
+            return itemGr.getUniqueValue();
+        }
 
-		if (itemGr.next()) {
-			return itemGr.getUniqueValue();
-		}
+        var newItemGr = new GlideRecord(Constants.NOW_ITEM_TABLE);
+        newItemGr.newRecord();
+        newItemGr.setValue('course', courseID);
+        newItemGr.setValue('title', 'Extension');
+        newItemGr.setValue('duration', durationStr);
+        newItemGr.setValue('id_update', false);
+        var id = newItemGr.insert();
 
-		var newItemGr = new GlideRecord(Constants.NOW_ITEM_TABLE);
-		newItemGr.newRecord();
-		newItemGr.setValue('course', courseID);
-		newItemGr.setValue('title', 'Extension');
-		newItemGr.setValue('duration', durationStr);
-		newItemGr.setValue('id_update', false);
-		var id = newItemGr.insert();
-
-		return id;
-	},
+        return id;
+    },
 
     /*
      * Set the values for the field(s) that get automatically updated on data changes
      * 
-     * @param none
+     * @param boolean - true=create new log, false=use existing logs (if one exists)
+     * @param boolean - true=clear the timer, false=use existing timer
      * @returns none
      *
      */
-    autoUpdateTextFields: function(updateID) {
+    autoUpdateTextFields: function(updateID, clearTimer, timerIsCurrent) {
 
-        var agendaStr = JSON.stringify(this.makeAgendaObj(updateID), null, 4);
+        var agendaStr = JSON.stringify(this.makeAgendaObj(updateID, clearTimer, timerIsCurrent), null, 4);
         this.dayGr.setValue('agenda', agendaStr);
         this.dayGr.setValue('chat_text', this.makeChatText());
 
@@ -294,14 +314,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>106</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
         <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-07-21 03:25:55</sys_updated_on>
+        <sys_updated_on>2025-09-05 17:52:47</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>
