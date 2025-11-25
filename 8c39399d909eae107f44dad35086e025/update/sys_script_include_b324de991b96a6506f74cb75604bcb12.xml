@@ -131,13 +131,13 @@ AgendaUtil.prototype = {
     makeAgendaObj: function(updateID, clearTimer, timerIsCurrent) {
 
         var oldAgenda = JSON.parse(this.dayGr.getValue('agenda'));
+		var isNewAgenda = !oldAgenda;
         var session = gs.getSession();
         var zoneName = session.getTimeZoneName();
         var courseGr = this.dayGr.course.getRefRecord();
-        // gs.info(`>>>DEBUG: old ID: ${oldAgenda.id} updateID=${updateID}`);
 
         var obj = {
-            "id": (updateID || !oldAgenda.id) ? gs.generateGUID() : oldAgenda.id,
+            "id": (updateID || isNewAgenda || !oldAgenda?.id) ? gs.generateGUID() : oldAgenda.id,
             "newlog": updateID,
             "course": {
                 "name": courseGr.getDisplayValue(),
@@ -151,8 +151,9 @@ AgendaUtil.prototype = {
             "display": this.makeDisplayOptions()
         };
 
+		gs.info(`>>>DEBUG: ${JSON.stringify(obj, null, 4)}`);
         obj.timer = {};
-        if (oldAgenda.hasOwnProperty('timer') && !clearTimer) {
+        if (oldAgenda && oldAgenda.hasOwnProperty('timer') && !clearTimer) {
             obj.timer = oldAgenda.timer;
         }
         var timerObj = this.makeTimerObj(obj.now);
@@ -314,14 +315,14 @@ AgendaUtil.prototype = {
         <sys_created_by>chuck.tomasi@gmail.com</sys_created_by>
         <sys_created_on>2025-06-22 01:14:26</sys_created_on>
         <sys_id>b324de991b96a6506f74cb75604bcb12</sys_id>
-        <sys_mod_count>106</sys_mod_count>
+        <sys_mod_count>113</sys_mod_count>
         <sys_name>AgendaUtil</sys_name>
         <sys_package display_value="Agenda Builder" source="x_snc_agenda">8c39399d909eae107f44dad35086e025</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Agenda Builder">8c39399d909eae107f44dad35086e025</sys_scope>
         <sys_update_name>sys_script_include_b324de991b96a6506f74cb75604bcb12</sys_update_name>
-        <sys_updated_by>chuck.tomasi@gmail.com</sys_updated_by>
-        <sys_updated_on>2025-09-05 17:52:47</sys_updated_on>
+        <sys_updated_by>chuck.tomasi</sys_updated_by>
+        <sys_updated_on>2025-11-25 18:07:10</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b324de991b96a6506f74cb75604bcb12</id>
